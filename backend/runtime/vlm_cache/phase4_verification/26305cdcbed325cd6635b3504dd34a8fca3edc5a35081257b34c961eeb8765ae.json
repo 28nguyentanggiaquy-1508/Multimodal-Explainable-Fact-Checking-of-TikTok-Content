@@ -1,0 +1,60 @@
+{
+  "created_at": 1791790624.3668883,
+  "task": "phase4_verification",
+  "key": "26305cdcbed325cd6635b3504dd34a8fca3edc5a35081257b34c961eeb8765ae",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "NEI",
+    "confidence": 0.65,
+    "evidence_ids": [
+      "text_01_000",
+      "text_03_000",
+      "text_09_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_01_000",
+        "stance": "context",
+        "confidence": 0.7,
+        "rationale": "Confirms the promotion to General rank for Trịnh Văn Quyết and Nguyễn Trọng Nghĩa, and identifies Phan Văn Giang and Nguyễn Tân Cương as active Army Generals, but does not provide an exhaustive count of all active Generals."
+      },
+      {
+        "evidence_id": "text_03_000",
+        "stance": "context",
+        "confidence": 0.6,
+        "rationale": "Mentions official duties of General Phan Văn Giang and General Nguyễn Tân Cương in 2025."
+      },
+      {
+        "evidence_id": "text_09_000",
+        "stance": "context",
+        "confidence": 0.6,
+        "rationale": "Confirms Trịnh Văn Quyết and Nguyễn Tân Cương holding General rank, and mentions Lương Cường serving as State President."
+      },
+      {
+        "evidence_id": "text_04_000",
+        "stance": "neutral",
+        "confidence": 0.5,
+        "rationale": "Snippet contains legal questions and general traffic redirection details without listing active Generals."
+      },
+      {
+        "evidence_id": "image_05",
+        "stance": "context",
+        "confidence": 0.4,
+        "rationale": "Shows General Phan Văn Giang speaking at a conference in 2021; does not verify the exact group of 5 currently active Generals."
+      }
+    ],
+    "evidence_coverage": "PARTIAL",
+    "rationale": "Retrieved external evidence documents that Lương Cường, Phan Văn Giang, Nguyễn Tân Cương, Trịnh Văn Quyết, and Nguyễn Trọng Nghĩa hold the rank of General and active leadership roles. However, the evidence does not provide an exhaustive roster confirming that exactly and only five Army Generals remained in active service at that specific time.",
+    "uncertainty": "Lack of comprehensive official statistics verifying the exact count of all living retired vs. currently active Generals.",
+    "limitations": [
+      "Full lists of active military personnel and retirement dates are not completely detailed in the provided snippets."
+    ],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

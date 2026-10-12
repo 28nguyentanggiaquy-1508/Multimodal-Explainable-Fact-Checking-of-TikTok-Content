@@ -1,12 +1,15 @@
 from __future__ import annotations
 
-from typing import Literal
+from typing import Literal, Optional
 
 from pydantic import BaseModel, ConfigDict, Field
 
+from fact_checking.schemas import StageStatus
+
 
 Verdict = Literal["SUPPORTED", "REFUTED", "NEI"]
-EvidenceStance = Literal["support", "refute", "neutral"]
+EvidenceStance = Literal["support", "refute", "neutral", "context"]
+EvidenceCoverage = Literal["COMPLETE", "PARTIAL", "INSUFFICIENT"]
 
 
 class EvidenceAssessment(BaseModel):
@@ -21,18 +24,22 @@ class EvidenceAssessment(BaseModel):
 class VerificationResult(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
-    verdict: Verdict = "NEI"
-    confidence: float = Field(default=0.0, ge=0.0, le=1.0)
+    # Operational status is intentionally separate from the semantic verdict.
+    # Provider/model failure must never be represented as NEI.
+    status: StageStatus = "SUCCESS"
+    verdict: Optional[Verdict] = None
+    confidence: Optional[float] = Field(default=None, ge=0.0, le=1.0)
 
-    # Evidence actually used for the final ruling.
     evidence_ids: list[str] = Field(default_factory=list)
     evidence_assessments: list[EvidenceAssessment] = Field(default_factory=list)
+    evidence_coverage: Optional[EvidenceCoverage] = None
 
-    # User-facing evidence-grounded justification, NOT hidden chain-of-thought.
     rationale: str = ""
     uncertainty: str = ""
     limitations: list[str] = Field(default_factory=list)
 
-    # Diagnostics for the report / UI.
     multimodal_used: bool = False
     model: str = ""
+    provider: Optional[str] = None
+    contract_violations: list[str] = Field(default_factory=list)
+

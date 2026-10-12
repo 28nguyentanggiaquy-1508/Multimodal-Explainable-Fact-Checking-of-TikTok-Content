@@ -2,14 +2,13 @@ from __future__ import annotations
 
 import asyncio
 
-from config import GEMINI_ANALYST_MODEL
+from config import GEMINI_ANALYST_MODEL, VERIFICATION_BATCH_ENABLED, VERIFICATION_BATCH_MAX_CLAIMS
 from fact_checking.evidence.evidence_schema import EvidenceItem
 from fact_checking.schemas import CandidateClaim, MultimediaAnalysis
 from fact_checking.verification.verification_schema import (
     EvidenceAssessment,
     VerificationResult,
 )
-from fact_checking.verification.vlm_verifier import verify_with_vlm_sync
 
 
 ALLOWED_VERDICTS = {"SUPPORTED", "REFUTED", "NEI"}
@@ -21,70 +20,76 @@ def _clamp_score(value, default: float = 0.0) -> float:
         score = float(value)
     except (TypeError, ValueError):
         score = default
-
     return max(0.0, min(1.0, score))
 
 
-def _nei_result(
-    *,
-    reason: str,
-    limitations: list[str] | None = None,
-) -> VerificationResult:
+def nei_no_evidence_result(reason: str) -> VerificationResult:
+    """Semantic NEI: retrieval ran, but usable evidence is insufficient."""
     return VerificationResult(
+        status="SUCCESS",
         verdict="NEI",
         confidence=0.0,
-        evidence_ids=[],
-        evidence_assessments=[],
         rationale=reason,
         uncertainty=reason,
-        limitations=limitations or [],
+        limitations=["No usable retrieved evidence was available after a completed retrieval stage."],
         multimodal_used=False,
-        model=GEMINI_ANALYST_MODEL,
+        model="",
     )
 
 
-def _normalize_result(
-    raw: dict,
-    evidence: list[EvidenceItem],
-) -> VerificationResult:
+def unavailable_verification_result(reason: str, limitations: list[str] | None = None) -> VerificationResult:
+    """Operational failure: no truthfulness label is emitted."""
+    return VerificationResult(
+        status="UNAVAILABLE",
+        verdict=None,
+        confidence=None,
+        rationale="Không thể hoàn tất bước xác minh do thành phần phụ thuộc không khả dụng.",
+        uncertainty=reason,
+        limitations=limitations or [reason],
+        multimodal_used=False,
+        model="",
+    )
+
+
+def failed_verification_result(reason: str) -> VerificationResult:
+    return VerificationResult(
+        status="FAILED",
+        verdict=None,
+        confidence=None,
+        rationale="Bước xác minh gặp lỗi xử lý nội bộ và không phát sinh verdict.",
+        uncertainty=reason,
+        limitations=[reason],
+        multimodal_used=False,
+        model="",
+    )
+
+
+def _normalize_result(raw: dict, evidence: list[EvidenceItem]) -> VerificationResult:
     valid_ids = {item.id for item in evidence}
-
     verdict = str(raw.get("verdict") or "NEI").upper().strip()
-
     if verdict not in ALLOWED_VERDICTS:
         verdict = "NEI"
 
     confidence = _clamp_score(raw.get("confidence"))
-
-    raw_ids = raw.get("evidence_ids")
     evidence_ids = []
 
-    if isinstance(raw_ids, list):
-        for value in raw_ids:
+    if isinstance(raw.get("evidence_ids"), list):
+        for value in raw["evidence_ids"]:
             evidence_id = str(value).strip()
-
             if evidence_id in valid_ids and evidence_id not in evidence_ids:
                 evidence_ids.append(evidence_id)
 
     assessments = []
-
-    raw_assessments = raw.get("evidence_assessments")
-
-    if isinstance(raw_assessments, list):
-        for row in raw_assessments:
+    if isinstance(raw.get("evidence_assessments"), list):
+        for row in raw["evidence_assessments"]:
             if not isinstance(row, dict):
                 continue
-
             evidence_id = str(row.get("evidence_id") or "").strip()
-
             if evidence_id not in valid_ids:
                 continue
-
             stance = str(row.get("stance") or "neutral").lower().strip()
-
             if stance not in ALLOWED_STANCES:
                 stance = "neutral"
-
             assessments.append(
                 EvidenceAssessment(
                     evidence_id=evidence_id,
@@ -94,67 +99,49 @@ def _normalize_result(
                 )
             )
 
-    # If the model forgot evidence_ids but produced valid assessments,
-    # recover provenance from non-neutral assessments.
     if not evidence_ids:
         for assessment in assessments:
-            if assessment.stance != "neutral":
+            if assessment.stance != "neutral" and assessment.evidence_id not in evidence_ids:
                 evidence_ids.append(assessment.evidence_id)
 
     rationale = str(raw.get("rationale") or "").strip()
     uncertainty = str(raw.get("uncertainty") or "").strip()
-
-    raw_limitations = raw.get("limitations")
     limitations = []
-
-    if isinstance(raw_limitations, list):
+    if isinstance(raw.get("limitations"), list):
         limitations = [
             str(item).strip()
-            for item in raw_limitations
+            for item in raw["limitations"]
             if str(item).strip()
         ][:10]
 
     attached_image_count = int(raw.get("_attached_image_count") or 0)
     multimodal_used = bool(raw.get("multimodal_used")) and attached_image_count > 0
 
-    # Fail-safe grounding rule:
-    # Supported / Refuted is not allowed without an actual evidence citation.
+    # Evidence-grounding guardrail: decisive labels require attributable evidence.
     if verdict in {"SUPPORTED", "REFUTED"} and not evidence_ids:
         verdict = "NEI"
         confidence = min(confidence, 0.35)
-        limitations.append(
-            "Model did not cite a valid retrieved evidence item for a decisive verdict."
-        )
-        uncertainty = (
-            uncertainty
-            or "Không có bằng chứng truy xuất hợp lệ được dẫn cho kết luận quyết định."
-        )
+        limitations.append("Decisive verdict had no valid cited evidence ID and was downgraded to NEI.")
+        uncertainty = uncertainty or "Không có evidence ID hợp lệ cho kết luận quyết định."
 
-    # A decisive verdict should have at least one evidence item whose stance
-    # matches the ruling. Otherwise downgrade to NEI.
-    expected_stance = {
-        "SUPPORTED": "support",
-        "REFUTED": "refute",
-    }.get(verdict)
-
+    expected_stance = {"SUPPORTED": "support", "REFUTED": "refute"}.get(verdict)
     if expected_stance:
         has_matching_stance = any(
             assessment.evidence_id in evidence_ids
             and assessment.stance == expected_stance
             for assessment in assessments
         )
-
         if not has_matching_stance:
             verdict = "NEI"
             confidence = min(confidence, 0.35)
-            limitations.append(
-                "No cited evidence assessment had a stance matching the decisive verdict."
-            )
+            limitations.append("Cited evidence assessments did not contain a stance matching the decisive verdict.")
+            uncertainty = uncertainty or "Evidence stance chưa đủ nhất quán cho kết luận quyết định."
 
     if verdict == "NEI" and not uncertainty:
-        uncertainty = "Bằng chứng hiện có chưa đủ để đưa ra kết luận chắc chắn."
+        uncertainty = "Bằng chứng hiện có chưa đủ để support hoặc refute claim một cách chắc chắn."
 
     return VerificationResult(
+        status="SUCCESS",
         verdict=verdict,
         confidence=confidence,
         evidence_ids=evidence_ids,
@@ -167,6 +154,23 @@ def _normalize_result(
     )
 
 
+def _looks_operationally_unavailable(exc: Exception) -> bool:
+    text = str(exc).lower()
+    markers = (
+        "429",
+        "resource_exhausted",
+        "503",
+        "unavailable",
+        "high demand",
+        "timeout",
+        "deadline exceeded",
+        "connection",
+        "circuit open",
+        "geminicircuitopenerror",
+    )
+    return any(marker in text for marker in markers)
+
+
 async def verify_claim(
     claim: CandidateClaim,
     multimedia: MultimediaAnalysis,
@@ -174,27 +178,19 @@ async def verify_claim(
     reasoning_support: dict,
 ) -> VerificationResult:
     """
-    Phase 4: Multimodal Claim Verification.
+    Phase 4: claim + retrieved multimodal evidence -> SUPPORTED/REFUTED/NEI.
 
-    MOCHEG-inspired task contract:
-        claim + retrieved multimodal evidence -> SUPPORTED / REFUTED / NEI
-
-    CoReS-inspired input:
-        filtered key concepts + reasoning-support text are supplied as
-        intermediate evidence integration support.
-
-    The returned rationale is a concise evidence-grounded justification and
-    deliberately not a hidden chain-of-thought trace.
+    The reasoning-support text is an intermediate evidence integration aid;
+    the final verdict remains constrained to retrieved evidence IDs.
     """
     if not evidence:
-        return _nei_result(
-            reason="Không có bằng chứng truy xuất đủ để xác minh claim.",
-            limitations=[
-                "Evidence retrieval returned no usable text or image evidence."
-            ],
+        return nei_no_evidence_result(
+            "Evidence Retrieval hoàn tất nhưng không thu được bằng chứng đủ để xác minh claim."
         )
 
     try:
+        from fact_checking.verification.vlm_verifier import verify_with_vlm_sync
+
         raw = await asyncio.to_thread(
             verify_with_vlm_sync,
             claim,
@@ -203,11 +199,62 @@ async def verify_claim(
             reasoning_support,
         )
     except Exception as exc:
-        return _nei_result(
-            reason="Không thể hoàn tất bước xác minh đa phương thức; hệ thống giữ nhãn NEI thay vì đoán.",
-            limitations=[
-                f"Verifier error: {type(exc).__name__}: {exc}"
-            ],
-        )
+        reason = f"Verifier error: {type(exc).__name__}: {exc}"
+        if _looks_operationally_unavailable(exc):
+            return unavailable_verification_result(reason)
+        return failed_verification_result(reason)
 
     return _normalize_result(raw, evidence)
+
+
+
+async def verify_claims_batch(
+    jobs: list[tuple[CandidateClaim, list[EvidenceItem], dict]],
+    multimedia: MultimediaAnalysis,
+) -> dict[str, VerificationResult]:
+    """Quota-aware batch verification. No sequential retry after batch failure."""
+    if not jobs:
+        return {}
+
+    # Preserve the simple path for one claim and for explicitly disabled batch mode.
+    if not VERIFICATION_BATCH_ENABLED or len(jobs) == 1:
+        results: dict[str, VerificationResult] = {}
+        for claim, evidence, reasoning_support in jobs:
+            results[claim.id] = await verify_claim(
+                claim=claim,
+                multimedia=multimedia,
+                evidence=evidence,
+                reasoning_support=reasoning_support,
+            )
+        return results
+
+    if len(jobs) > VERIFICATION_BATCH_MAX_CLAIMS:
+        # Split into bounded batches, not one request per claim.
+        results: dict[str, VerificationResult] = {}
+        for start in range(0, len(jobs), VERIFICATION_BATCH_MAX_CLAIMS):
+            part = jobs[start:start + VERIFICATION_BATCH_MAX_CLAIMS]
+            results.update(await verify_claims_batch(part, multimedia))
+        return results
+
+    try:
+        from fact_checking.verification.vlm_verifier import verify_batch_with_vlm_sync
+        raw_by_id = await asyncio.to_thread(
+            verify_batch_with_vlm_sync,
+            jobs,
+            multimedia,
+        )
+    except Exception as exc:
+        reason = f"Batch verifier error: {type(exc).__name__}: {exc}"
+        factory = unavailable_verification_result if _looks_operationally_unavailable(exc) else failed_verification_result
+        return {claim.id: factory(reason) for claim, _, _ in jobs}
+
+    results: dict[str, VerificationResult] = {}
+    for claim, evidence, _ in jobs:
+        raw = raw_by_id.get(claim.id)
+        if not raw:
+            results[claim.id] = failed_verification_result(
+                f"Batch verifier omitted claim_id={claim.id}"
+            )
+            continue
+        results[claim.id] = _normalize_result(raw, evidence)
+    return results

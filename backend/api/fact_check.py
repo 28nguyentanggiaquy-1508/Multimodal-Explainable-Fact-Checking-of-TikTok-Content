@@ -1,58 +1,45 @@
 from __future__ import annotations
 
-from urllib.parse import urlparse
-
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, Field
 
-from fact_checking.pipeline import run_fact_check_pipeline
+from dataset_integration.bridge import async_sync_phase14_response
+from dataset_integration.response_guard import normalize_factcheck_response_semantics
+from fact_checking.pipeline import PIPELINE_VERSION, run_fact_check_pipeline
+from fact_checking.url_utils import InvalidTikTokUrl, validate_tiktok_url
 
-
-router = APIRouter(
-    prefix="/fact-check",
-    tags=["Fact Checking"],
-)
+router = APIRouter(prefix="/fact-check", tags=["Fact Checking"])
 
 
 class FactCheckRequest(BaseModel):
     url: str = Field(min_length=8, max_length=2048)
 
 
-def _validate_tiktok_url(url: str) -> str:
-    value = (url or "").strip()
-
-    try:
-        parsed = urlparse(value)
-    except Exception as exc:
-        raise HTTPException(status_code=400, detail=f"URL không hợp lệ: {exc}")
-
-    host = (parsed.hostname or "").lower()
-
-    if parsed.scheme not in {"http", "https"}:
-        raise HTTPException(
-            status_code=400,
-            detail="Chỉ chấp nhận TikTok URL dùng http/https.",
-        )
-
-    if not (host == "tiktok.com" or host.endswith(".tiktok.com")):
-        raise HTTPException(
-            status_code=400,
-            detail="Endpoint này chỉ nhận URL thuộc tiktok.com.",
-        )
-
-    return value
-
-
-@router.post("")
+@router.post("/fact-check")
 async def fact_check(request: FactCheckRequest):
-    video_url = _validate_tiktok_url(request.url)
-    return await run_fact_check_pipeline(video_url)
+    try:
+        video_url = validate_tiktok_url(request.url)
+    except InvalidTikTokUrl as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+    result = await run_fact_check_pipeline(video_url)
+    # Normalize semantics before the dataset bridge receives the response.
+    result = normalize_factcheck_response_semantics(result)
+    dataset_sync = await async_sync_phase14_response(
+        result,
+        discovery_method="BACKEND_FACT_CHECK",
+    )
+    if isinstance(result, dict):
+        result["dataset_sync"] = dataset_sync
+    return result
 
 
 @router.get("/health")
 def fact_check_health():
     return {
         "status": "ok",
-        "pipeline": "multimodal-fact-checking",
+        "pipeline": "multimodal-evidence-based-fact-checking",
+        "pipeline_version": PIPELINE_VERSION,
         "implemented_through": "phase_4",
+        "execution_architecture": "cache-first/quota-aware/provider-agnostic/resumable",
     }

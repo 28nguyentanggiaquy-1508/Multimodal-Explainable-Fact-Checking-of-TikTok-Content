@@ -1,0 +1,55 @@
+{
+  "created_at": 1791793410.0108135,
+  "task": "phase4_verification",
+  "key": "0de0b46c3357784b6ae4334514dbbb2823b5d943cde04ac5148d3f3e975996be",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "NEI",
+    "confidence": 0.85,
+    "evidence_ids": [
+      "text_08_002",
+      "text_03_000",
+      "text_06_004",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_08_002",
+        "stance": "support",
+        "confidence": 0.9,
+        "rationale": "Xác nhận Đại tướng Nguyễn Chí Thanh có tên thật là Nguyễn Vịnh và là người thứ hai trong QĐNDVN được phong quân hàm Đại tướng vào năm 1959."
+      },
+      {
+        "evidence_id": "text_03_000",
+        "stance": "support",
+        "confidence": 0.9,
+        "rationale": "Xác nhận Nguyễn Chí Thanh tên thật là Nguyễn Vịnh, là người thứ hai được phong thẳng quân hàm Đại tướng năm 1959 mà không qua cấp bậc nào trước đó."
+      },
+      {
+        "evidence_id": "text_06_004",
+        "stance": "support",
+        "confidence": 0.85,
+        "rationale": "Xác nhận ông Nguyễn Chí Thanh được phong thẳng quân hàm Đại tướng năm 1959 không qua cấp bậc tướng nào trước đó."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 0.85,
+        "rationale": "Xác nhận Nguyễn Chí Thanh là vị Đại tướng thứ hai của QĐNDVN, được phong thẳng quân hàm năm 1959."
+      }
+    ],
+    "evidence_coverage": "PARTIAL",
+    "rationale": "Các tài liệu đã xác minh đầy đủ các mệnh đề: Nguyễn Chí Thanh có tên thật là Nguyễn Vịnh, là người thứ hai của QĐNDVN được phong thẳng quân hàm Đại tướng vào năm 1959. Tuy nhiên, bằng chứng bên ngoài được cung cấp hoàn toàn không đề cập đến mệnh đề 'ông là thân sinh của Thượng tướng Nguyễn Chí Vịnh'. Do một thành phần quan trọng trong tuyên bố chưa được kiểm chứng từ bằng chứng bên ngoài, kết luận là NEI.",
+    "uncertainty": "Thiếu bằng chứng xác thực mối quan hệ phụ tử giữa Đại tướng Nguyễn Chí Thanh và Thượng tướng Nguyễn Chí Vịnh.",
+    "limitations": [
+      "Tập bằng chứng được thu hồi không bao gồm thông tin gia đình/thân sinh liên quan đến Thượng tướng Nguyễn Chí Vịnh."
+    ],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

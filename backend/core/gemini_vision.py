@@ -19,7 +19,19 @@ from core.gemini_utils import (
     generate_content_with_retry,
 )
 
-gemini_client = genai.Client(api_key=GEMINI_API_KEY) if GEMINI_API_KEY else None
+gemini_client = (
+    genai.Client(
+        api_key=GEMINI_API_KEY,
+        http_options=types.HttpOptions(
+            timeout=90_000,
+            retry_options=types.HttpRetryOptions(
+                attempts=1,
+            ),
+        ),
+    )
+    if GEMINI_API_KEY
+    else None
+)
 
 
 ALLOWED_TONES = ("sad", "funny", "angry", "love", "happy", "neutral")
@@ -696,7 +708,7 @@ def _extract_tiktok_post_metadata(video_url: str) -> dict:
         }
 
 
-def _build_fact_check_multimedia_prompt(post_caption: str = "") -> str:
+def _build_fact_check_multimedia_prompt(post_metadata: dict | None = None) -> str:
     """
     Phase 2 prompt for multimedia observation + claim extraction.
 
@@ -705,7 +717,11 @@ def _build_fact_check_multimedia_prompt(post_caption: str = "") -> str:
     - only then decide whether a checkable/check-worthy claim exists;
     - never perform evidence retrieval or verdict prediction here.
     """
-    caption_text = post_caption.strip() or "(khong co caption metadata)"
+    post_metadata = post_metadata or {}
+    caption_text = str(post_metadata.get("caption") or "").strip() or "(khong co caption metadata)"
+    upload_date = str(post_metadata.get("upload_date") or "").strip() or "(khong co)"
+    uploader = str(post_metadata.get("uploader") or "").strip() or "(khong co)"
+    duration = post_metadata.get("duration")
 
     return f"""
 # VAI TRO
@@ -748,6 +764,8 @@ ban VAN PHAI phan tich noi dung nhin/nghe/doc duoc.
 5. CROSS-MODAL
 - neu loi noi, OCR, caption va hinh anh cung bo tro hoac mau thuan nhau,
   ghi ngan gon vao cross_modal_notes.
+- KHONG suy doan mot ngay/thang la loi, la tuong lai hay sai boi canh neu metadata
+  khong cung cap can cu truc tiep. Khi so sanh thoi gian, chi dung metadata ben duoi.
 
 QUY TAC BAT BUOC:
 - candidate_claims CO THE la [].
@@ -819,10 +837,14 @@ KHONG DUOC:
 - coi caption/OCR/loi noi la su that chi vi no xuat hien.
 
 
-# CAPTION METADATA
+# POST METADATA
 
-{caption_text}
+Caption: {caption_text}
+Uploader: {uploader}
+Upload date (YYYYMMDD neu co): {upload_date}
+Duration seconds: {duration}
 
+Metadata chi la thong tin nguon/boi canh; khong tu dong chung minh claim dung.
 
 # OUTPUT
 
@@ -1092,8 +1114,7 @@ def analyze_tiktok_multimedia(
         # ====================================================
         # 4. BUILD PROMPT
         # ====================================================
-        caption = str(metadata.get("caption") or "").strip()
-        prompt = _build_fact_check_multimedia_prompt(caption)
+        prompt = _build_fact_check_multimedia_prompt(metadata)
 
         # ====================================================
         # 5. GEMINI + RETRY

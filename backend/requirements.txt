@@ -4,7 +4,7 @@ pydantic==2.13.4
 requests
 yt-dlp
 python-dotenv
-transformers==4.36.2
+transformers>=4.45.0
 torch
 underthesea
 google-genai
@@ -12,3 +12,8 @@ pyvi
 emoji
 beautifulsoup4
 Pillow
+jsonschema
+
+# V2.3 Multi-VLM
+opencv-python-headless>=4.10
+faster-whisper>=1.1,<2
