@@ -1,0 +1,86 @@
+{
+  "created_at": 1791815783.3684068,
+  "task": "phase4_verification",
+  "key": "b04351686fd20c7cd7ce2b20bdee6569bbde8b174d8798a0c1ac3e16e8c9b94b",
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:8b-instruct-q4_K_M"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.95,
+    "evidence_ids": [
+      "text_01_000",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Directly states 'đến năm 2025 Việt Nam có 19 đại tướng trong quân đội nhân dân'."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Explicitly confirms Nguyễn Trọng Nghĩa was the 19th grand marshal phoned on 4/11/2025."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Đánh giá theo thành phần: C1=SUPPORTED. Evidence ngoài bao phủ đầy đủ mọi thành phần trọng yếu của claim.",
+    "uncertainty": "",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "qwen3-vl:8b-instruct-q4_K_M",
+    "provider": "local",
+    "_guard_metadata": {
+      "mode": "local_component_evidence_guard_v2",
+      "component_count": 1,
+      "resolved_components": 1,
+      "coverage_score": 1.0,
+      "components": [
+        {
+          "component_id": "C1",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "text_01_000",
+            "text_02_000"
+          ],
+          "confidence": 1.0,
+          "rationale": "text_01_000 states Vietnam has 19 military grand marshals by 2025. text_02_000 confirms Nguyễn Trọng Nghĩa was the 19th grand marshal phoned in 2025.",
+          "text": "Quân đội nhân dân Việt Nam tính đến thời điểm video đã có 19 vị Đại tướng",
+          "qualifier_checks": [
+            {
+              "component_id": "C1",
+              "kind": "quantity",
+              "label": "exact quantity 19",
+              "passed": true,
+              "matched_evidence_ids": [
+                "text_01_000"
+              ]
+            }
+          ]
+        }
+      ],
+      "qualifier_checks": [
+        {
+          "component_id": "C1",
+          "kind": "quantity",
+          "label": "exact quantity 19",
+          "passed": true,
+          "matched_evidence_ids": [
+            "text_01_000"
+          ]
+        }
+      ],
+      "raw_model_verdict": "SUPPORTED",
+      "raw_model_coverage": "COMPLETE",
+      "raw_model_confidence": 1.0,
+      "final_verdict": "SUPPORTED",
+      "final_coverage": "COMPLETE",
+      "final_confidence": 0.95
+    }
+  }
+}

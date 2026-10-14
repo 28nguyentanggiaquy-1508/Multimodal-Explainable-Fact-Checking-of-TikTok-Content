@@ -1,0 +1,161 @@
+{
+  "dataset": {
+    "comments": 116,
+    "gold_aspects": 62
+  },
+  "models": {
+    "ate": "ate_phobert_v2",
+    "asc": "asc_phobert_v2"
+  },
+  "protocol": {
+    "ate_input": "C:\\NCKH\\tiktok_chatbot\\tiktok_chatbot\\backend\\data\\absa\\processed_v2\\test.json",
+    "asc_input": "C:\\NCKH\\tiktok_chatbot\\tiktok_chatbot\\backend\\data\\absa\\asc_processed_v2\\test.json",
+    "segmentation": "frozen_preprocessed",
+    "device": "cpu",
+    "ate_threshold": 0.45
+  },
+  "ate_exact_char_span": {
+    "precision": 0.5454545454545454,
+    "recall": 0.4838709677419355,
+    "f1": 0.5128205128205128,
+    "tp": 30,
+    "fp": 25,
+    "fn": 32
+  },
+  "asc_oracle_gold_aspect": {
+    "accuracy": 0.7096774193548387,
+    "macro_precision": 0.6234567901234568,
+    "macro_recall": 0.6041269841269842,
+    "macro_f1": 0.6102564102564103,
+    "weighted_f1": 0.7032671629445822,
+    "per_class": {
+      "NEGATIVE": {
+        "precision": 0.4,
+        "recall": 0.2857142857142857,
+        "f1": 0.3333333333333333,
+        "support": 7,
+        "tp": 2,
+        "fp": 3,
+        "fn": 5
+      },
+      "NEUTRAL": {
+        "precision": 0.7666666666666667,
+        "recall": 0.7666666666666667,
+        "f1": 0.7666666666666667,
+        "support": 30,
+        "tp": 23,
+        "fp": 7,
+        "fn": 7
+      },
+      "POSITIVE": {
+        "precision": 0.7037037037037037,
+        "recall": 0.76,
+        "f1": 0.7307692307692308,
+        "support": 25,
+        "tp": 19,
+        "fp": 8,
+        "fn": 6
+      }
+    },
+    "confusion_matrix": [
+      [
+        2,
+        1,
+        4
+      ],
+      [
+        3,
+        23,
+        4
+      ],
+      [
+        0,
+        6,
+        19
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ]
+  },
+  "asc_on_exact_ate_matches": {
+    "accuracy": 0.7,
+    "macro_precision": 0.5321969696969697,
+    "macro_recall": 0.4666666666666666,
+    "macro_f1": 0.4929693961952026,
+    "weighted_f1": 0.7394540942928038,
+    "per_class": {
+      "NEGATIVE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 0,
+        "tp": 0,
+        "fp": 3,
+        "fn": 0
+      },
+      "NEUTRAL": {
+        "precision": 0.6875,
+        "recall": 0.7333333333333333,
+        "f1": 0.7096774193548386,
+        "support": 15,
+        "tp": 11,
+        "fp": 5,
+        "fn": 4
+      },
+      "POSITIVE": {
+        "precision": 0.9090909090909091,
+        "recall": 0.6666666666666666,
+        "f1": 0.7692307692307692,
+        "support": 15,
+        "tp": 10,
+        "fp": 1,
+        "fn": 5
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        11,
+        1
+      ],
+      [
+        0,
+        5,
+        10
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ]
+  },
+  "end_to_end_exact_span_sentiment": {
+    "precision": 0.38181818181818183,
+    "recall": 0.3387096774193548,
+    "f1": 0.35897435897435903,
+    "tp": 21,
+    "fp": 34,
+    "fn": 41
+  },
+  "error_propagation": {
+    "gold_aspects": 62,
+    "ate_exact_tp": 30,
+    "ate_false_positive": 25,
+    "ate_false_negative": 32,
+    "matched_span_sentiment_correct": 21,
+    "matched_span_sentiment_wrong": 9,
+    "end_to_end_tp": 21,
+    "end_to_end_fp": 34,
+    "end_to_end_fn": 41,
+    "asc_accuracy_on_exact_ate_matches": 0.7
+  }
+}

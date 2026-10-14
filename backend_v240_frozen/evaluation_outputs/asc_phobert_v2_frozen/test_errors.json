@@ -1,0 +1,272 @@
+[
+  {
+    "comment_id": "7677787978102883090",
+    "text": "Chân 91 92 là vừa chứ 96 chắc quét đất 😂",
+    "aspect_term": "Chân 91 92",
+    "start": 0,
+    "end": 10,
+    "gold": "POSITIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.541562020778656,
+    "probabilities": {
+      "NEGATIVE": 0.34625178575515747,
+      "NEUTRAL": 0.541562020778656,
+      "POSITIVE": 0.11218619346618652
+    }
+  },
+  {
+    "comment_id": "7667078415635366663",
+    "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+    "aspect_term": "mẫu áo thun",
+    "start": 26,
+    "end": 37,
+    "gold": "NEGATIVE",
+    "pred": "POSITIVE",
+    "confidence": 0.4931502342224121,
+    "probabilities": {
+      "NEGATIVE": 0.06652086228132248,
+      "NEUTRAL": 0.4403289258480072,
+      "POSITIVE": 0.4931502342224121
+    }
+  },
+  {
+    "comment_id": "7677401928041693959",
+    "text": "Có phải dáng mẫu hay thiết kế riêng đâu mà đòi cả chiều dài lẫn rộng",
+    "aspect_term": "dáng",
+    "start": 8,
+    "end": 12,
+    "gold": "POSITIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.5332865715026855,
+    "probabilities": {
+      "NEGATIVE": 0.22266262769699097,
+      "NEUTRAL": 0.5332865715026855,
+      "POSITIVE": 0.24405084550380707
+    }
+  },
+  {
+    "comment_id": "7675537146749846292",
+    "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+    "aspect_term": "ngực to",
+    "start": 29,
+    "end": 36,
+    "gold": "NEUTRAL",
+    "pred": "POSITIVE",
+    "confidence": 0.7506982088088989,
+    "probabilities": {
+      "NEGATIVE": 0.07220412790775299,
+      "NEUTRAL": 0.17709767818450928,
+      "POSITIVE": 0.7506982088088989
+    }
+  },
+  {
+    "comment_id": "7675537146749846292",
+    "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+    "aspect_term": "tay chân to",
+    "start": 37,
+    "end": 48,
+    "gold": "NEUTRAL",
+    "pred": "POSITIVE",
+    "confidence": 0.752874493598938,
+    "probabilities": {
+      "NEGATIVE": 0.0752515196800232,
+      "NEUTRAL": 0.1718740314245224,
+      "POSITIVE": 0.752874493598938
+    }
+  },
+  {
+    "comment_id": "7675537146749846292",
+    "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+    "aspect_term": "Ngực",
+    "start": 111,
+    "end": 115,
+    "gold": "NEUTRAL",
+    "pred": "POSITIVE",
+    "confidence": 0.720268189907074,
+    "probabilities": {
+      "NEGATIVE": 0.08185558021068573,
+      "NEUTRAL": 0.1978762298822403,
+      "POSITIVE": 0.720268189907074
+    }
+  },
+  {
+    "comment_id": "7667476413038740232",
+    "text": "Công thức chuẩn nhưng đồ k có sz chuẩn🤣",
+    "aspect_term": "Công thức",
+    "start": 0,
+    "end": 9,
+    "gold": "POSITIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.518496036529541,
+    "probabilities": {
+      "NEGATIVE": 0.1464303433895111,
+      "NEUTRAL": 0.518496036529541,
+      "POSITIVE": 0.33507370948791504
+    }
+  },
+  {
+    "comment_id": "7667476413038740232",
+    "text": "Công thức chuẩn nhưng đồ k có sz chuẩn🤣",
+    "aspect_term": "đồ",
+    "start": 22,
+    "end": 24,
+    "gold": "NEGATIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.7729752659797668,
+    "probabilities": {
+      "NEGATIVE": 0.08313072472810745,
+      "NEUTRAL": 0.7729752659797668,
+      "POSITIVE": 0.1438939869403839
+    }
+  },
+  {
+    "comment_id": "7675807546134020882",
+    "text": "Đặng ng khó nói lắm, tui mặc đại có cần đo đâu, mua đồ cứ mặc thử hợp ng vừa ng thì mua, mua đồ online thì ko bao h OK vừa dáng hết",
+    "aspect_term": "đồ",
+    "start": 52,
+    "end": 54,
+    "gold": "NEUTRAL",
+    "pred": "NEGATIVE",
+    "confidence": 0.46538683772087097,
+    "probabilities": {
+      "NEGATIVE": 0.46538683772087097,
+      "NEUTRAL": 0.27712947130203247,
+      "POSITIVE": 0.25748369097709656
+    }
+  },
+  {
+    "comment_id": "7667028792699732756",
+    "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+    "aspect_term": "quần",
+    "start": 58,
+    "end": 62,
+    "gold": "POSITIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.5952649116516113,
+    "probabilities": {
+      "NEGATIVE": 0.0454309917986393,
+      "NEUTRAL": 0.5952649116516113,
+      "POSITIVE": 0.3593040406703949
+    }
+  },
+  {
+    "comment_id": "7667028792699732756",
+    "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+    "aspect_term": "áo",
+    "start": 43,
+    "end": 45,
+    "gold": "POSITIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.6724168062210083,
+    "probabilities": {
+      "NEGATIVE": 0.0429825596511364,
+      "NEUTRAL": 0.6724168062210083,
+      "POSITIVE": 0.2846006155014038
+    }
+  },
+  {
+    "comment_id": "7687694252008522516",
+    "text": "m65 mặc quần uống suông ổn k ae nhỉ :))",
+    "aspect_term": "quần",
+    "start": 8,
+    "end": 12,
+    "gold": "POSITIVE",
+    "pred": "NEUTRAL",
+    "confidence": 0.8498889803886414,
+    "probabilities": {
+      "NEGATIVE": 0.026708394289016724,
+      "NEUTRAL": 0.8498889803886414,
+      "POSITIVE": 0.12340272963047028
+    }
+  },
+  {
+    "comment_id": "7667217476618846984",
+    "text": "Vl m6 mua áo 64 à, t m7 mà toàn mặc 64-67cm thôi, quần 100-102",
+    "aspect_term": "quần",
+    "start": 50,
+    "end": 54,
+    "gold": "NEUTRAL",
+    "pred": "NEGATIVE",
+    "confidence": 0.5082491636276245,
+    "probabilities": {
+      "NEGATIVE": 0.5082491636276245,
+      "NEUTRAL": 0.42607590556144714,
+      "POSITIVE": 0.06567492336034775
+    }
+  },
+  {
+    "comment_id": "7667217476618846984",
+    "text": "Vl m6 mua áo 64 à, t m7 mà toàn mặc 64-67cm thôi, quần 100-102",
+    "aspect_term": "áo",
+    "start": 10,
+    "end": 12,
+    "gold": "NEUTRAL",
+    "pred": "NEGATIVE",
+    "confidence": 0.5935903787612915,
+    "probabilities": {
+      "NEGATIVE": 0.5935903787612915,
+      "NEUTRAL": 0.34326353669166565,
+      "POSITIVE": 0.06314603984355927
+    }
+  },
+  {
+    "comment_id": "7681900538707133192",
+    "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+    "aspect_term": "chân ngắn",
+    "start": 18,
+    "end": 27,
+    "gold": "NEGATIVE",
+    "pred": "POSITIVE",
+    "confidence": 0.7438542246818542,
+    "probabilities": {
+      "NEGATIVE": 0.07613909244537354,
+      "NEUTRAL": 0.18000665307044983,
+      "POSITIVE": 0.7438542246818542
+    }
+  },
+  {
+    "comment_id": "7681900538707133192",
+    "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+    "aspect_term": "vai thì bề ngang to",
+    "start": 29,
+    "end": 48,
+    "gold": "NEGATIVE",
+    "pred": "POSITIVE",
+    "confidence": 0.7061089277267456,
+    "probabilities": {
+      "NEGATIVE": 0.08607183396816254,
+      "NEUTRAL": 0.20781923830509186,
+      "POSITIVE": 0.7061089277267456
+    }
+  },
+  {
+    "comment_id": "7666864701695607570",
+    "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+    "aspect_term": "công thức",
+    "start": 0,
+    "end": 9,
+    "gold": "NEUTRAL",
+    "pred": "POSITIVE",
+    "confidence": 0.8177058696746826,
+    "probabilities": {
+      "NEGATIVE": 0.06547282636165619,
+      "NEUTRAL": 0.11682131886482239,
+      "POSITIVE": 0.8177058696746826
+    }
+  },
+  {
+    "comment_id": "7666864701695607570",
+    "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+    "aspect_term": "96",
+    "start": 62,
+    "end": 64,
+    "gold": "NEGATIVE",
+    "pred": "POSITIVE",
+    "confidence": 0.8377373814582825,
+    "probabilities": {
+      "NEGATIVE": 0.06258108466863632,
+      "NEUTRAL": 0.0996815413236618,
+      "POSITIVE": 0.8377373814582825
+    }
+  }
+]

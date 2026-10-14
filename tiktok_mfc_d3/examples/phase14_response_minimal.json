@@ -1,0 +1,35 @@
+{
+  "metadata": {
+    "caption": "Ví dụ factual claim",
+    "webpage_url": "https://www.tiktok.com/example",
+    "duration": 20
+  },
+  "claims": [
+    {
+      "claim": {
+        "id": "claim_01",
+        "text": "Một factual claim ví dụ.",
+        "source_modality": "caption",
+        "timestamp": null,
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "other_factual",
+        "rationale": "Ví dụ"
+      },
+      "evidence": [],
+      "reasoning_support": {
+        "key_concepts": [],
+        "reasoning_support": ""
+      },
+      "verification": {
+        "verdict": "NEI",
+        "confidence": 0,
+        "evidence_ids": [],
+        "rationale": "Không có bằng chứng truy xuất đủ để xác minh claim.",
+        "limitations": ["Evidence retrieval returned no usable text or image evidence."],
+        "model": ""
+      },
+      "explanation": null
+    }
+  ]
+}

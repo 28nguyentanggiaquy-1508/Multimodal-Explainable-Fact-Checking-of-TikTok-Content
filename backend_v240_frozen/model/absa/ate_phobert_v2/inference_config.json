@@ -1,0 +1,6 @@
+{
+  "aspect_threshold": 0.45,
+  "validation_f1": 0.4044943820224719,
+  "segmentation": "VnCoreNLP-RDRSegmenter",
+  "metric": "exact_character_span_f1"
+}

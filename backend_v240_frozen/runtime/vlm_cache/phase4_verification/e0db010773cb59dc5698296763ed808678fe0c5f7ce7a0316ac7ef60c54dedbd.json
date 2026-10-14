@@ -1,0 +1,59 @@
+{
+  "created_at": 1791791634.3241622,
+  "task": "phase4_verification",
+  "key": "e0db010773cb59dc5698296763ed808678fe0c5f7ce7a0316ac7ef60c54dedbd",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.99,
+    "evidence_ids": [
+      "text_04_001",
+      "text_01_000",
+      "text_07_016",
+      "text_06_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_04_001",
+        "stance": "support",
+        "confidence": 0.99,
+        "rationale": "Xác nhận ông Trịnh Văn Quyết là Đại tướng thứ 18 của Quân đội nhân dân Việt Nam."
+      },
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 0.99,
+        "rationale": "Xác nhận ông Trịnh Văn Quyết được thăng quân hàm Đại tướng ngày 14/7/2025 và là vị Đại tướng thứ 18 của Quân đội."
+      },
+      {
+        "evidence_id": "text_07_016",
+        "stance": "support",
+        "confidence": 0.95,
+        "rationale": "Xác nhận ông Trịnh Văn Quyết được Chủ tịch nước thăng quân hàm lên Đại tướng vào ngày 14/7/2025."
+      },
+      {
+        "evidence_id": "text_06_000",
+        "stance": "support",
+        "confidence": 0.95,
+        "rationale": "Xác nhận ngày 14/7/2025 ông Trịnh Văn Quyết chính thức được thăng quân hàm Đại tướng."
+      },
+      {
+        "evidence_id": "image_06",
+        "stance": "context",
+        "confidence": 0.8,
+        "rationale": "Cung cấp hình ảnh buổi lễ thăng quân hàm sĩ quan cấp tướng."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Các nguồn tin chính thống đồng thuận xác nhận Thượng tướng Trịnh Văn Quyết được Chủ tịch nước trao quyết định thăng quân hàm Đại tướng vào ngày 14/7/2025, trở thành vị Đại tướng thứ 18 của Quân đội nhân dân Việt Nam.",
+    "uncertainty": "Không có",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

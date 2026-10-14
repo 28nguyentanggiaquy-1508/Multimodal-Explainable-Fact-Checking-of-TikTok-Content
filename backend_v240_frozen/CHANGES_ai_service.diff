@@ -1,0 +1,21 @@
+--- backend/services/ai_service.py (before)
++++ backend/services/ai_service.py (after)
+@@ -409,6 +409,18 @@
+             "model_id":
+                 model_id,
+ 
++            # ABSA runtime/model versions.
++            # History service uses these values so V1/V2 sessions
++            # remain comparable and rollback-safe.
++            "ate_model_version":
++                absa_service.ate_model_version,
++
++            "asc_model_version":
++                absa_service.asc_model_version,
++
++            "absa_runtime":
++                absa_service.runtime_info(),
++
+             # Gemini video context
+             "context":
+                 video_context,

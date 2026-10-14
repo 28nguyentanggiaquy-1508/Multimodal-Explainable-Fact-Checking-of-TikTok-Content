@@ -11,9 +11,61 @@ from config import EVIDENCE_MAX_IMAGE_BYTES, EVIDENCE_REQUEST_TIMEOUT
 from core.vlm import cache, circuit, quota_manager
 from core.vlm.providers import gemini_provider, local_provider, openai_provider
 from fact_checking.evidence.http_utils import read_limited_bytes, safe_get
+from fact_checking.verification.local_component_guard import (
+    apply_local_component_guard,
+    component_prompt_block,
+    decompose_claim,
+)
 
 _ALLOWED_VERDICTS = {"SUPPORTED", "REFUTED", "NEI"}
 _ALLOWED_STANCES = {"support", "refute", "neutral", "context"}
+
+_LOCAL_PHASE4_RESPONSE_SCHEMA: dict[str, Any] = {
+    "type": "object",
+    "properties": {
+        "verdict": {"type": "string", "enum": ["SUPPORTED", "REFUTED", "NEI"]},
+        "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+        "evidence_coverage": {"type": "string", "enum": ["COMPLETE", "PARTIAL", "INSUFFICIENT"]},
+        "evidence_ids": {"type": "array", "items": {"type": "string"}},
+        "component_assessments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "component_id": {"type": "string"},
+                    "status": {"type": "string", "enum": ["SUPPORTED", "REFUTED", "INSUFFICIENT"]},
+                    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+                    "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+                    "rationale": {"type": "string"},
+                },
+                "required": ["component_id", "status", "evidence_ids", "confidence", "rationale"],
+                "additionalProperties": False,
+            },
+        },
+        "evidence_assessments": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "evidence_id": {"type": "string"},
+                    "stance": {"type": "string", "enum": ["support", "refute", "neutral", "context"]},
+                    "confidence": {"type": "number", "minimum": 0.0, "maximum": 1.0},
+                    "rationale": {"type": "string"},
+                },
+                "required": ["evidence_id", "stance", "confidence", "rationale"],
+                "additionalProperties": False,
+            },
+        },
+        "rationale": {"type": "string"},
+        "uncertainty": {"type": "string"},
+        "limitations": {"type": "array", "items": {"type": "string"}},
+    },
+    "required": [
+        "verdict", "confidence", "evidence_coverage", "evidence_ids",
+        "component_assessments", "evidence_assessments", "rationale", "uncertainty", "limitations",
+    ],
+    "additionalProperties": False,
+}
 
 
 def _as_dict(value: Any) -> dict[str, Any]:
@@ -250,7 +302,8 @@ def _build_request(
     multimedia: Any,
     evidence: list[Any],
     reasoning_support: Any,
-) -> tuple[str, list[str], list[str], set[str], list[str]]:
+    component_guard: bool = False,
+) -> tuple[str, list[str], list[str], set[str], list[str], list[Any]]:
     evidence_text, all_candidate_ids, image_candidates, image_ids = _evidence_prompt(evidence)
     image_data_urls, attached_image_ids, image_transport_failures = _prepare_image_attachments(image_candidates)
     candidate_ids = [
@@ -274,8 +327,23 @@ def _build_request(
         )
 
     claim_text = _claim_text(claim)
+    components = decompose_claim(claim_text) if component_guard else []
     reasoning_text = _reasoning_text(reasoning_support)
     context_text = _multimedia_context(multimedia)
+    component_section = ""
+    if component_guard:
+        component_section = (
+            "# MATERIAL CLAIM COMPONENTS\n"
+            + component_prompt_block(components)
+            + "\n\n# LOCAL COMPONENT COVERAGE RULES\n"
+            + "- Evaluate EVERY listed component independently using external retrieved evidence only.\n"
+            + "- For each component return SUPPORTED, REFUTED, or INSUFFICIENT.\n"
+            + "- SUPPORTED/REFUTED component assessments MUST cite one or more valid EVIDENCE_ID values.\n"
+            + "- Do not infer missing qualifiers such as only/unique, exact date, family relation, title, quantity, or causality unless external evidence directly establishes them.\n"
+            + "- The backend will recompute final coverage/verdict deterministically; never assume partial evidence means COMPLETE.\n"
+            + "- For qualifiers such as duy nhất/only, family relation, exact year/age/quantity, and phong thẳng/no intermediate rank, cite evidence that DIRECTLY states that qualifier/value.\n"
+            + "- Keep each component rationale short (prefer <= 180 characters) and do not repeat full evidence text."
+        )
     prompt = f"""
 # ROLE
 You are the Phase 4 evidence-grounded verifier for a multimodal fact-checking system.
@@ -309,6 +377,8 @@ You are the Phase 4 evidence-grounded verifier for a multimodal fact-checking sy
 
 {image_transport_note}
 
+{component_section}
+
 # OUTPUT
 Return ONLY a JSON object:
 {{
@@ -316,6 +386,15 @@ Return ONLY a JSON object:
   "confidence": 0.0,
   "evidence_coverage": "COMPLETE | PARTIAL | INSUFFICIENT",
   "evidence_ids": ["..."],
+  "component_assessments": [
+    {{
+      "component_id": "C1",
+      "status": "SUPPORTED | REFUTED | INSUFFICIENT",
+      "evidence_ids": ["..."],
+      "confidence": 0.0,
+      "rationale": "short evidence-grounded rationale"
+    }}
+  ],
   "evidence_assessments": [
     {{
       "evidence_id": "...",
@@ -329,7 +408,7 @@ Return ONLY a JSON object:
   "limitations": ["..."]
 }}
 """.strip()
-    return prompt, candidate_ids, image_data_urls, attached_image_ids, image_transport_failures
+    return prompt, candidate_ids, image_data_urls, attached_image_ids, image_transport_failures, components
 
 
 def _cache_payload(claim: Any, multimedia: Any, evidence: list[Any], reasoning_support: Any) -> dict[str, Any]:
@@ -360,7 +439,13 @@ def _cache_payload(claim: Any, multimedia: Any, evidence: list[Any], reasoning_s
 def _cached_result(
     *, provider: str, model: str, claim: Any, multimedia: Any, evidence: list[Any], reasoning_support: Any
 ) -> tuple[str, dict[str, Any] | None]:
-    prompt_version = os.getenv("PHASE4_PROMPT_VERSION", "v2.4.0-external-grounding-compact")
+    if provider == "local":
+        prompt_version = os.getenv(
+            "LOCAL_PHASE4_PROMPT_VERSION",
+            "v2.4.5-local-evidence-qualifier-guard-v2",
+        )
+    else:
+        prompt_version = os.getenv("PHASE4_PROMPT_VERSION", "v2.4.0-external-grounding-compact")
     key = cache.build_key(
         task="phase4_verification",
         provider=provider,
@@ -423,11 +508,19 @@ def _verify_provider_models(
             cached["limitations"] = list(cached.get("limitations") or []) + ["Phase 4 persistent cache hit."]
             return cached
 
-    prompt, candidate_ids, image_data_urls, attached_image_ids, image_transport_failures = _build_request(
+    (
+        prompt,
+        candidate_ids,
+        image_data_urls,
+        attached_image_ids,
+        image_transport_failures,
+        components,
+    ) = _build_request(
         claim=claim,
         multimedia=multimedia,
         evidence=evidence,
         reasoning_support=reasoning_support,
+        component_guard=(provider == "local"),
     )
 
     for model in models:
@@ -451,7 +544,7 @@ def _verify_provider_models(
                 # not truncate Gemini JSON.
                 max_output = int(os.getenv("GEMINI_PHASE4_MAX_OUTPUT_TOKENS", "1600"))
             elif provider == "local":
-                max_output = int(os.getenv("LOCAL_PHASE4_MAX_OUTPUT_TOKENS", str(max_output)))
+                max_output = int(os.getenv("LOCAL_PHASE4_MAX_OUTPUT_TOKENS", "2600"))
 
             estimate = quota_manager.estimate_input_tokens(prompt, image_count=len(image_data_urls))
             decision = quota_manager.can_request(
@@ -492,6 +585,7 @@ def _verify_provider_models(
                     max_output_tokens=max_output,
                     timeout_seconds=float(os.getenv("LOCAL_VLM_TIMEOUT", "180")),
                     image_detail=os.getenv("LOCAL_VLM_IMAGE_DETAIL", "low"),
+                    response_schema=_LOCAL_PHASE4_RESPONSE_SCHEMA,
                 )
 
             raw_data = response.data if hasattr(response, "data") else response
@@ -502,6 +596,15 @@ def _verify_provider_models(
                 provider=provider,
                 attached_image_ids=attached_image_ids,
             )
+            if provider == "local":
+                result = apply_local_component_guard(
+                    raw_data=raw_data,
+                    base_result=result,
+                    components=components,
+                    candidate_ids=candidate_ids,
+                    attached_image_ids=attached_image_ids,
+                    evidence=evidence,
+                )
             if image_transport_failures:
                 result["limitations"] = list(result.get("limitations") or []) + [
                     f"{len(image_transport_failures)} image evidence item(s) could not be attached; verification continued with remaining evidence."
@@ -557,9 +660,9 @@ def verify_gemini(*, claim: Any, multimedia: Any, evidence: list[Any], reasoning
 
 
 def verify_local(*, claim: Any, multimedia: Any, evidence: list[Any], reasoning_support: Any) -> dict[str, Any]:
-    if not local_provider.is_configured():
+    if not local_provider.is_configured("phase4"):
         raise RuntimeError("Local VLM provider is not configured")
-    model = local_provider.configured_model()
+    model = local_provider.configured_model("phase4")
     return _verify_provider_models(
         provider="local",
         models=[model],

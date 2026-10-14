@@ -1,0 +1,61 @@
+{
+  "created_at": 1791794244.970335,
+  "task": "phase4_verification",
+  "key": "bc635dc0ac670e52299c91ee17dcb4ed4e3725a3219e58975d54e88a817c8fc9",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "NEI",
+    "confidence": 0.75,
+    "evidence_ids": [
+      "text_08_002",
+      "text_03_000",
+      "text_06_004",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_08_002",
+        "stance": "support",
+        "confidence": 0.8,
+        "rationale": "Confirms Nguyen Chi Thanh's real name is Nguyen Vinh and he was the second person in the VPA promoted to Senior General (Dai tuong) in 1959 after Vo Nguyen Giap."
+      },
+      {
+        "evidence_id": "text_03_000",
+        "stance": "support",
+        "confidence": 0.8,
+        "rationale": "Confirms he was the second Senior General, promoted directly in 1959 without intermediate ranks, and his real name was Nguyen Vinh."
+      },
+      {
+        "evidence_id": "text_06_004",
+        "stance": "support",
+        "confidence": 0.8,
+        "rationale": "Confirms Nguyen Chi Thanh was directly promoted to Senior General in 1959 without intermediate general ranks."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 0.8,
+        "rationale": "Confirms he was the second Senior General of the VPA, promoted directly in 1959 without prior ranks."
+      },
+      {
+        "evidence_id": "image_05",
+        "stance": "neutral",
+        "confidence": 0.2,
+        "rationale": "A historical photograph that does not verify the claim's factual statements."
+      }
+    ],
+    "evidence_coverage": "PARTIAL",
+    "rationale": "The retrieved external evidence confirms that General Nguyen Chi Thanh (real name Nguyen Vinh) was the second person promoted to Senior General (Dai tuong) in 1959 without passing through lower ranks. However, the external evidence does not provide explicit confirmation for the sub-claim that he is the father of Senior Lieutenant General (Thuong tuong) Nguyen Chi Vinh, resulting in partial coverage.",
+    "uncertainty": "Missing explicit textual corroboration in the retrieved sources establishing the father-son relationship with Senior Lieutenant General Nguyen Chi Vinh.",
+    "limitations": [
+      "No retrieved external evidence directly confirms the relationship between Nguyen Chi Thanh and Nguyen Chi Vinh."
+    ],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "created_at": 1791791515.1691444,
+  "task": "phase4_verification",
+  "key": "a8400e9518e794fb1303be9794e9efd6d20f029726ce9eb86c2dfdfbc0ff0ca7",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.95,
+    "evidence_ids": [
+      "text_01_000",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 0.95,
+        "rationale": "Xác nhận rõ ràng tính đến năm 2025, Quân đội nhân dân Việt Nam có 19 vị Đại tướng."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 0.95,
+        "rationale": "Xác nhận Quân đội nhân dân có thêm vị Đại tướng thứ 19 khi ông Nguyễn Trọng Nghĩa được phong hàm vào tháng 11/2025."
+      },
+      {
+        "evidence_id": "text_04_011",
+        "stance": "context",
+        "confidence": 0.7,
+        "rationale": "Cung cấp bối cảnh lịch sử về các trường hợp thụ phong Đại tướng đặc cách trong Quân đội nhân dân Việt Nam."
+      },
+      {
+        "evidence_id": "text_03_004",
+        "stance": "context",
+        "confidence": 0.6,
+        "rationale": "Cung cấp thông tin cấp bậc hàm Đại tướng trong lực lượng vũ trang."
+      },
+      {
+        "evidence_id": "image_03",
+        "stance": "neutral",
+        "confidence": 0.5,
+        "rationale": "Hình ảnh nữ tướng Quân đội nhân dân Việt Nam, không liên quan trực tiếp đến số lượng 19 vị Đại tướng."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Các nguồn tin độc lập xác nhận rằng tính đến tháng 11 năm 2025, Quân đội nhân dân Việt Nam đã có tổng cộng 19 vị Đại tướng, với vị Đại tướng thứ 19 vừa được phong hàm là ông Nguyễn Trọng Nghĩa.",
+    "uncertainty": "Không có",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

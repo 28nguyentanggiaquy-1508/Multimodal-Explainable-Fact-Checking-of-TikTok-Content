@@ -1,0 +1,147 @@
+{
+  "dataset": {
+    "test_file": "C:\\NCKH\\tiktok_chatbot\\tiktok_chatbot\\backend\\data\\absa\\processed\\test.json",
+    "comments": 116,
+    "gold_aspects": 62
+  },
+  "models": {
+    "ate": "ate_phobert_v1",
+    "asc": "asc_phobert_v1"
+  },
+  "ate_exact_char_span": {
+    "precision": 0.3106796116504854,
+    "recall": 0.5161290322580645,
+    "f1": 0.3878787878787878,
+    "tp": 32,
+    "fp": 71,
+    "fn": 30,
+    "gold_spans": 62,
+    "predicted_spans": 103
+  },
+  "asc_oracle_gold_aspect": {
+    "accuracy": 0.6774193548387096,
+    "macro_precision": 0.4534722222222222,
+    "macro_recall": 0.508888888888889,
+    "macro_f1": 0.4777777777777778,
+    "weighted_f1": 0.6397849462365591,
+    "per_class": {
+      "NEGATIVE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 7,
+        "support": 7
+      },
+      "NEUTRAL": {
+        "precision": 0.7666666666666667,
+        "recall": 0.7666666666666667,
+        "f1": 0.7666666666666667,
+        "tp": 23,
+        "fp": 7,
+        "fn": 7,
+        "support": 30
+      },
+      "POSITIVE": {
+        "precision": 0.59375,
+        "recall": 0.76,
+        "f1": 0.6666666666666666,
+        "tp": 19,
+        "fp": 13,
+        "fn": 6,
+        "support": 25
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        1,
+        6
+      ],
+      [
+        0,
+        23,
+        7
+      ],
+      [
+        0,
+        6,
+        19
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ]
+  },
+  "asc_on_exact_ate_matches": {
+    "accuracy": 0.78125,
+    "macro_precision": 0.5114709851551956,
+    "macro_recall": 0.5534290271132377,
+    "macro_f1": 0.5307017543859649,
+    "weighted_f1": 0.7578125,
+    "per_class": {
+      "NEGATIVE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 2,
+        "support": 2
+      },
+      "NEUTRAL": {
+        "precision": 0.8421052631578947,
+        "recall": 0.8421052631578947,
+        "f1": 0.8421052631578947,
+        "tp": 16,
+        "fp": 3,
+        "fn": 3,
+        "support": 19
+      },
+      "POSITIVE": {
+        "precision": 0.6923076923076923,
+        "recall": 0.8181818181818182,
+        "f1": 0.7500000000000001,
+        "tp": 9,
+        "fp": 4,
+        "fn": 2,
+        "support": 11
+      }
+    },
+    "confusion_matrix": [
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        16,
+        3
+      ],
+      [
+        0,
+        2,
+        9
+      ]
+    ],
+    "confusion_matrix_labels": [
+      "NEGATIVE",
+      "NEUTRAL",
+      "POSITIVE"
+    ]
+  },
+  "end_to_end_exact_span_sentiment": {
+    "precision": 0.24271844660194175,
+    "recall": 0.4032258064516129,
+    "f1": 0.30303030303030304,
+    "tp": 25,
+    "fp": 78,
+    "fn": 37,
+    "gold_pairs": 62,
+    "predicted_pairs": 103
+  }
+}

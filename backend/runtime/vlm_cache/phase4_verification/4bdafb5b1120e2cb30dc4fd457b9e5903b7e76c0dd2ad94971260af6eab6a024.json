@@ -1,0 +1,161 @@
+{
+  "created_at": 1791815555.015649,
+  "task": "phase4_verification",
+  "key": "4bdafb5b1120e2cb30dc4fd457b9e5903b7e76c0dd2ad94971260af6eab6a024",
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:8b-instruct-q4_K_M"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.95,
+    "evidence_ids": [
+      "text_09_006",
+      "text_07_046",
+      "text_03_002",
+      "text_01_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_09_006",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Explicitly states Võ Nguyên Giáp was conferred the rank of Generalissimo without prior ranks."
+      },
+      {
+        "evidence_id": "text_07_046",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Directly confirms he was conferred the rank without intermediate ranks and was the first Generalissimo."
+      },
+      {
+        "evidence_id": "text_03_002",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "States he became the first Generalissimo at age 37 without intermediate ranks."
+      },
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Confirms he was directly conferred the rank of Generalissimo at age 37."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Đánh giá theo thành phần: C1=SUPPORTED; C2=SUPPORTED. Evidence ngoài bao phủ đầy đủ mọi thành phần trọng yếu của claim.",
+    "uncertainty": "",
+    "limitations": [
+      "Final local verdict/coverage was recomputed deterministically from material claim components."
+    ],
+    "multimodal_used": false,
+    "model": "qwen3-vl:8b-instruct-q4_K_M",
+    "provider": "local",
+    "_guard_metadata": {
+      "mode": "local_component_evidence_guard_v2",
+      "component_count": 2,
+      "resolved_components": 2,
+      "coverage_score": 1.0,
+      "components": [
+        {
+          "component_id": "C1",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "text_09_006",
+            "text_07_046",
+            "text_03_002",
+            "text_01_000"
+          ],
+          "confidence": 1.0,
+          "rationale": "Multiple sources confirm Võ Nguyên Giáp was the only General-in-Chief of the Vietnamese People's Army.",
+          "text": "Đại tướng Võ Nguyên Giáp là Tổng Tư lệnh duy nhất của Quân đội nhân dân Việt Nam",
+          "qualifier_checks": [
+            {
+              "component_id": "C1",
+              "kind": "unique",
+              "label": "uniqueness/only qualifier",
+              "passed": true,
+              "matched_evidence_ids": [
+                "text_09_006"
+              ]
+            }
+          ]
+        },
+        {
+          "component_id": "C2",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "text_09_006",
+            "text_07_046",
+            "text_03_002",
+            "text_01_000"
+          ],
+          "confidence": 1.0,
+          "rationale": "All cited sources state he was directly conferred the rank of Generalissimo at age 37 without intermediate ranks.",
+          "text": "được Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng năm 37 tuổi mà không qua các cấp trung gian",
+          "qualifier_checks": [
+            {
+              "component_id": "C2",
+              "kind": "direct_promotion",
+              "label": "direct-promotion/no-intermediate-rank qualifier",
+              "passed": true,
+              "matched_evidence_ids": [
+                "text_01_000"
+              ]
+            },
+            {
+              "component_id": "C2",
+              "kind": "age",
+              "label": "exact age 37",
+              "passed": true,
+              "matched_evidence_ids": [
+                "text_09_006",
+                "text_07_046",
+                "text_03_002",
+                "text_01_000"
+              ]
+            }
+          ]
+        }
+      ],
+      "qualifier_checks": [
+        {
+          "component_id": "C1",
+          "kind": "unique",
+          "label": "uniqueness/only qualifier",
+          "passed": true,
+          "matched_evidence_ids": [
+            "text_09_006"
+          ]
+        },
+        {
+          "component_id": "C2",
+          "kind": "direct_promotion",
+          "label": "direct-promotion/no-intermediate-rank qualifier",
+          "passed": true,
+          "matched_evidence_ids": [
+            "text_01_000"
+          ]
+        },
+        {
+          "component_id": "C2",
+          "kind": "age",
+          "label": "exact age 37",
+          "passed": true,
+          "matched_evidence_ids": [
+            "text_09_006",
+            "text_07_046",
+            "text_03_002",
+            "text_01_000"
+          ]
+        }
+      ],
+      "raw_model_verdict": "SUPPORTED",
+      "raw_model_coverage": "COMPLETE",
+      "raw_model_confidence": 1.0,
+      "final_verdict": "SUPPORTED",
+      "final_coverage": "COMPLETE",
+      "final_confidence": 0.95
+    }
+  }
+}

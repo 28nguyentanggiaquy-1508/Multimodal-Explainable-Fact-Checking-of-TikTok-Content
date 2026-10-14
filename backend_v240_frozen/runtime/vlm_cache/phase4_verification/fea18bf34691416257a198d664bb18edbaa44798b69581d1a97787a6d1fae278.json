@@ -1,0 +1,52 @@
+{
+  "created_at": 1791789500.642572,
+  "task": "phase4_verification",
+  "key": "fea18bf34691416257a198d664bb18edbaa44798b69581d1a97787a6d1fae278",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.98,
+    "evidence_ids": [
+      "text_07_006",
+      "text_01_046",
+      "text_05_004"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_07_006",
+        "stance": "support",
+        "confidence": 0.98,
+        "rationale": "Confirms that Võ Nguyên Giáp was appointed General under a decree signed in 1948, becoming the first General of the Vietnam People's Army at the age of 37."
+      },
+      {
+        "evidence_id": "text_01_046",
+        "stance": "support",
+        "confidence": 0.97,
+        "rationale": "Confirms that he was promoted to General in 1948 (Decree signed in January 1948, conferred in May 1948) and became the first General at 37 years old."
+      },
+      {
+        "evidence_id": "text_05_004",
+        "stance": "support",
+        "confidence": 0.95,
+        "rationale": "Corroborates that he was conferred the rank of General in 1948 when he was 37 years old."
+      },
+      {
+        "evidence_id": "image_03",
+        "stance": "neutral",
+        "confidence": 0.9,
+        "rationale": "The attached image shows poet Nguyễn Bính and does not relate directly to the claim's verification."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "The retrieved external evidence completely corroborates all components of the claim: Võ Nguyên Giáp was promoted to the rank of General in 1948, becoming the first General of the Vietnam People's Army at the age of 37.",
+    "uncertainty": "None regarding the material facts of the claim.",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

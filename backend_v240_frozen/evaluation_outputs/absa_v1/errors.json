@@ -1,0 +1,2412 @@
+{
+  "ate_false_negatives": [
+    {
+      "comment_id": "7667213994373284629",
+      "text": "Nhưng mà tụi Nhật cao chưa tới m7 lại hay mặt đồ rộng dài nhìn lại đẹp",
+      "start": 9,
+      "end": 17,
+      "term": "tụi Nhật",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7677787978102883090",
+      "text": "Chân 91 92 là vừa chứ 96 chắc quét đất 😂",
+      "start": 0,
+      "end": 10,
+      "term": "Chân 91 92",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7653549248964870919",
+      "text": "Màn hình điện thoại",
+      "start": 0,
+      "end": 19,
+      "term": "Màn hình điện thoại",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 26,
+      "end": 37,
+      "term": "mẫu áo thun",
+      "gold_polarity": "NEGATIVE"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 94,
+      "end": 101,
+      "term": "áo thun",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7671780105261400839",
+      "text": "tùy tỉ lệ cơ thể nữa, bồ t cao hơn t 2cm mà quần t thích mặc 110cm+ vì độ phủ vừa đẹp còn ảnh mặc ngắn hơn và chê quần t dài",
+      "start": 4,
+      "end": 16,
+      "term": "tỉ lệ cơ thể",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7677401928041693959",
+      "text": "Có phải dáng mẫu hay thiết kế riêng đâu mà đòi cả chiều dài lẫn rộng",
+      "start": 8,
+      "end": 12,
+      "term": "dáng",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7667110960230744846",
+      "text": "Còn người lưng dài, ko cân xứng thì sao shop",
+      "start": 10,
+      "end": 14,
+      "term": "lưng",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7667110960230744846",
+      "text": "Còn người lưng dài, ko cân xứng thì sao shop",
+      "start": 40,
+      "end": 44,
+      "term": "shop",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "start": 29,
+      "end": 36,
+      "term": "ngực to",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "start": 37,
+      "end": 48,
+      "term": "tay chân to",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7666872916453868306",
+      "text": "Cho mik cin link quần màu trắng này",
+      "start": 17,
+      "end": 21,
+      "term": "quần",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7674254709057700626",
+      "text": "Cái quy chuẩn xàm vl, đâu phải số đo ai cũng giống ai, chưa nói body nó muôn hình vạn trạng :))",
+      "start": 64,
+      "end": 68,
+      "term": "body",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7667070367130813205",
+      "text": "Kiếm được cái áo phông dài dưới 64cm bây giờ chắc chỉ có mua đồ trẻ e thôi 😁",
+      "start": 14,
+      "end": 16,
+      "term": "áo",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7667451642459538183",
+      "text": "thay đổi cả cái vóc dáng nữa . dáng oke thì phối đồ cũng đẹp",
+      "start": 20,
+      "end": 24,
+      "term": "dáng",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7672089158172820244",
+      "text": "Tỉ lệ cơ thể chuẩn là đẹp",
+      "start": 0,
+      "end": 12,
+      "term": "Tỉ lệ cơ thể",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7675807546134020882",
+      "text": "Đặng ng khó nói lắm, tui mặc đại có cần đo đâu, mua đồ cứ mặc thử hợp ng vừa ng thì mua, mua đồ online thì ko bao h OK vừa dáng hết",
+      "start": 123,
+      "end": 127,
+      "term": "dáng",
+      "gold_polarity": "NEGATIVE"
+    },
+    {
+      "comment_id": "7658852707642180370",
+      "text": "Thế này thì ng xem vid biết hết mật khẩu r còn j nữa",
+      "start": 19,
+      "end": 22,
+      "term": "vid",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "start": 43,
+      "end": 45,
+      "term": "áo",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "start": 58,
+      "end": 62,
+      "term": "quần",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7666978650454262536",
+      "text": "thấp thì tất nhiên là xấu hơn cao r nhưng để mặc đc đẹp hay ko nó phụ thuộc tỉ lệ cơ thể, cứ cân đối là dc. Style còn phụ thuộc thần thái, tuổi tác. Cứ tự tin là đc",
+      "start": 76,
+      "end": 88,
+      "term": "tỉ lệ cơ thể",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "start": 18,
+      "end": 26,
+      "term": "lưng dài",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "start": 31,
+      "end": 39,
+      "term": "chân dài",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "start": 31,
+      "end": 43,
+      "term": "tỉ lệ cơ thể",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7668109735804158740",
+      "text": "T 1m63 mà vợ bắt mặc quần ống rộng (bagggy) thì sao mấy ní 🥲🥲🥲",
+      "start": 21,
+      "end": 25,
+      "term": "quần",
+      "gold_polarity": "NEUTRAL"
+    },
+    {
+      "comment_id": "7676406274997142290",
+      "text": "1m61,anh em không cần quá quan trọng mặc j,quan trọng là body anh em thế nào,tui tự tin không mặc j vẫn đẹp",
+      "start": 57,
+      "end": 61,
+      "term": "body",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "start": 18,
+      "end": 27,
+      "term": "chân ngắn",
+      "gold_polarity": "NEGATIVE"
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "start": 29,
+      "end": 48,
+      "term": "vai thì bề ngang to",
+      "gold_polarity": "NEGATIVE"
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "start": 40,
+      "end": 49,
+      "term": "quần 91cm",
+      "gold_polarity": "POSITIVE"
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "start": 62,
+      "end": 64,
+      "term": "96",
+      "gold_polarity": "NEGATIVE"
+    }
+  ],
+  "ate_false_positives": [
+    {
+      "comment_id": "7685346113491026709",
+      "text": "1m7 quần áo mặc sao nhỉ",
+      "start": 0,
+      "end": 3,
+      "term": "1m7"
+    },
+    {
+      "comment_id": "7667968626419041042",
+      "text": "Ra tiệm may là đẹp nhất nhé",
+      "start": 3,
+      "end": 11,
+      "term": "tiệm may"
+    },
+    {
+      "comment_id": "7675673739845649160",
+      "text": "Làm gì có shop nào bán đồ theo đúng số đo như vậy. Mua rồi về đem đi sửa ấy",
+      "start": 23,
+      "end": 25,
+      "term": "đồ"
+    },
+    {
+      "comment_id": "7675673739845649160",
+      "text": "Làm gì có shop nào bán đồ theo đúng số đo như vậy. Mua rồi về đem đi sửa ấy",
+      "start": 36,
+      "end": 41,
+      "term": "số đo"
+    },
+    {
+      "comment_id": "7677787978102883090",
+      "text": "Chân 91 92 là vừa chứ 96 chắc quét đất 😂",
+      "start": 0,
+      "end": 4,
+      "term": "Chân"
+    },
+    {
+      "comment_id": "7653549248964870919",
+      "text": "Màn hình điện thoại",
+      "start": 0,
+      "end": 8,
+      "term": "Màn hình"
+    },
+    {
+      "comment_id": "7653549248964870919",
+      "text": "Màn hình điện thoại",
+      "start": 9,
+      "end": 19,
+      "term": "điện thoại"
+    },
+    {
+      "comment_id": "7200381330616615706",
+      "text": "Nghệ cả củ",
+      "start": 0,
+      "end": 4,
+      "term": "Nghệ"
+    },
+    {
+      "comment_id": "7668847077673141012",
+      "text": "Nhìn lên hình lên video trong cao hơn, nhưng nó chỉ nằm gọn chung khung hình thì cao chứ bên ngoài đứng giữa đám đóng sẽ hiểu,",
+      "start": 9,
+      "end": 13,
+      "term": "hình"
+    },
+    {
+      "comment_id": "7668847077673141012",
+      "text": "Nhìn lên hình lên video trong cao hơn, nhưng nó chỉ nằm gọn chung khung hình thì cao chứ bên ngoài đứng giữa đám đóng sẽ hiểu,",
+      "start": 66,
+      "end": 76,
+      "term": "khung hình"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 9,
+      "end": 15,
+      "term": "trường"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 26,
+      "end": 29,
+      "term": "mẫu"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 30,
+      "end": 37,
+      "term": "áo thun"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 54,
+      "end": 59,
+      "term": "áo 64"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 94,
+      "end": 105,
+      "term": "áo thun dài"
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "start": 133,
+      "end": 135,
+      "term": "áo"
+    },
+    {
+      "comment_id": "7677401928041693959",
+      "text": "Có phải dáng mẫu hay thiết kế riêng đâu mà đòi cả chiều dài lẫn rộng",
+      "start": 8,
+      "end": 16,
+      "term": "dáng mẫu"
+    },
+    {
+      "comment_id": "7677401928041693959",
+      "text": "Có phải dáng mẫu hay thiết kế riêng đâu mà đòi cả chiều dài lẫn rộng",
+      "start": 27,
+      "end": 29,
+      "term": "kế"
+    },
+    {
+      "comment_id": "7677401928041693959",
+      "text": "Có phải dáng mẫu hay thiết kế riêng đâu mà đòi cả chiều dài lẫn rộng",
+      "start": 50,
+      "end": 59,
+      "term": "chiều dài"
+    },
+    {
+      "comment_id": "7667110960230744846",
+      "text": "Còn người lưng dài, ko cân xứng thì sao shop",
+      "start": 4,
+      "end": 14,
+      "term": "người lưng"
+    },
+    {
+      "comment_id": "7666863924906066708",
+      "text": "đồ vừa vặn, tập luyện cho tỉ lệ đẹp là tốt nhất, mình 1m6 đây",
+      "start": 29,
+      "end": 31,
+      "term": "lệ"
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "start": 29,
+      "end": 33,
+      "term": "ngực"
+    },
+    {
+      "comment_id": "7666833519943254791",
+      "text": "quan trong là bé nó đẹp trai",
+      "start": 14,
+      "end": 16,
+      "term": "bé"
+    },
+    {
+      "comment_id": "7673025756881486600",
+      "text": "M63 54kg, nếu thích style này mn có thể tham khảo trang e, còn k xin nhẹ tay 😁",
+      "start": 20,
+      "end": 25,
+      "term": "style"
+    },
+    {
+      "comment_id": "7666872916453868306",
+      "text": "Cho mik cin link quần màu trắng này",
+      "start": 17,
+      "end": 31,
+      "term": "quần màu trắng"
+    },
+    {
+      "comment_id": "7674254709057700626",
+      "text": "Cái quy chuẩn xàm vl, đâu phải số đo ai cũng giống ai, chưa nói body nó muôn hình vạn trạng :))",
+      "start": 4,
+      "end": 13,
+      "term": "quy chuẩn"
+    },
+    {
+      "comment_id": "7667070367130813205",
+      "text": "Kiếm được cái áo phông dài dưới 64cm bây giờ chắc chỉ có mua đồ trẻ e thôi 😁",
+      "start": 10,
+      "end": 13,
+      "term": "cái"
+    },
+    {
+      "comment_id": "7667070367130813205",
+      "text": "Kiếm được cái áo phông dài dưới 64cm bây giờ chắc chỉ có mua đồ trẻ e thôi 😁",
+      "start": 14,
+      "end": 26,
+      "term": "áo phông dài"
+    },
+    {
+      "comment_id": "7667070367130813205",
+      "text": "Kiếm được cái áo phông dài dưới 64cm bây giờ chắc chỉ có mua đồ trẻ e thôi 😁",
+      "start": 61,
+      "end": 67,
+      "term": "đồ trẻ"
+    },
+    {
+      "comment_id": "7666965433459720980",
+      "text": "Cho mình xin linh mấy bộ này đc ko ạ",
+      "start": 22,
+      "end": 24,
+      "term": "bộ"
+    },
+    {
+      "comment_id": "7679326122936632082",
+      "text": "Rồi ai may đồ theo chiều cao của bạn",
+      "start": 11,
+      "end": 13,
+      "term": "đồ"
+    },
+    {
+      "comment_id": "7679326122936632082",
+      "text": "Rồi ai may đồ theo chiều cao của bạn",
+      "start": 19,
+      "end": 28,
+      "term": "chiều cao"
+    },
+    {
+      "comment_id": "7671262011535868688",
+      "text": "1m8 mà để cái ống quần 108 thì ối zồi ôi luôn 😂",
+      "start": 10,
+      "end": 13,
+      "term": "cái"
+    },
+    {
+      "comment_id": "7671262011535868688",
+      "text": "1m8 mà để cái ống quần 108 thì ối zồi ôi luôn 😂",
+      "start": 14,
+      "end": 26,
+      "term": "ống quần 108"
+    },
+    {
+      "comment_id": "7667451642459538183",
+      "text": "thay đổi cả cái vóc dáng nữa . dáng oke thì phối đồ cũng đẹp",
+      "start": 16,
+      "end": 24,
+      "term": "vóc dáng"
+    },
+    {
+      "comment_id": "7672588196127589140",
+      "text": "tuớng tôi xấu quá k phối đồ được k biết ai chỉ cho tôi đk k",
+      "start": 25,
+      "end": 27,
+      "term": "đồ"
+    },
+    {
+      "comment_id": "7672089158172820244",
+      "text": "Tỉ lệ cơ thể chuẩn là đẹp",
+      "start": 3,
+      "end": 5,
+      "term": "lệ"
+    },
+    {
+      "comment_id": "7672089158172820244",
+      "text": "Tỉ lệ cơ thể chuẩn là đẹp",
+      "start": 6,
+      "end": 12,
+      "term": "cơ thể"
+    },
+    {
+      "comment_id": "7658852707642180370",
+      "text": "Thế này thì ng xem vid biết hết mật khẩu r còn j nữa",
+      "start": 32,
+      "end": 40,
+      "term": "mật khẩu"
+    },
+    {
+      "comment_id": "7667112225279214356",
+      "text": "áo kia tên j á",
+      "start": 0,
+      "end": 2,
+      "term": "áo"
+    },
+    {
+      "comment_id": "7667857392050160385",
+      "text": "1m65 mà tỉ lệ chuẩn cũng ngon mà ae.😁",
+      "start": 0,
+      "end": 4,
+      "term": "1m65"
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "start": 0,
+      "end": 8,
+      "term": "bí quyết"
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "start": 43,
+      "end": 50,
+      "term": "áo ngắn"
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "start": 58,
+      "end": 68,
+      "term": "quần xuông"
+    },
+    {
+      "comment_id": "7669818661812716296",
+      "text": "m60 mà người gầy mặc đồ nó còn đỡ chứ m60 mà trên 60 cân xem không chọn theo cân nặng á có mà vứt hết đồ",
+      "start": 0,
+      "end": 3,
+      "term": "m60"
+    },
+    {
+      "comment_id": "7669818661812716296",
+      "text": "m60 mà người gầy mặc đồ nó còn đỡ chứ m60 mà trên 60 cân xem không chọn theo cân nặng á có mà vứt hết đồ",
+      "start": 77,
+      "end": 85,
+      "term": "cân nặng"
+    },
+    {
+      "comment_id": "7679586327441048338",
+      "text": "Nó mang giày độn mấy ba ơi",
+      "start": 8,
+      "end": 16,
+      "term": "giày độn"
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "start": 0,
+      "end": 3,
+      "term": "1m6"
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "start": 18,
+      "end": 22,
+      "term": "lưng"
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "start": 31,
+      "end": 35,
+      "term": "chân"
+    },
+    {
+      "comment_id": "7202202028741870362",
+      "text": "công nghệ cao thiệt sự ấy chứ 😂",
+      "start": 0,
+      "end": 13,
+      "term": "công nghệ cao"
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "start": 0,
+      "end": 2,
+      "term": "M6"
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "start": 7,
+      "end": 9,
+      "term": "m4"
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "start": 31,
+      "end": 36,
+      "term": "tỉ lệ"
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "start": 61,
+      "end": 70,
+      "term": "tỉ lệ đẹp"
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "start": 106,
+      "end": 108,
+      "term": "lệ"
+    },
+    {
+      "comment_id": "7668109735804158740",
+      "text": "T 1m63 mà vợ bắt mặc quần ống rộng (bagggy) thì sao mấy ní 🥲🥲🥲",
+      "start": 21,
+      "end": 34,
+      "term": "quần ống rộng"
+    },
+    {
+      "comment_id": "7668109735804158740",
+      "text": "T 1m63 mà vợ bắt mặc quần ống rộng (bagggy) thì sao mấy ní 🥲🥲🥲",
+      "start": 36,
+      "end": 42,
+      "term": "bagggy"
+    },
+    {
+      "comment_id": "7687694252008522516",
+      "text": "m65 mặc quần uống suông ổn k ae nhỉ :))",
+      "start": 18,
+      "end": 23,
+      "term": "suông"
+    },
+    {
+      "comment_id": "7676406274997142290",
+      "text": "1m61,anh em không cần quá quan trọng mặc j,quan trọng là body anh em thế nào,tui tự tin không mặc j vẫn đẹp",
+      "start": 5,
+      "end": 11,
+      "term": "anh em"
+    },
+    {
+      "comment_id": "7678922520808538881",
+      "text": "cao m8 rồi nhưng vẫn cứ thích học theo mấy ôg m6 phối đồ😂",
+      "start": 54,
+      "end": 56,
+      "term": "đồ"
+    },
+    {
+      "comment_id": "7667543254405317396",
+      "text": "nói thế chứ tìm đồ hợp chỉ số không có đâu, sửa thì may ra có, hoặc đặt ngta may chứ ở đó mà đòi chọn 😀",
+      "start": 16,
+      "end": 22,
+      "term": "đồ hợp"
+    },
+    {
+      "comment_id": "7667224014632289025",
+      "text": "Áo ngắn với quần suông, đi sneaker. Nhưng chốt lại là lên clip vẫn kéo chân 🤣",
+      "start": 58,
+      "end": 62,
+      "term": "clip"
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "start": 18,
+      "end": 22,
+      "term": "chân"
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "start": 66,
+      "end": 69,
+      "term": "gấu"
+    },
+    {
+      "comment_id": "7680069458073928466",
+      "text": "1m6 thì còn thấp hơn cả t nữa",
+      "start": 0,
+      "end": 3,
+      "term": "1m6"
+    },
+    {
+      "comment_id": "7657587387387872020",
+      "text": "spider man phiên bản lỗi",
+      "start": 0,
+      "end": 6,
+      "term": "spider"
+    },
+    {
+      "comment_id": "7666846944854557447",
+      "text": "áo ngta may vai ntn . lm thế nào để biết vai ngt may ra bn để chọn . mang đi sửa ạ ?",
+      "start": 12,
+      "end": 15,
+      "term": "vai"
+    },
+    {
+      "comment_id": "7666846944854557447",
+      "text": "áo ngta may vai ntn . lm thế nào để biết vai ngt may ra bn để chọn . mang đi sửa ạ ?",
+      "start": 41,
+      "end": 44,
+      "term": "vai"
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "start": 40,
+      "end": 44,
+      "term": "quần"
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "start": 83,
+      "end": 87,
+      "term": "quần"
+    }
+  ],
+  "asc_oracle_errors": [
+    {
+      "comment_id": "7677787978102883090",
+      "text": "Chân 91 92 là vừa chứ 96 chắc quét đất 😂",
+      "term": "Chân 91 92",
+      "start": 0,
+      "end": 10,
+      "gold": "POSITIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.6426,
+      "probabilities": {
+        "NEGATIVE": 0.1469,
+        "NEUTRAL": 0.6426,
+        "POSITIVE": 0.2105
+      }
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "term": "mẫu áo thun",
+      "start": 26,
+      "end": 37,
+      "gold": "NEGATIVE",
+      "pred": "POSITIVE",
+      "confidence": 0.5626,
+      "probabilities": {
+        "NEGATIVE": 0.0829,
+        "NEUTRAL": 0.3546,
+        "POSITIVE": 0.5626
+      }
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "term": "ngực to",
+      "start": 29,
+      "end": 36,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.6238,
+      "probabilities": {
+        "NEGATIVE": 0.115,
+        "NEUTRAL": 0.2612,
+        "POSITIVE": 0.6238
+      }
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "term": "tay chân to",
+      "start": 37,
+      "end": 48,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.6348,
+      "probabilities": {
+        "NEGATIVE": 0.1136,
+        "NEUTRAL": 0.2516,
+        "POSITIVE": 0.6348
+      }
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "term": "Ngực",
+      "start": 111,
+      "end": 115,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.601,
+      "probabilities": {
+        "NEGATIVE": 0.1218,
+        "NEUTRAL": 0.2773,
+        "POSITIVE": 0.601
+      }
+    },
+    {
+      "comment_id": "7674254709057700626",
+      "text": "Cái quy chuẩn xàm vl, đâu phải số đo ai cũng giống ai, chưa nói body nó muôn hình vạn trạng :))",
+      "term": "body",
+      "start": 64,
+      "end": 68,
+      "gold": "POSITIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.4798,
+      "probabilities": {
+        "NEGATIVE": 0.1647,
+        "NEUTRAL": 0.4798,
+        "POSITIVE": 0.3555
+      }
+    },
+    {
+      "comment_id": "7667476413038740232",
+      "text": "Công thức chuẩn nhưng đồ k có sz chuẩn🤣",
+      "term": "Công thức",
+      "start": 0,
+      "end": 9,
+      "gold": "POSITIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.5558,
+      "probabilities": {
+        "NEGATIVE": 0.2846,
+        "NEUTRAL": 0.5558,
+        "POSITIVE": 0.1596
+      }
+    },
+    {
+      "comment_id": "7667476413038740232",
+      "text": "Công thức chuẩn nhưng đồ k có sz chuẩn🤣",
+      "term": "đồ",
+      "start": 22,
+      "end": 24,
+      "gold": "NEGATIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.6448,
+      "probabilities": {
+        "NEGATIVE": 0.2351,
+        "NEUTRAL": 0.6448,
+        "POSITIVE": 0.1201
+      }
+    },
+    {
+      "comment_id": "7675807546134020882",
+      "text": "Đặng ng khó nói lắm, tui mặc đại có cần đo đâu, mua đồ cứ mặc thử hợp ng vừa ng thì mua, mua đồ online thì ko bao h OK vừa dáng hết",
+      "term": "đồ",
+      "start": 52,
+      "end": 54,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.4174,
+      "probabilities": {
+        "NEGATIVE": 0.2042,
+        "NEUTRAL": 0.3784,
+        "POSITIVE": 0.4174
+      }
+    },
+    {
+      "comment_id": "7675807546134020882",
+      "text": "Đặng ng khó nói lắm, tui mặc đại có cần đo đâu, mua đồ cứ mặc thử hợp ng vừa ng thì mua, mua đồ online thì ko bao h OK vừa dáng hết",
+      "term": "đồ online",
+      "start": 93,
+      "end": 102,
+      "gold": "NEGATIVE",
+      "pred": "POSITIVE",
+      "confidence": 0.412,
+      "probabilities": {
+        "NEGATIVE": 0.2128,
+        "NEUTRAL": 0.3752,
+        "POSITIVE": 0.412
+      }
+    },
+    {
+      "comment_id": "7675807546134020882",
+      "text": "Đặng ng khó nói lắm, tui mặc đại có cần đo đâu, mua đồ cứ mặc thử hợp ng vừa ng thì mua, mua đồ online thì ko bao h OK vừa dáng hết",
+      "term": "dáng",
+      "start": 123,
+      "end": 127,
+      "gold": "NEGATIVE",
+      "pred": "POSITIVE",
+      "confidence": 0.4591,
+      "probabilities": {
+        "NEGATIVE": 0.1719,
+        "NEUTRAL": 0.369,
+        "POSITIVE": 0.4591
+      }
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "term": "quần",
+      "start": 58,
+      "end": 62,
+      "gold": "POSITIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.732,
+      "probabilities": {
+        "NEGATIVE": 0.1003,
+        "NEUTRAL": 0.732,
+        "POSITIVE": 0.1676
+      }
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "term": "áo",
+      "start": 43,
+      "end": 45,
+      "gold": "POSITIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.7104,
+      "probabilities": {
+        "NEGATIVE": 0.0982,
+        "NEUTRAL": 0.7104,
+        "POSITIVE": 0.1914
+      }
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "term": "lưng dài",
+      "start": 18,
+      "end": 26,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.4733,
+      "probabilities": {
+        "NEGATIVE": 0.0945,
+        "NEUTRAL": 0.4322,
+        "POSITIVE": 0.4733
+      }
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "term": "chân dài",
+      "start": 31,
+      "end": 39,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.4954,
+      "probabilities": {
+        "NEGATIVE": 0.0927,
+        "NEUTRAL": 0.4118,
+        "POSITIVE": 0.4954
+      }
+    },
+    {
+      "comment_id": "7687694252008522516",
+      "text": "m65 mặc quần uống suông ổn k ae nhỉ :))",
+      "term": "quần",
+      "start": 8,
+      "end": 12,
+      "gold": "POSITIVE",
+      "pred": "NEUTRAL",
+      "confidence": 0.7575,
+      "probabilities": {
+        "NEGATIVE": 0.0481,
+        "NEUTRAL": 0.7575,
+        "POSITIVE": 0.1944
+      }
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "term": "chân ngắn",
+      "start": 18,
+      "end": 27,
+      "gold": "NEGATIVE",
+      "pred": "POSITIVE",
+      "confidence": 0.5717,
+      "probabilities": {
+        "NEGATIVE": 0.0836,
+        "NEUTRAL": 0.3447,
+        "POSITIVE": 0.5717
+      }
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "term": "vai thì bề ngang to",
+      "start": 29,
+      "end": 48,
+      "gold": "NEGATIVE",
+      "pred": "POSITIVE",
+      "confidence": 0.5797,
+      "probabilities": {
+        "NEGATIVE": 0.0815,
+        "NEUTRAL": 0.3389,
+        "POSITIVE": 0.5797
+      }
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "term": "công thức",
+      "start": 0,
+      "end": 9,
+      "gold": "NEUTRAL",
+      "pred": "POSITIVE",
+      "confidence": 0.6103,
+      "probabilities": {
+        "NEGATIVE": 0.0913,
+        "NEUTRAL": 0.2983,
+        "POSITIVE": 0.6103
+      }
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "term": "96",
+      "start": 62,
+      "end": 64,
+      "gold": "NEGATIVE",
+      "pred": "POSITIVE",
+      "confidence": 0.6193,
+      "probabilities": {
+        "NEGATIVE": 0.0896,
+        "NEUTRAL": 0.2911,
+        "POSITIVE": 0.6193
+      }
+    }
+  ],
+  "e2e_errors": [
+    {
+      "comment_id": "7685346113491026709",
+      "video_id": "7666732540748762386",
+      "text": "1m7 quần áo mặc sao nhỉ",
+      "gold": [
+        {
+          "term": "quần áo",
+          "start": 4,
+          "end": 11,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "1m7",
+          "start": 0,
+          "end": 3,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6456
+        },
+        {
+          "term": "quần áo",
+          "start": 4,
+          "end": 11,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6954
+        }
+      ]
+    },
+    {
+      "comment_id": "7667968626419041042",
+      "video_id": "7666732540748762386",
+      "text": "Ra tiệm may là đẹp nhất nhé",
+      "gold": [],
+      "pred": [
+        {
+          "term": "tiệm may",
+          "start": 3,
+          "end": 11,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5936
+        }
+      ]
+    },
+    {
+      "comment_id": "7667213994373284629",
+      "video_id": "7666732540748762386",
+      "text": "Nhưng mà tụi Nhật cao chưa tới m7 lại hay mặt đồ rộng dài nhìn lại đẹp",
+      "gold": [
+        {
+          "term": "tụi Nhật",
+          "start": 9,
+          "end": 17,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "đồ",
+          "start": 46,
+          "end": 48,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "đồ",
+          "start": 46,
+          "end": 48,
+          "sentiment": "POSITIVE",
+          "confidence": 0.7247
+        }
+      ]
+    },
+    {
+      "comment_id": "7675673739845649160",
+      "video_id": "7666732540748762386",
+      "text": "Làm gì có shop nào bán đồ theo đúng số đo như vậy. Mua rồi về đem đi sửa ấy",
+      "gold": [
+        {
+          "term": "shop",
+          "start": 10,
+          "end": 14,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "shop",
+          "start": 10,
+          "end": 14,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6652
+        },
+        {
+          "term": "đồ",
+          "start": 23,
+          "end": 25,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6455
+        },
+        {
+          "term": "số đo",
+          "start": 36,
+          "end": 41,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5901
+        }
+      ]
+    },
+    {
+      "comment_id": "7677787978102883090",
+      "video_id": "7666732540748762386",
+      "text": "Chân 91 92 là vừa chứ 96 chắc quét đất 😂",
+      "gold": [
+        {
+          "term": "Chân 91 92",
+          "start": 0,
+          "end": 10,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "Chân",
+          "start": 0,
+          "end": 4,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6446
+        }
+      ]
+    },
+    {
+      "comment_id": "7653549248964870919",
+      "video_id": "7200064689764715818",
+      "text": "Màn hình điện thoại",
+      "gold": [
+        {
+          "term": "Màn hình điện thoại",
+          "start": 0,
+          "end": 19,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "Màn hình",
+          "start": 0,
+          "end": 8,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6058
+        },
+        {
+          "term": "điện thoại",
+          "start": 9,
+          "end": 19,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6065
+        }
+      ]
+    },
+    {
+      "comment_id": "7200381330616615706",
+      "video_id": "7200064689764715818",
+      "text": "Nghệ cả củ",
+      "gold": [],
+      "pred": [
+        {
+          "term": "Nghệ",
+          "start": 0,
+          "end": 4,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7122
+        }
+      ]
+    },
+    {
+      "comment_id": "7668847077673141012",
+      "video_id": "7666732540748762386",
+      "text": "Nhìn lên hình lên video trong cao hơn, nhưng nó chỉ nằm gọn chung khung hình thì cao chứ bên ngoài đứng giữa đám đóng sẽ hiểu,",
+      "gold": [
+        {
+          "term": "video",
+          "start": 18,
+          "end": 23,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "hình",
+          "start": 9,
+          "end": 13,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6649
+        },
+        {
+          "term": "video",
+          "start": 18,
+          "end": 23,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7005
+        },
+        {
+          "term": "khung hình",
+          "start": 66,
+          "end": 76,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6376
+        }
+      ]
+    },
+    {
+      "comment_id": "7667078415635366663",
+      "video_id": "7666732540748762386",
+      "text": "trên thị trường giờ ko có mẫu áo thun nào của nam dài áo 64 cả😅😅😅 tôi thấy mình 158 nhưng mặc áo thun dài 68 khá vừa chứ 64 nhìn như áo con nít 😅",
+      "gold": [
+        {
+          "term": "mẫu áo thun",
+          "start": 26,
+          "end": 37,
+          "sentiment": "NEGATIVE"
+        },
+        {
+          "term": "áo thun",
+          "start": 94,
+          "end": 101,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "trường",
+          "start": 9,
+          "end": 15,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5099
+        },
+        {
+          "term": "mẫu",
+          "start": 26,
+          "end": 29,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5357
+        },
+        {
+          "term": "áo thun",
+          "start": 30,
+          "end": 37,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5607
+        },
+        {
+          "term": "áo 64",
+          "start": 54,
+          "end": 59,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5559
+        },
+        {
+          "term": "áo thun dài",
+          "start": 94,
+          "end": 105,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5717
+        },
+        {
+          "term": "áo",
+          "start": 133,
+          "end": 135,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5219
+        }
+      ]
+    },
+    {
+      "comment_id": "7671780105261400839",
+      "video_id": "7666732540748762386",
+      "text": "tùy tỉ lệ cơ thể nữa, bồ t cao hơn t 2cm mà quần t thích mặc 110cm+ vì độ phủ vừa đẹp còn ảnh mặc ngắn hơn và chê quần t dài",
+      "gold": [
+        {
+          "term": "tỉ lệ cơ thể",
+          "start": 4,
+          "end": 16,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "quần",
+          "start": 44,
+          "end": 48,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "quần",
+          "start": 114,
+          "end": 118,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "quần",
+          "start": 44,
+          "end": 48,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5723
+        },
+        {
+          "term": "quần",
+          "start": 114,
+          "end": 118,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5723
+        }
+      ]
+    },
+    {
+      "comment_id": "7677401928041693959",
+      "video_id": "7666732540748762386",
+      "text": "Có phải dáng mẫu hay thiết kế riêng đâu mà đòi cả chiều dài lẫn rộng",
+      "gold": [
+        {
+          "term": "dáng",
+          "start": 8,
+          "end": 12,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "dáng mẫu",
+          "start": 8,
+          "end": 16,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5059
+        },
+        {
+          "term": "kế",
+          "start": 27,
+          "end": 29,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4166
+        },
+        {
+          "term": "chiều dài",
+          "start": 50,
+          "end": 59,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4731
+        }
+      ]
+    },
+    {
+      "comment_id": "7667110960230744846",
+      "video_id": "7666732540748762386",
+      "text": "Còn người lưng dài, ko cân xứng thì sao shop",
+      "gold": [
+        {
+          "term": "lưng",
+          "start": 10,
+          "end": 14,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "shop",
+          "start": 40,
+          "end": 44,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "người lưng",
+          "start": 4,
+          "end": 14,
+          "sentiment": "NEGATIVE",
+          "confidence": 0.4056
+        }
+      ]
+    },
+    {
+      "comment_id": "7666863924906066708",
+      "video_id": "7666732540748762386",
+      "text": "đồ vừa vặn, tập luyện cho tỉ lệ đẹp là tốt nhất, mình 1m6 đây",
+      "gold": [
+        {
+          "term": "đồ",
+          "start": 0,
+          "end": 2,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "đồ",
+          "start": 0,
+          "end": 2,
+          "sentiment": "POSITIVE",
+          "confidence": 0.7049
+        },
+        {
+          "term": "lệ",
+          "start": 29,
+          "end": 31,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6582
+        }
+      ]
+    },
+    {
+      "comment_id": "7675537146749846292",
+      "video_id": "7666732540748762386",
+      "text": "Tuỳ người thôi t 1,61m nhưng ngực to tay chân to chứ ko bé như kia. Chỉ đi may thôi. May nó đắt nhưng đẹp hơn. Ngực t trước 96 bh 102",
+      "gold": [
+        {
+          "term": "ngực to",
+          "start": 29,
+          "end": 36,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "tay chân to",
+          "start": 37,
+          "end": 48,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "Ngực",
+          "start": 111,
+          "end": 115,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "ngực",
+          "start": 29,
+          "end": 33,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5844
+        },
+        {
+          "term": "Ngực",
+          "start": 111,
+          "end": 115,
+          "sentiment": "POSITIVE",
+          "confidence": 0.601
+        }
+      ]
+    },
+    {
+      "comment_id": "7666833519943254791",
+      "video_id": "7666732540748762386",
+      "text": "quan trong là bé nó đẹp trai",
+      "gold": [],
+      "pred": [
+        {
+          "term": "bé",
+          "start": 14,
+          "end": 16,
+          "sentiment": "POSITIVE",
+          "confidence": 0.7745
+        }
+      ]
+    },
+    {
+      "comment_id": "7673025756881486600",
+      "video_id": "7666732540748762386",
+      "text": "M63 54kg, nếu thích style này mn có thể tham khảo trang e, còn k xin nhẹ tay 😁",
+      "gold": [],
+      "pred": [
+        {
+          "term": "style",
+          "start": 20,
+          "end": 25,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5636
+        }
+      ]
+    },
+    {
+      "comment_id": "7666872916453868306",
+      "video_id": "7666732540748762386",
+      "text": "Cho mik cin link quần màu trắng này",
+      "gold": [
+        {
+          "term": "quần",
+          "start": 17,
+          "end": 21,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "quần màu trắng",
+          "start": 17,
+          "end": 31,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7385
+        }
+      ]
+    },
+    {
+      "comment_id": "7674254709057700626",
+      "video_id": "7666732540748762386",
+      "text": "Cái quy chuẩn xàm vl, đâu phải số đo ai cũng giống ai, chưa nói body nó muôn hình vạn trạng :))",
+      "gold": [
+        {
+          "term": "body",
+          "start": 64,
+          "end": 68,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "quy chuẩn",
+          "start": 4,
+          "end": 13,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.4242
+        }
+      ]
+    },
+    {
+      "comment_id": "7667070367130813205",
+      "video_id": "7666732540748762386",
+      "text": "Kiếm được cái áo phông dài dưới 64cm bây giờ chắc chỉ có mua đồ trẻ e thôi 😁",
+      "gold": [
+        {
+          "term": "áo",
+          "start": 14,
+          "end": 16,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "cái",
+          "start": 10,
+          "end": 13,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.721
+        },
+        {
+          "term": "áo phông dài",
+          "start": 14,
+          "end": 26,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5984
+        },
+        {
+          "term": "đồ trẻ",
+          "start": 61,
+          "end": 67,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5972
+        }
+      ]
+    },
+    {
+      "comment_id": "7666965433459720980",
+      "video_id": "7666732540748762386",
+      "text": "Cho mình xin linh mấy bộ này đc ko ạ",
+      "gold": [],
+      "pred": [
+        {
+          "term": "bộ",
+          "start": 22,
+          "end": 24,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7377
+        }
+      ]
+    },
+    {
+      "comment_id": "7679326122936632082",
+      "video_id": "7666732540748762386",
+      "text": "Rồi ai may đồ theo chiều cao của bạn",
+      "gold": [],
+      "pred": [
+        {
+          "term": "đồ",
+          "start": 11,
+          "end": 13,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6974
+        },
+        {
+          "term": "chiều cao",
+          "start": 19,
+          "end": 28,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5775
+        }
+      ]
+    },
+    {
+      "comment_id": "7671262011535868688",
+      "video_id": "7666732540748762386",
+      "text": "1m8 mà để cái ống quần 108 thì ối zồi ôi luôn 😂",
+      "gold": [],
+      "pred": [
+        {
+          "term": "cái",
+          "start": 10,
+          "end": 13,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6794
+        },
+        {
+          "term": "ống quần 108",
+          "start": 14,
+          "end": 26,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.652
+        }
+      ]
+    },
+    {
+      "comment_id": "7667451642459538183",
+      "video_id": "7666732540748762386",
+      "text": "thay đổi cả cái vóc dáng nữa . dáng oke thì phối đồ cũng đẹp",
+      "gold": [
+        {
+          "term": "dáng",
+          "start": 20,
+          "end": 24,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "dáng",
+          "start": 31,
+          "end": 35,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "đồ",
+          "start": 49,
+          "end": 51,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "vóc dáng",
+          "start": 16,
+          "end": 24,
+          "sentiment": "POSITIVE",
+          "confidence": 0.7302
+        },
+        {
+          "term": "dáng",
+          "start": 31,
+          "end": 35,
+          "sentiment": "POSITIVE",
+          "confidence": 0.7284
+        },
+        {
+          "term": "đồ",
+          "start": 49,
+          "end": 51,
+          "sentiment": "POSITIVE",
+          "confidence": 0.7247
+        }
+      ]
+    },
+    {
+      "comment_id": "7672588196127589140",
+      "video_id": "7666732540748762386",
+      "text": "tuớng tôi xấu quá k phối đồ được k biết ai chỉ cho tôi đk k",
+      "gold": [],
+      "pred": [
+        {
+          "term": "đồ",
+          "start": 25,
+          "end": 27,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4695
+        }
+      ]
+    },
+    {
+      "comment_id": "7672089158172820244",
+      "video_id": "7666732540748762386",
+      "text": "Tỉ lệ cơ thể chuẩn là đẹp",
+      "gold": [
+        {
+          "term": "Tỉ lệ cơ thể",
+          "start": 0,
+          "end": 12,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "lệ",
+          "start": 3,
+          "end": 5,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6708
+        },
+        {
+          "term": "cơ thể",
+          "start": 6,
+          "end": 12,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6657
+        }
+      ]
+    },
+    {
+      "comment_id": "7667476413038740232",
+      "video_id": "7666732540748762386",
+      "text": "Công thức chuẩn nhưng đồ k có sz chuẩn🤣",
+      "gold": [
+        {
+          "term": "Công thức",
+          "start": 0,
+          "end": 9,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "đồ",
+          "start": 22,
+          "end": 24,
+          "sentiment": "NEGATIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "Công thức",
+          "start": 0,
+          "end": 9,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5558
+        },
+        {
+          "term": "đồ",
+          "start": 22,
+          "end": 24,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6448
+        }
+      ]
+    },
+    {
+      "comment_id": "7675807546134020882",
+      "video_id": "7666732540748762386",
+      "text": "Đặng ng khó nói lắm, tui mặc đại có cần đo đâu, mua đồ cứ mặc thử hợp ng vừa ng thì mua, mua đồ online thì ko bao h OK vừa dáng hết",
+      "gold": [
+        {
+          "term": "đồ",
+          "start": 52,
+          "end": 54,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "đồ online",
+          "start": 93,
+          "end": 102,
+          "sentiment": "NEGATIVE"
+        },
+        {
+          "term": "dáng",
+          "start": 123,
+          "end": 127,
+          "sentiment": "NEGATIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "đồ",
+          "start": 52,
+          "end": 54,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4174
+        },
+        {
+          "term": "đồ online",
+          "start": 93,
+          "end": 102,
+          "sentiment": "POSITIVE",
+          "confidence": 0.412
+        }
+      ]
+    },
+    {
+      "comment_id": "7658852707642180370",
+      "video_id": "7200064689764715818",
+      "text": "Thế này thì ng xem vid biết hết mật khẩu r còn j nữa",
+      "gold": [
+        {
+          "term": "vid",
+          "start": 19,
+          "end": 22,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "mật khẩu",
+          "start": 32,
+          "end": 40,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6293
+        }
+      ]
+    },
+    {
+      "comment_id": "7667112225279214356",
+      "video_id": "7666732540748762386",
+      "text": "áo kia tên j á",
+      "gold": [],
+      "pred": [
+        {
+          "term": "áo",
+          "start": 0,
+          "end": 2,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.8046
+        }
+      ]
+    },
+    {
+      "comment_id": "7667857392050160385",
+      "video_id": "7666732540748762386",
+      "text": "1m65 mà tỉ lệ chuẩn cũng ngon mà ae.😁",
+      "gold": [],
+      "pred": [
+        {
+          "term": "1m65",
+          "start": 0,
+          "end": 4,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6878
+        }
+      ]
+    },
+    {
+      "comment_id": "7667028792699732756",
+      "video_id": "7666732540748762386",
+      "text": "bí quyết là kéo cái dò 😂 nhưng p công nhận áo ngắn hơn và quần xuông là tốt nhất.",
+      "gold": [
+        {
+          "term": "áo",
+          "start": 43,
+          "end": 45,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "quần",
+          "start": 58,
+          "end": 62,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "bí quyết",
+          "start": 0,
+          "end": 8,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.682
+        },
+        {
+          "term": "áo ngắn",
+          "start": 43,
+          "end": 50,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6418
+        },
+        {
+          "term": "quần xuông",
+          "start": 58,
+          "end": 68,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6387
+        }
+      ]
+    },
+    {
+      "comment_id": "7669818661812716296",
+      "video_id": "7666732540748762386",
+      "text": "m60 mà người gầy mặc đồ nó còn đỡ chứ m60 mà trên 60 cân xem không chọn theo cân nặng á có mà vứt hết đồ",
+      "gold": [
+        {
+          "term": "đồ",
+          "start": 21,
+          "end": 23,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "đồ",
+          "start": 102,
+          "end": 104,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "m60",
+          "start": 0,
+          "end": 3,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.429
+        },
+        {
+          "term": "đồ",
+          "start": 21,
+          "end": 23,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.492
+        },
+        {
+          "term": "cân nặng",
+          "start": 77,
+          "end": 85,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.4425
+        },
+        {
+          "term": "đồ",
+          "start": 102,
+          "end": 104,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.492
+        }
+      ]
+    },
+    {
+      "comment_id": "7666978650454262536",
+      "video_id": "7666732540748762386",
+      "text": "thấp thì tất nhiên là xấu hơn cao r nhưng để mặc đc đẹp hay ko nó phụ thuộc tỉ lệ cơ thể, cứ cân đối là dc. Style còn phụ thuộc thần thái, tuổi tác. Cứ tự tin là đc",
+      "gold": [
+        {
+          "term": "tỉ lệ cơ thể",
+          "start": 76,
+          "end": 88,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": []
+    },
+    {
+      "comment_id": "7679586327441048338",
+      "video_id": "7666732540748762386",
+      "text": "Nó mang giày độn mấy ba ơi",
+      "gold": [],
+      "pred": [
+        {
+          "term": "giày độn",
+          "start": 8,
+          "end": 16,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7007
+        }
+      ]
+    },
+    {
+      "comment_id": "7667003038662902549",
+      "video_id": "7666732540748762386",
+      "text": "1m6 còn tuỳ thuộc lưng dài hay chân dài 😂",
+      "gold": [
+        {
+          "term": "lưng dài",
+          "start": 18,
+          "end": 26,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "chân dài",
+          "start": 31,
+          "end": 39,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "1m6",
+          "start": 0,
+          "end": 3,
+          "sentiment": "POSITIVE",
+          "confidence": 0.457
+        },
+        {
+          "term": "lưng",
+          "start": 18,
+          "end": 22,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5901
+        },
+        {
+          "term": "chân",
+          "start": 31,
+          "end": 35,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5945
+        }
+      ]
+    },
+    {
+      "comment_id": "7202202028741870362",
+      "video_id": "7200064689764715818",
+      "text": "công nghệ cao thiệt sự ấy chứ 😂",
+      "gold": [],
+      "pred": [
+        {
+          "term": "công nghệ cao",
+          "start": 0,
+          "end": 13,
+          "sentiment": "POSITIVE",
+          "confidence": 0.671
+        }
+      ]
+    },
+    {
+      "comment_id": "7677200042550575892",
+      "video_id": "7666732540748762386",
+      "text": "M6 hay m4 chả liên quan gì đến tỉ lệ cơ thể. Có phải cao thì tỉ lệ đẹp đâu. Bạn tôi dưới m5 đầy người tie lệ đẹp 4-6",
+      "gold": [
+        {
+          "term": "tỉ lệ cơ thể",
+          "start": 31,
+          "end": 43,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "M6",
+          "start": 0,
+          "end": 2,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5528
+        },
+        {
+          "term": "m4",
+          "start": 7,
+          "end": 9,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5376
+        },
+        {
+          "term": "tỉ lệ",
+          "start": 31,
+          "end": 36,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5526
+        },
+        {
+          "term": "tỉ lệ đẹp",
+          "start": 61,
+          "end": 70,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6188
+        },
+        {
+          "term": "lệ",
+          "start": 106,
+          "end": 108,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4997
+        }
+      ]
+    },
+    {
+      "comment_id": "7668109735804158740",
+      "video_id": "7666732540748762386",
+      "text": "T 1m63 mà vợ bắt mặc quần ống rộng (bagggy) thì sao mấy ní 🥲🥲🥲",
+      "gold": [
+        {
+          "term": "quần",
+          "start": 21,
+          "end": 25,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "quần ống rộng",
+          "start": 21,
+          "end": 34,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5982
+        },
+        {
+          "term": "bagggy",
+          "start": 36,
+          "end": 42,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.664
+        }
+      ]
+    },
+    {
+      "comment_id": "7687694252008522516",
+      "video_id": "7666732540748762386",
+      "text": "m65 mặc quần uống suông ổn k ae nhỉ :))",
+      "gold": [
+        {
+          "term": "quần",
+          "start": 8,
+          "end": 12,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "quần",
+          "start": 8,
+          "end": 12,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7575
+        },
+        {
+          "term": "suông",
+          "start": 18,
+          "end": 23,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.7354
+        }
+      ]
+    },
+    {
+      "comment_id": "7676406274997142290",
+      "video_id": "7666732540748762386",
+      "text": "1m61,anh em không cần quá quan trọng mặc j,quan trọng là body anh em thế nào,tui tự tin không mặc j vẫn đẹp",
+      "gold": [
+        {
+          "term": "body",
+          "start": 57,
+          "end": 61,
+          "sentiment": "POSITIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "anh em",
+          "start": 5,
+          "end": 11,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6964
+        }
+      ]
+    },
+    {
+      "comment_id": "7678922520808538881",
+      "video_id": "7666732540748762386",
+      "text": "cao m8 rồi nhưng vẫn cứ thích học theo mấy ôg m6 phối đồ😂",
+      "gold": [],
+      "pred": [
+        {
+          "term": "đồ",
+          "start": 54,
+          "end": 56,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.4901
+        }
+      ]
+    },
+    {
+      "comment_id": "7667543254405317396",
+      "video_id": "7666732540748762386",
+      "text": "nói thế chứ tìm đồ hợp chỉ số không có đâu, sửa thì may ra có, hoặc đặt ngta may chứ ở đó mà đòi chọn 😀",
+      "gold": [],
+      "pred": [
+        {
+          "term": "đồ hợp",
+          "start": 16,
+          "end": 22,
+          "sentiment": "NEGATIVE",
+          "confidence": 0.4406
+        }
+      ]
+    },
+    {
+      "comment_id": "7667224014632289025",
+      "video_id": "7666732540748762386",
+      "text": "Áo ngắn với quần suông, đi sneaker. Nhưng chốt lại là lên clip vẫn kéo chân 🤣",
+      "gold": [
+        {
+          "term": "Áo ngắn",
+          "start": 0,
+          "end": 7,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "quần suông",
+          "start": 12,
+          "end": 22,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "Áo ngắn",
+          "start": 0,
+          "end": 7,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5221
+        },
+        {
+          "term": "quần suông",
+          "start": 12,
+          "end": 22,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.549
+        },
+        {
+          "term": "clip",
+          "start": 58,
+          "end": 62,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6866
+        }
+      ]
+    },
+    {
+      "comment_id": "7681900538707133192",
+      "video_id": "7666732540748762386",
+      "text": "t cũng 1m60 cơ mà chân ngắn, vai thì bề ngang to vl. nhìn như con gấu có cứu được không",
+      "gold": [
+        {
+          "term": "chân ngắn",
+          "start": 18,
+          "end": 27,
+          "sentiment": "NEGATIVE"
+        },
+        {
+          "term": "vai thì bề ngang to",
+          "start": 29,
+          "end": 48,
+          "sentiment": "NEGATIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "chân",
+          "start": 18,
+          "end": 22,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4842
+        },
+        {
+          "term": "gấu",
+          "start": 66,
+          "end": 69,
+          "sentiment": "POSITIVE",
+          "confidence": 0.4971
+        }
+      ]
+    },
+    {
+      "comment_id": "7680069458073928466",
+      "video_id": "7666732540748762386",
+      "text": "1m6 thì còn thấp hơn cả t nữa",
+      "gold": [],
+      "pred": [
+        {
+          "term": "1m6",
+          "start": 0,
+          "end": 3,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.5273
+        }
+      ]
+    },
+    {
+      "comment_id": "7657587387387872020",
+      "video_id": "7200064689764715818",
+      "text": "spider man phiên bản lỗi",
+      "gold": [],
+      "pred": [
+        {
+          "term": "spider",
+          "start": 0,
+          "end": 6,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6654
+        }
+      ]
+    },
+    {
+      "comment_id": "7666846944854557447",
+      "video_id": "7666732540748762386",
+      "text": "áo ngta may vai ntn . lm thế nào để biết vai ngt may ra bn để chọn . mang đi sửa ạ ?",
+      "gold": [
+        {
+          "term": "áo",
+          "start": 0,
+          "end": 2,
+          "sentiment": "NEUTRAL"
+        }
+      ],
+      "pred": [
+        {
+          "term": "áo",
+          "start": 0,
+          "end": 2,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6922
+        },
+        {
+          "term": "vai",
+          "start": 12,
+          "end": 15,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6914
+        },
+        {
+          "term": "vai",
+          "start": 41,
+          "end": 44,
+          "sentiment": "NEUTRAL",
+          "confidence": 0.6914
+        }
+      ]
+    },
+    {
+      "comment_id": "7666864701695607570",
+      "video_id": "7666732540748762386",
+      "text": "công thức có chuẩn không vậy 🧐 tôi 1m64 quần 91cm mặc là đẹp, 96 thì chắc phải xấc quần qua rốn",
+      "gold": [
+        {
+          "term": "công thức",
+          "start": 0,
+          "end": 9,
+          "sentiment": "NEUTRAL"
+        },
+        {
+          "term": "quần 91cm",
+          "start": 40,
+          "end": 49,
+          "sentiment": "POSITIVE"
+        },
+        {
+          "term": "96",
+          "start": 62,
+          "end": 64,
+          "sentiment": "NEGATIVE"
+        }
+      ],
+      "pred": [
+        {
+          "term": "công thức",
+          "start": 0,
+          "end": 9,
+          "sentiment": "POSITIVE",
+          "confidence": 0.6103
+        },
+        {
+          "term": "quần",
+          "start": 40,
+          "end": 44,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5834
+        },
+        {
+          "term": "quần",
+          "start": 83,
+          "end": 87,
+          "sentiment": "POSITIVE",
+          "confidence": 0.5834
+        }
+      ]
+    }
+  ]
+}

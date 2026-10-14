@@ -1,0 +1,46 @@
+{
+  "created_at": 1791789713.8454194,
+  "task": "phase4_verification",
+  "key": "07327e8d51b077def5add8a0f5a1fcec65fd0e7fa937fa3ad72945e9d74e01fe",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.98,
+    "evidence_ids": [
+      "text_02_001",
+      "text_10_000",
+      "text_04_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_02_001",
+        "stance": "support",
+        "confidence": 0.98,
+        "rationale": "Xác nhận Nguyễn Chí Vịnh là con trai của Đại tướng Nguyễn Chí Thanh."
+      },
+      {
+        "evidence_id": "text_10_000",
+        "stance": "support",
+        "confidence": 0.98,
+        "rationale": "Xác nhận Nguyễn Chí Thanh được phong quân hàm Đại tướng vào năm 1959."
+      },
+      {
+        "evidence_id": "text_04_000",
+        "stance": "support",
+        "confidence": 0.98,
+        "rationale": "Xác nhận năm 1959, đồng chí Nguyễn Chí Thanh được Quốc hội và Chủ tịch Hồ Chí Minh phong quân hàm Đại tướng Quân đội nhân dân Việt Nam."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Các bằng chứng độc lập xác nhận đầy đủ hai vế của tuyên bố: Nguyễn Chí Thanh được phong quân hàm Đại tướng vào năm 1959 và ông là thân sinh (cha) của Thượng tướng Nguyễn Chí Vịnh.",
+    "uncertainty": "Không có",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "gemini-3.8-flash",
+    "provider": "gemini"
+  }
+}

@@ -1,0 +1,1 @@
+"""Multimedia acquisition and analysis stage."""

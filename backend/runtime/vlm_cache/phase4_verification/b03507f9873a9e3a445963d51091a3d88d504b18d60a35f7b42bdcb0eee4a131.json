@@ -1,0 +1,39 @@
+{
+  "created_at": 1791812565.2620213,
+  "task": "phase4_verification",
+  "key": "b03507f9873a9e3a445963d51091a3d88d504b18d60a35f7b42bdcb0eee4a131",
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:8b-instruct-q4_K_M"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 1.0,
+    "evidence_ids": [
+      "text_01_000",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "The text explicitly states that as of 2025, Vietnam has 19 grand marshals in the People's Army."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "The text confirms that Nguyễn Trọng Nghĩa was conferred the 19th Grand Marshal rank on November 4, 2025, making the total 19 grand marshals in the People's Army."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "External evidence from thuvienphapluat.vn and bbc.com both confirm that as of 2025, the People's Army of Vietnam has 19 grand marshals, with Nguyễn Trọng Nghĩa being the 19th.",
+    "uncertainty": "",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "qwen3-vl:8b-instruct-q4_K_M",
+    "provider": "local"
+  }
+}

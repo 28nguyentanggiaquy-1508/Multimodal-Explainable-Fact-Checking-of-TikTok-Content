@@ -1,0 +1,61 @@
+{
+  "epoch": 7,
+  "train_loss": 0.4094085260745018,
+  "val_loss": 0.7830663422743479,
+  "accuracy": 0.717391304347826,
+  "macro_precision": 0.6051851851851852,
+  "macro_recall": 0.5878787878787879,
+  "macro_f1": 0.5928118167759826,
+  "weighted_f1": 0.709006558950568,
+  "per_class": {
+    "NEGATIVE": {
+      "precision": 0.3333333333333333,
+      "recall": 0.25,
+      "f1": 0.28571428571428575,
+      "support": 4,
+      "tp": 1,
+      "fp": 2,
+      "fn": 3
+    },
+    "NEUTRAL": {
+      "precision": 0.76,
+      "recall": 0.8636363636363636,
+      "f1": 0.8085106382978724,
+      "support": 22,
+      "tp": 19,
+      "fp": 6,
+      "fn": 3
+    },
+    "POSITIVE": {
+      "precision": 0.7222222222222222,
+      "recall": 0.65,
+      "f1": 0.6842105263157895,
+      "support": 20,
+      "tp": 13,
+      "fp": 5,
+      "fn": 7
+    }
+  },
+  "confusion_matrix": [
+    [
+      1,
+      0,
+      3
+    ],
+    [
+      1,
+      19,
+      2
+    ],
+    [
+      1,
+      6,
+      13
+    ]
+  ],
+  "confusion_matrix_labels": [
+    "NEGATIVE",
+    "NEUTRAL",
+    "POSITIVE"
+  ]
+}

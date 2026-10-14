@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "domains": {
+    "HEALTH": ["sức khỏe", "dinh dưỡng", "vitamin", "vaccine"],
+    "SCIENCE_TECH": ["khoa học", "AI", "công nghệ", "robot"],
+    "SOCIAL_NEWS": ["tin tức", "sự kiện", "xã hội"],
+    "PUBLIC_AFFAIRS": ["chính sách", "cơ quan nhà nước", "quy định"],
+    "CULTURE_ENTERTAINMENT": ["văn hóa", "giải trí"],
+    "GENERAL": ["sự thật", "thông tin", "giải thích"]
+  }
+}

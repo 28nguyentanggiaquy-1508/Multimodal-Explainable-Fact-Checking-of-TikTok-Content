@@ -1,0 +1,27 @@
+{
+  "dataset_name": "TikTok-MFC",
+  "version": "0.1.0",
+  "schema_version": "1.0",
+  "annotation_guideline_version": "1.0",
+  "language": "vi",
+  "platform": "tiktok",
+  "tasks": [
+    "claim_detection",
+    "claim_extraction",
+    "multimodal_evidence_retrieval",
+    "claim_verification",
+    "explanation_generation"
+  ],
+  "labels": [
+    "SUPPORTED",
+    "REFUTED",
+    "NEI"
+  ],
+  "statistics": {
+    "videos": 1,
+    "claims": 9,
+    "gold_claims": 0,
+    "text_evidence": 45,
+    "image_evidence": 27
+  }
+}

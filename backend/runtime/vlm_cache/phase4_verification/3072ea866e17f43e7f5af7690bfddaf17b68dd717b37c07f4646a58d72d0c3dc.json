@@ -1,0 +1,95 @@
+{
+  "created_at": 1791814634.7919037,
+  "task": "phase4_verification",
+  "key": "3072ea866e17f43e7f5af7690bfddaf17b68dd717b37c07f4646a58d72d0c3dc",
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:8b-instruct-q4_K_M"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.95,
+    "evidence_ids": [
+      "text_09_006",
+      "text_07_046",
+      "text_03_002",
+      "text_01_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_09_006",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Explicitly states Võ Nguyên Giáp was conferred the rank of Generalissimo without prior military ranks and became the first Generalissimo at age 37."
+      },
+      {
+        "evidence_id": "text_07_046",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Confirms he was conferred the rank of Generalissimo without prior military ranks and became the first Generalissimo at age 37."
+      },
+      {
+        "evidence_id": "text_03_002",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "States he became the first Generalissimo of the Vietnamese People's Army at age 37, directly conferred by Ho Chi Minh."
+      },
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Confirms he was conferred the rank of Generalissimo at age 37, directly by Ho Chi Minh, marking a significant milestone."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Đánh giá theo thành phần: C1=SUPPORTED; C2=SUPPORTED. Evidence ngoài bao phủ đầy đủ mọi thành phần trọng yếu của claim.",
+    "uncertainty": "",
+    "limitations": [
+      "Final local verdict/coverage was recomputed deterministically from material claim components."
+    ],
+    "multimodal_used": false,
+    "model": "qwen3-vl:8b-instruct-q4_K_M",
+    "provider": "local",
+    "_guard_metadata": {
+      "mode": "local_component_guard_v1",
+      "component_count": 2,
+      "resolved_components": 2,
+      "coverage_score": 1.0,
+      "components": [
+        {
+          "component_id": "C1",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "text_09_006",
+            "text_07_046",
+            "text_03_002",
+            "text_01_000"
+          ],
+          "confidence": 1.0,
+          "rationale": "Multiple sources confirm Võ Nguyên Giáp was the only General-in-Chief of the Vietnamese People's Army, with text_09_006 and text_07_046 explicitly stating he was the first and only one to hold this position.",
+          "text": "Đại tướng Võ Nguyên Giáp là Tổng Tư lệnh duy nhất của Quân đội nhân dân Việt Nam"
+        },
+        {
+          "component_id": "C2",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "text_09_006",
+            "text_07_046",
+            "text_03_002",
+            "text_01_000"
+          ],
+          "confidence": 1.0,
+          "rationale": "All cited sources (text_09_006, text_07_046, text_03_002, text_01_000) state that Võ Nguyên Giáp was directly conferred the rank of Generalissimo by President Ho Chi Minh without intermediate ranks, at age 37.",
+          "text": "Đại tướng Võ Nguyên Giáp được Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng năm 37 tuổi mà không qua các cấp trung gian"
+        }
+      ],
+      "raw_model_verdict": "SUPPORTED",
+      "raw_model_coverage": "COMPLETE",
+      "raw_model_confidence": 1.0,
+      "final_verdict": "SUPPORTED",
+      "final_coverage": "COMPLETE",
+      "final_confidence": 0.95
+    }
+  }
+}

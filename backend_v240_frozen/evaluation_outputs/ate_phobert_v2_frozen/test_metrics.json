@@ -1,0 +1,15 @@
+{
+  "precision": 0.5454545454545454,
+  "recall": 0.4838709677419355,
+  "f1": 0.5128205128205128,
+  "tp": 30,
+  "fp": 25,
+  "fn": 32,
+  "comments": 116,
+  "gold_spans": 62,
+  "predicted_spans": 55,
+  "threshold": 0.45,
+  "evaluation_input": "C:\\NCKH\\tiktok_chatbot\\tiktok_chatbot\\backend\\data\\absa\\processed_v2\\test.json",
+  "segmentation": "frozen_processed_v2",
+  "device": "cpu"
+}

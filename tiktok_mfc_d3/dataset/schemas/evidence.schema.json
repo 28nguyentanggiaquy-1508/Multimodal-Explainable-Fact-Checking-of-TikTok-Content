@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "claim_id",
+    "type",
+    "source",
+    "content",
+    "annotation"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string"
+    },
+    "evidence_id": {
+      "type": "string",
+      "pattern": "^EV_(TXT|IMG)_[0-9]{6}$"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^CL_[0-9]{6}_[0-9]{2}$"
+    },
+    "type": {
+      "enum": [
+        "text",
+        "image"
+      ]
+    },
+    "source": {
+      "type": "object"
+    },
+    "content": {
+      "type": "object"
+    },
+    "annotation": {
+      "type": "object",
+      "properties": {
+        "is_relevant": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "is_gold": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "evidence_role": {
+          "enum": [
+            "SUPPORT",
+            "REFUTE",
+            "CONTEXT",
+            "INSUFFICIENT",
+            null
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "system": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

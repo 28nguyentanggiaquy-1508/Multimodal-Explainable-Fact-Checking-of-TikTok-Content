@@ -1,0 +1,61 @@
+{
+  "created_at": 1791794225.8248613,
+  "task": "phase4_verification",
+  "key": "eae95dac863e26877b122d11a95e189c6adfd1e2ee4df5b3518a12d3bc510f17",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.7-flash"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "NEI",
+    "confidence": 0.8,
+    "evidence_ids": [
+      "text_05_019",
+      "text_06_000",
+      "text_02_000",
+      "text_07_001"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_05_019",
+        "stance": "support",
+        "confidence": 0.85,
+        "rationale": "Confirms Mr. Nguyen Trong Nghia was appointed Director of the General Department of Politics of the People's Army of Vietnam and promoted to Senior General (Đại tướng) on November 4, 2025, but does not explicitly confirm whether he is the 19th Senior General."
+      },
+      {
+        "evidence_id": "text_06_000",
+        "stance": "support",
+        "confidence": 0.85,
+        "rationale": "Confirms Mr. Nguyen Trong Nghia was promoted to Đại tướng and appointed Director of the General Department of Politics on November 4, 2025, but does not mention the ordinal number 19th."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 0.8,
+        "rationale": "Confirms President Luong Cuong promoted Nguyen Trong Nghia to Đại tướng and appointed him Director of the General Department of Politics, but omits the ordinal count."
+      },
+      {
+        "evidence_id": "text_07_001",
+        "stance": "support",
+        "confidence": 0.8,
+        "rationale": "Confirms the promotion to Đại tướng and appointment to Director of the General Department of Politics, without stating if he is the 19th."
+      },
+      {
+        "evidence_id": "image_09",
+        "stance": "neutral",
+        "confidence": 0.9,
+        "rationale": "Discusses a different official (Nguyen Xuan Truong) and does not provide relevant facts for this claim."
+      }
+    ],
+    "evidence_coverage": "PARTIAL",
+    "rationale": "The retrieved external evidence directly confirms that Mr. Nguyen Trong Nghia was promoted to the rank of Đại tướng (Senior General) in 2025 and took office as the Director of the General Department of Politics of the Vietnam People's Army. However, none of the retrieved external sources substantiate the specific claim component that he is the '19th' Senior General of the VPA. Because this material numeric claim component is not verified, the verdict is NEI.",
+    "uncertainty": "Lack of external text explicitly verifying whether he is historically the 19th Senior General of the VPA.",
+    "limitations": [
+      "Evidence pool lacks the historical enumeration list of all Generals in the VPA."
+    ],
+    "multimodal_used": false,
+    "model": "gemini-3.7-flash",
+    "provider": "gemini"
+  }
+}

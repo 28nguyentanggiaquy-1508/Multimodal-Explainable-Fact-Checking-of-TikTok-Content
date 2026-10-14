@@ -1,0 +1,146 @@
+{
+  "created_at": "2026-10-12T13:31:59.092884+00:00",
+  "base_url": "http://127.0.0.1:11434",
+  "num_ctx": 8192,
+  "image": "benchmark_tiktok\\frame_middle.jpg",
+  "installed_models": [
+    "qwen3-vl:8b-instruct-q4_K_M",
+    "qwen3-vl:4b-instruct-q4_K_M"
+  ],
+  "models": {
+    "qwen3-vl:4b-instruct-q4_K_M": {
+      "status": "DONE",
+      "runs": [
+        {
+          "model": "qwen3-vl:4b-instruct-q4_K_M",
+          "elapsed_seconds": 20.454,
+          "json_valid": true,
+          "response": {
+            "status": "ok",
+            "model_test": true,
+            "summary": "The image features two black-and-white portraits of Vietnamese military officers, with text identifying one as Đại tướng Nguyễn Chí Thanh (1914-1967), a distinguished general of the Vietnamese People's Army, and noting his connection to Nguyễn Chí Vĩnh, another prominent figure."
+          },
+          "load_duration_seconds": 3.201,
+          "prompt_eval_count": 2088,
+          "prompt_tokens_per_second": 127.37,
+          "eval_count": 72,
+          "generation_tokens_per_second": 90.56,
+          "gpu_before": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 929,
+            "memory_free_mib": 11187,
+            "gpu_util_percent": 0,
+            "temperature_c": 47
+          },
+          "gpu_after": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 6271,
+            "memory_free_mib": 5845,
+            "gpu_util_percent": 97,
+            "temperature_c": 61
+          }
+        },
+        {
+          "model": "qwen3-vl:4b-instruct-q4_K_M",
+          "elapsed_seconds": 0.865,
+          "json_valid": true,
+          "response": {
+            "status": "ok",
+            "model_test": true,
+            "summary": "The image features two black-and-white portraits of Vietnamese military officers, with text identifying one as Đại tướng Nguyễn Chí Thanh (1914-1967), a distinguished general of the Vietnamese People's Army, and noting his connection to Nguyễn Chí Vĩnh, another prominent figure."
+          },
+          "load_duration_seconds": 0.009,
+          "prompt_eval_count": 2088,
+          "prompt_tokens_per_second": 166202.34,
+          "eval_count": 72,
+          "generation_tokens_per_second": 91.67,
+          "gpu_before": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 6271,
+            "memory_free_mib": 5845,
+            "gpu_util_percent": 97,
+            "temperature_c": 61
+          },
+          "gpu_after": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 6263,
+            "memory_free_mib": 5853,
+            "gpu_util_percent": 97,
+            "temperature_c": 61
+          }
+        }
+      ]
+    },
+    "qwen3-vl:8b-instruct-q4_K_M": {
+      "status": "DONE",
+      "runs": [
+        {
+          "model": "qwen3-vl:8b-instruct-q4_K_M",
+          "elapsed_seconds": 24.612,
+          "json_valid": true,
+          "response": {
+            "status": "ok",
+            "model_test": true,
+            "summary": "Two black-and-white portraits of Vietnamese military leaders against a red background with text identifying one as General Nguyen Chi Thanh."
+          },
+          "load_duration_seconds": 16.79,
+          "prompt_eval_count": 2088,
+          "prompt_tokens_per_second": 294.9,
+          "eval_count": 38,
+          "generation_tokens_per_second": 56.03,
+          "gpu_before": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 6263,
+            "memory_free_mib": 5853,
+            "gpu_util_percent": 97,
+            "temperature_c": 61
+          },
+          "gpu_after": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 9001,
+            "memory_free_mib": 3115,
+            "gpu_util_percent": 97,
+            "temperature_c": 64
+          }
+        },
+        {
+          "model": "qwen3-vl:8b-instruct-q4_K_M",
+          "elapsed_seconds": 0.742,
+          "json_valid": true,
+          "response": {
+            "status": "ok",
+            "model_test": true,
+            "summary": "Two black-and-white portraits of Vietnamese military leaders against a red background with text identifying one as General Nguyen Chi Thanh."
+          },
+          "load_duration_seconds": 0.008,
+          "prompt_eval_count": 2088,
+          "prompt_tokens_per_second": 107324.6,
+          "eval_count": 38,
+          "generation_tokens_per_second": 58.13,
+          "gpu_before": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 9007,
+            "memory_free_mib": 3109,
+            "gpu_util_percent": 97,
+            "temperature_c": 64
+          },
+          "gpu_after": {
+            "name": "NVIDIA GeForce RTX 3060",
+            "memory_total_mib": 12288,
+            "memory_used_mib": 8994,
+            "memory_free_mib": 3122,
+            "gpu_util_percent": 96,
+            "temperature_c": 64
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "pipeline_version": "v2.2-thesis-temporal-hardening",
+  "implemented_through": "phase_4",
+  "trace_id": "e6c714c1-764b-4bb5-bb9b-d64cbd5d42b4",
+  "status": "DEGRADED",
+  "video_url": "https://www.tiktok.com/@thuvienphapluat.vn/video/7571730219149561096?q=vi%E1%BB%87t%20nam%20c%C3%B3%20bao%20nhi%C3%AAu%20t%C6%B0%E1%BB%9Bng&t=1791389591280",
+  "phase_status": {
+    "phase_1": {
+      "status": "SUCCESS",
+      "message": "TikTok URL accepted and fact-check trace initialized.",
+      "duration_ms": 0,
+      "details": {
+        "trace_id": "e6c714c1-764b-4bb5-bb9b-d64cbd5d42b4"
+      }
+    },
+    "phase_2": {
+      "status": "DEGRADED",
+      "message": "openai: AttributeError: 'str' object has no attribute 'get' | gemini: persistent circuit open",
+      "duration_ms": 5880,
+      "details": {
+        "available_modalities": [
+          "caption"
+        ],
+        "candidate_claim_count": 0,
+        "selected_claim_count": 0,
+        "source": "multivlm_unavailable",
+        "model": ""
+      }
+    },
+    "phase_3": {
+      "status": "SKIPPED",
+      "message": "phase_3 skipped because no selected claim was available.",
+      "duration_ms": 0,
+      "details": {
+        "retrieval_statuses": [],
+        "reasoning_statuses": [],
+        "claims_with_evidence": 0
+      }
+    },
+    "phase_4": {
+      "status": "SKIPPED",
+      "message": "phase_4 skipped because no selected claim was available.",
+      "duration_ms": 0,
+      "details": {
+        "claim_statuses": [],
+        "batch_candidate_count": 0
+      }
+    }
+  },
+  "multimedia": {
+    "video_url": "https://www.tiktok.com/@thuvienphapluat.vn/video/7571730219149561096?q=vi%E1%BB%87t%20nam%20c%C3%B3%20bao%20nhi%C3%AAu%20t%C6%B0%E1%BB%9Bng&t=1791389591280",
+    "content_type": "uncertain",
+    "status": "DEGRADED",
+    "degraded_reason": "openai: AttributeError: 'str' object has no attribute 'get' | gemini: persistent circuit open",
+    "available_modalities": [
+      "caption"
+    ],
+    "visual_observations": [],
+    "speech_segments": [],
+    "speech_transcript": "",
+    "ocr_segments": [],
+    "ocr_text": "",
+    "caption": "Chân dung 19 vị Đại tướng của Quân đội nhân dân Việt Nam #TVPL #ThuVienPhapLuat #learnontiktok #hoccungtiktok",
+    "candidate_claims": [],
+    "cross_modal_notes": [],
+    "metadata": {
+      "caption": "Chân dung 19 vị Đại tướng của Quân đội nhân dân Việt Nam #TVPL #ThuVienPhapLuat #learnontiktok #hoccungtiktok",
+      "uploader": "thuvienphapluat.vn",
+      "uploader_id": "7189413200508388358",
+      "upload_date": "20251112",
+      "duration": 131,
+      "webpage_url": "https://www.tiktok.com/@thuvienphapluat.vn/video/7571730219149561096?q=vi%E1%BB%87t%20nam%20c%C3%B3%20bao%20nhi%C3%AAu%20t%C6%B0%E1%BB%9Bng&t=1791389591280"
+    },
+    "source": "multivlm_unavailable",
+    "model": "",
+    "error": "openai: AttributeError: 'str' object has no attribute 'get' | gemini: persistent circuit open"
+  },
+  "claims": [],
+  "claim_count": 0,
+  "verdict_ready": false,
+  "explanation_ready": false,
+  "skip_reason": "Không phát hiện checkable/check-worthy claim để tiếp tục fact-check.",
+  "duration_ms": 5881
+}

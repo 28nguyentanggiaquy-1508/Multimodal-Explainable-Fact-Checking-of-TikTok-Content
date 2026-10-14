@@ -1,0 +1,64 @@
+{
+  "created_at": 1791814606.2667744,
+  "task": "phase4_verification",
+  "key": "4cfef505907ba75d6f5adecea3bb3ebe07bed8d7d72a272d26db7a65b89f3faa",
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:8b-instruct-q4_K_M"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 0.95,
+    "evidence_ids": [
+      "text_01_000",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_01_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Directly states 'đến năm 2025 Việt Nam có 19 đại tướng trong quân đội nhân dân'."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "States that Nguyễn Trọng Nghĩa became the 19th Đại tướng in 2025, confirming the count."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "Đánh giá theo thành phần: C1=SUPPORTED. Evidence ngoài bao phủ đầy đủ mọi thành phần trọng yếu của claim.",
+    "uncertainty": "",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "qwen3-vl:8b-instruct-q4_K_M",
+    "provider": "local",
+    "_guard_metadata": {
+      "mode": "local_component_guard_v1",
+      "component_count": 1,
+      "resolved_components": 1,
+      "coverage_score": 1.0,
+      "components": [
+        {
+          "component_id": "C1",
+          "status": "SUPPORTED",
+          "evidence_ids": [
+            "text_01_000",
+            "text_02_000"
+          ],
+          "confidence": 1.0,
+          "rationale": "Evidence text_01_000 explicitly states that as of 2025, Vietnam has 19 Đại tướng in the Quân đội nhân dân. Evidence text_02_000 confirms that Nguyễn Trọng Nghĩa was conferred the 19th Đại tướng rank on 4/11/2025, aligning with the count.",
+          "text": "Quân đội nhân dân Việt Nam tính đến thời điểm video đã có 19 vị Đại tướng"
+        }
+      ],
+      "raw_model_verdict": "SUPPORTED",
+      "raw_model_coverage": "COMPLETE",
+      "raw_model_confidence": 1.0,
+      "final_verdict": "SUPPORTED",
+      "final_coverage": "COMPLETE",
+      "final_confidence": 0.95
+    }
+  }
+}

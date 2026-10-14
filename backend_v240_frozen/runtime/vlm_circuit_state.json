@@ -1,0 +1,16 @@
+{
+  "openai-transcribe::gpt-4o-mini-transcribe": {
+    "provider": "openai-transcribe",
+    "model": "gpt-4o-mini-transcribe",
+    "blocked_until": 1791438202.9579258,
+    "opened_at": 1791437902.9579258,
+    "reason": "{\n    \"error\": {\n        \"message\": \"You have no credits remaining. Add credits to continue using the API at https://platform.openai.com/settings/organization/billing/.\",\n        \"type\": \"insufficient_quota\",\n        \"param\": null,\n        \"code\": \"credit_balance_exhausted\"\n    }\n}\n"
+  },
+  "openai::gpt-6-luna": {
+    "provider": "openai",
+    "model": "gpt-6-luna",
+    "blocked_until": 1791857279.6261647,
+    "opened_at": 1791781333.6261647,
+    "reason": "HTTP 429: {\n  \"error\": {\n    \"message\": \"Rate limit reached for gpt-6-luna in organization org-owPqzmMVSqiqkEvoG8h1A5kd on tokens per min (TPM): Limit 100000, Used 98084, Requested 4846. Please try again in 21h5m45.6s. Visit https://platform.openai.com/account/rate-limits to learn more. You can increase your rate limit by adding a payment method to your account at https://platform.openai.com/account/billing.\",\n    \"type\": \"tokens\",\n    \"param\": null,\n    \"code\": \"rate_limit_exceeded\"\n  }\n}"
+  }
+}

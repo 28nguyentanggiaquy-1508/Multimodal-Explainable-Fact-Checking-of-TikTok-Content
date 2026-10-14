@@ -251,8 +251,8 @@ def analyze_tiktok_multimedia(video_url: str) -> dict:
 
     # Cache lookup happens before frame sampling/STT/provider calls.
     for provider in _provider_order():
-        if provider == "local" and local_provider.is_configured():
-            model = local_provider.configured_model()
+        if provider == "local" and local_provider.is_configured("phase2"):
+            model = local_provider.configured_model("phase2")
             cached = _load_phase2_cache(source_hash, provider, model)
             if cached:
                 print(f"[MultiVLM Phase2] CACHE HIT provider={provider} model={model}")
@@ -287,13 +287,13 @@ def analyze_tiktok_multimedia(video_url: str) -> dict:
                 prepared = None
 
         if provider == "local":
-            if not local_provider.is_configured():
+            if not local_provider.is_configured("phase2"):
                 failures.append("local: not configured")
                 continue
             if prepared is None:
                 failures.append("local: preprocessing unavailable")
                 continue
-            model = local_provider.configured_model()
+            model = local_provider.configured_model("phase2")
             if circuit.is_open("local", model):
                 failures.append(f"local: circuit_open remaining~{circuit.remaining_seconds('local', model):.0f}s")
                 continue

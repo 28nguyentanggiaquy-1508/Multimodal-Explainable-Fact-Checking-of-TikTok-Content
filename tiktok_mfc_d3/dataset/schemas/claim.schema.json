@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "claim_id",
+    "video_id",
+    "original_text",
+    "normalized_text",
+    "source",
+    "annotation"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^CL_[0-9]{6}_[0-9]{2}$"
+    },
+    "video_id": {
+      "type": "string",
+      "pattern": "^TK_[0-9]{6}$"
+    },
+    "original_text": {
+      "type": "string"
+    },
+    "normalized_text": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object"
+    },
+    "annotation": {
+      "type": "object",
+      "required": [
+        "checkable",
+        "checkworthy",
+        "claim_type",
+        "requires_multimodal_context",
+        "claim_origin"
+      ],
+      "properties": {
+        "checkable": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "checkworthy": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "claim_type": {
+          "enum": [
+            "NUMERICAL",
+            "EVENT",
+            "ENTITY",
+            "LOCATION",
+            "CAUSAL",
+            "AUTHENTICITY",
+            "OUT_OF_CONTEXT",
+            "OTHER_FACTUAL"
+          ]
+        },
+        "requires_multimodal_context": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "claim_origin": {
+          "enum": [
+            "REAL_TIKTOK",
+            "SYNTHETIC"
+          ]
+        },
+        "annotation_status": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    },
+    "system": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true
+}

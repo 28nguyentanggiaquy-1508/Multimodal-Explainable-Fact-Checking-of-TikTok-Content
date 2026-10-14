@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "verification_id",
+    "claim_id",
+    "gold_verdict",
+    "gold_evidence_ids",
+    "annotation_status"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string"
+    },
+    "verification_id": {
+      "type": "string",
+      "pattern": "^VR_[0-9]{6}_[0-9]{2}$"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^CL_[0-9]{6}_[0-9]{2}$"
+    },
+    "gold_verdict": {
+      "enum": [
+        "SUPPORTED",
+        "REFUTED",
+        "NEI",
+        null
+      ]
+    },
+    "gold_evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_coverage": {
+      "enum": [
+        "COMPLETE",
+        "PARTIAL",
+        "INSUFFICIENT",
+        null
+      ]
+    },
+    "evidence_conflict": {
+      "type": "boolean"
+    },
+    "verification_time": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "annotation_status": {
+      "type": "string"
+    },
+    "needs_adjudication": {
+      "type": "boolean"
+    },
+    "system": {
+      "type": "object",
+      "properties": {
+        "system_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "predicted_verdict": {
+          "enum": [
+            "SUPPORTED",
+            "REFUTED",
+            "NEI",
+            null
+          ]
+        },
+        "confidence": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 1
+        },
+        "provider": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

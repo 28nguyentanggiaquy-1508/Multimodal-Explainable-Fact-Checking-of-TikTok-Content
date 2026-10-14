@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "video_id",
+    "platform",
+    "source",
+    "media",
+    "metadata",
+    "status"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string"
+    },
+    "video_id": {
+      "type": "string",
+      "pattern": "^TK_[0-9]{6}$"
+    },
+    "platform": {
+      "const": "tiktok"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "original_url",
+        "collected_at",
+        "language"
+      ],
+      "properties": {
+        "platform_video_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "original_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "published_at": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "collected_at": {
+          "type": "string"
+        },
+        "language": {
+          "type": "string"
+        },
+        "canonical_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "media": {
+      "type": "object"
+    },
+    "metadata": {
+      "type": "object"
+    },
+    "status": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": true
+}

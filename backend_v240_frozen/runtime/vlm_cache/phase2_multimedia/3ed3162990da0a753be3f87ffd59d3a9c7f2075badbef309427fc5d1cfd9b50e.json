@@ -1,0 +1,176 @@
+{
+  "created_at": 1791791396.1329577,
+  "task": "phase2_multimedia",
+  "key": "3ed3162990da0a753be3f87ffd59d3a9c7f2075badbef309427fc5d1cfd9b50e",
+  "metadata": {
+    "provider": "gemini",
+    "model": "gemini-3.8-flash",
+    "source_sha256": "022eec75bbfd9e5bfc18c1b395c0e48d34071c95a2b05fa68831609cee018d9e"
+  },
+  "value": {
+    "content_type": "real_world",
+    "visual_observations": [
+      {
+        "timestamp": "00:00-00:02",
+        "fact": "Hình ảnh đồ họa ghép chân dung nhiều vị tướng Quân đội nhân dân Việt Nam cùng dòng chữ tiêu đề nền cam."
+      },
+      {
+        "timestamp": "00:03-00:10",
+        "fact": "Hình ảnh Chủ tịch nước trao quyết định thăng quân hàm cho ông Nguyễn Trọng Nghĩa trước tượng Bác Hồ."
+      },
+      {
+        "timestamp": "00:11-00:16",
+        "fact": "Bảng tổng hợp chân dung 19 vị Đại tướng trên nền cờ đỏ sao vàng."
+      },
+      {
+        "timestamp": "00:17-01:51",
+        "fact": "Lần lượt xuất hiện ảnh chân dung, họ tên, năm sinh - năm mất và năm thụ phong quân hàm của 19 vị Đại tướng Quân đội nhân dân Việt Nam từ Võ Nguyên Giáp đến Nguyễn Trọng Nghĩa."
+      },
+      {
+        "timestamp": "00:58-01:06",
+        "fact": "Ảnh chân dung Đại tướng Nguyễn Chí Thanh đặt cạnh ảnh chân dung Thượng tướng Nguyễn Chí Vịnh."
+      },
+      {
+        "timestamp": "01:52-02:06",
+        "fact": "Đồ họa hiển thị chân dung 5 vị Đại tướng được ghi chú là vẫn còn đang công tác: Lương Cường, Phan Văn Giang, Nguyễn Tân Cương, Trịnh Văn Quyết, Nguyễn Trọng Nghĩa."
+      },
+      {
+        "timestamp": "02:07-02:11",
+        "fact": "Màn hình kết thúc hiển thị logo và thông tin sản xuất của Thư Viện Pháp Luật."
+      }
+    ],
+    "speech_segments": [
+      {
+        "timestamp": "00:00-00:10",
+        "text": "Chân dung 19 vị Đại tướng của Quân đội nhân dân Việt Nam. Mới đây, Quân đội ta đã chính thức có vị Đại tướng thứ 19 và cũng là tân Chủ nhiệm Tổng cục Chính trị: Đại tướng Nguyễn Trọng Nghĩa."
+      },
+      {
+        "timestamp": "00:11-00:16",
+        "text": "Nhân dịp này, hãy cùng admin nhìn lại chân dung của 19 vị Đại tướng của Quân đội nhân dân Việt Nam các bạn nha."
+      },
+      {
+        "timestamp": "00:17-00:42",
+        "text": "Người đầu tiên chắc chắn rồi, chính là Đại tướng Võ Nguyên Giáp, vị Đại tướng đầu tiên, người Anh cả và cũng là Tổng Tư lệnh duy nhất của Quân đội nhân dân Việt Nam. Người được Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng khi mới 37 tuổi mà không qua các cấp trung gian. Dù hiện nay chúng ta đã có đến 19 vị Đại tướng, nhưng khi nhắc đến Đại tướng, người ta sẽ nghĩ ngay đến ông, Đại tướng của nhân dân, huyền thoại của thế giới."
+      },
+      {
+        "timestamp": "00:43-01:06",
+        "text": "Người thứ hai cũng nổi tiếng không kém: Đại tướng Nguyễn Chí Thanh. Ông đặc biệt không chỉ bởi là người thứ hai được đích thân Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng, mà còn là bởi cái tên Nguyễn Chí Thanh cũng là tên do Bác đặt cho ông, tên thật của ông là Nguyễn Vịnh. Nghe quen đúng không? Các bạn nghĩ đúng rồi đó, ông là thân sinh của Nguyễn Chí Vịnh, người sau này cũng là một vị Thượng tướng vô cùng xuất sắc của Quân đội nhân dân Việt Nam."
+      },
+      {
+        "timestamp": "01:07-01:51",
+        "text": "Và sau hai con người vĩ đại nói trên, Quân đội ta đã có các vị Đại tướng sau đây: Đại tướng Văn Tiến Dũng, Đại tướng Hoàng Văn Thái, Đại tướng Chu Huy Mân, Đại tướng Lê Trọng Tấn, Đại tướng Lê Đức Anh, Đại tướng Nguyễn Quyết, Đại tướng Đoàn Khuê, Đại tướng Phạm Văn Trà, Đại tướng Lê Văn Dũng, Đại tướng Phùng Quang Thanh, Đại tướng Đỗ Bá Tỵ, Đại tướng Ngô Xuân Lịch, Đại tướng Lương Cường, Đại tướng Phan Văn Giang, Đại tướng Nguyễn Tân Cương, Đại tướng Trịnh Văn Quyết, Đại tướng Nguyễn Trọng Nghĩa."
+      },
+      {
+        "timestamp": "01:52-02:06",
+        "text": "Cho bạn nào chưa biết thì tính tới thời điểm admin làm video này, có 5 vị Đại tướng vẫn còn đang công tác là: Đại tướng Lương Cường, Đại tướng Phan Văn Giang, Đại tướng Nguyễn Tân Cương, Đại tướng Trịnh Văn Quyết và Đại tướng Nguyễn Trọng Nghĩa."
+      }
+    ],
+    "speech_transcript": "Chân dung 19 vị Đại tướng của Quân đội nhân dân Việt Nam. Mới đây, Quân đội ta đã chính thức có vị Đại tướng thứ 19 và cũng là tân Chủ nhiệm Tổng cục Chính trị: Đại tướng Nguyễn Trọng Nghĩa. Nhân dịp này, hãy cùng admin nhìn lại chân dung của 19 vị Đại tướng của Quân đội nhân dân Việt Nam các bạn nha. Người đầu tiên chắc chắn rồi, chính là Đại tướng Võ Nguyên Giáp, vị Đại tướng đầu tiên, người Anh cả và cũng là Tổng Tư lệnh duy nhất của Quân đội nhân dân Việt Nam. Người được Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng khi mới 37 tuổi mà không qua các cấp trung gian. Dù hiện nay chúng ta đã có đến 19 vị Đại tướng, nhưng khi nhắc đến Đại tướng, người ta sẽ nghĩ ngay đến ông, Đại tướng của nhân dân, huyền thoại của thế giới. Người thứ hai cũng nổi tiếng không kém: Đại tướng Nguyễn Chí Thanh. Ông đặc biệt không chỉ bởi là người thứ hai được đích thân Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng, mà còn là bởi cái tên Nguyễn Chí Thanh cũng là tên do Bác đặt cho ông, tên thật của ông là Nguyễn Vịnh. Nghe quen đúng không? Các bạn nghĩ đúng rồi đó, ông là thân sinh của Nguyễn Chí Vịnh, người sau này cũng là một vị Thượng tướng vô cùng xuất sắc của Quân đội nhân dân Việt Nam. Và sau hai con người vĩ đại nói trên, Quân đội ta đã có các vị Đại tướng sau đây: Đại tướng Văn Tiến Dũng, Đại tướng Hoàng Văn Thái, Đại tướng Chu Huy Mân, Đại tướng Lê Trọng Tấn, Đại tướng Lê Đức Anh, Đại tướng Nguyễn Quyết, Đại tướng Đoàn Khuê, Đại tướng Phạm Văn Trà, Đại tướng Lê Văn Dũng, Đại tướng Phùng Quang Thanh, Đại tướng Đỗ Bá Tỵ, Đại tướng Ngô Xuân Lịch, Đại tướng Lương Cường, Đại tướng Phan Văn Giang, Đại tướng Nguyễn Tân Cương, Đại tướng Trịnh Văn Quyết, Đại tướng Nguyễn Trọng Nghĩa. Cho bạn nào chưa biết thì tính tới thời điểm admin làm video này, có 5 vị Đại tướng vẫn còn đang công tác là: Đại tướng Lương Cường, Đại tướng Phan Văn Giang, Đại tướng Nguyễn Tân Cương, Đại tướng Trịnh Văn Quyết và Đại tướng Nguyễn Trọng Nghĩa.",
+    "ocr_segments": [
+      {
+        "timestamp": "00:00-00:02",
+        "text": "NGÀY ĐĂNG: 12/11/2025 | THƯ VIỆN PHÁP LUẬT | 19 VỊ ĐẠI TƯỚNG QUÂN ĐỘI NHÂN DÂN VIỆT NAM"
+      },
+      {
+        "timestamp": "00:03-00:10",
+        "text": "THƯ VIỆN PHÁP LUẬT | TƯ LIỆU MINH HỌA | Mới đây, Quân đội ta đã chính thức có vị Đại tướng thứ 19 và cũng là tân Chủ nhiệm Tổng cục Chính trị | Đại tướng Nguyễn Trọng Nghĩa"
+      },
+      {
+        "timestamp": "00:17-00:42",
+        "text": "1. Đại tướng Võ Nguyên Giáp (1911 - 2013) (Năm thụ phong: 1948)"
+      },
+      {
+        "timestamp": "00:43-00:58",
+        "text": "2. Đại tướng Nguyễn Chí Thanh (1914 - 1967) (Năm thụ phong: 1959)"
+      },
+      {
+        "timestamp": "01:11-01:51",
+        "text": "3. Đại tướng Văn Tiến Dũng (1917 - 2002) (Năm thụ phong: 1974) | 4. Đại tướng Hoàng Văn Thái (1915 - 1986) (Năm thụ phong: 1980) | 5. Đại tướng Chu Huy Mân (1913 - 2006) (Năm thụ phong: 1980) | 6. Đại tướng Lê Trọng Tấn (1914 - 1986) (Năm thụ phong: 1984) | 7. Đại tướng Lê Đức Anh (1920 - 2019) (Năm thụ phong: 1984) | 8. Đại tướng Nguyễn Quyết (1922 - 2024) (Năm thụ phong: 1990) | 9. Đại tướng Đoàn Khuê (1923 - 1999) (Năm thụ phong: 1990) | 10. Đại tướng Phạm Văn Trà (1935) (Năm thụ phong: 2003) | 11. Đại tướng Lê Văn Dũng (1945) (Năm thụ phong: 2007) | 12. Đại tướng Phùng Quang Thanh (1949 - 2021) (Năm thụ phong: 2007) | 13. Đại tướng Đỗ Bá Tỵ (1954) (Năm thụ phong: 2015) | 14. Đại tướng Ngô Xuân Lịch (1954) (Năm thụ phong: 2015) | 15. Đại tướng Lương Cường (1957) (Năm thụ phong: 2019) | 16. Đại tướng Phan Văn Giang (1960) (Năm thụ phong: 2021) | 17. Đại tướng Nguyễn Tân Cương (1966) (Năm thụ phong: 2024) | 18. Đại tướng Trịnh Văn Quyết (1966) (Năm thụ phong: 2025) | 19. Đại tướng Nguyễn Trọng Nghĩa (1962) (Năm thụ phong: 2025)"
+      },
+      {
+        "timestamp": "01:59-02:06",
+        "text": "5 Đại tướng Quân đội vẫn còn đang công tác | Đại tướng Lương Cường | Đại tướng Phan Văn Giang | Đại tướng Nguyễn Tân Cương | Đại tướng Trịnh Văn Quyết | Đại tướng Nguyễn Trọng Nghĩa"
+      }
+    ],
+    "ocr_text": "NGÀY ĐĂNG: 12/11/2025 | THƯ VIỆN PHÁP LUẬT | 19 VỊ ĐẠI TƯỚNG QUÂN ĐỘI NHÂN DÂN VIỆT NAM | TƯ LIỆU MINH HỌA | 1. Đại tướng Võ Nguyên Giáp (1911 - 2013) (Năm thụ phong: 1948) | 2. Đại tướng Nguyễn Chí Thanh (1914 - 1967) (Năm thụ phong: 1959) | 3. Đại tướng Văn Tiến Dũng (1917 - 2002) (Năm thụ phong: 1974) | 4. Đại tướng Hoàng Văn Thái (1915 - 1986) (Năm thụ phong: 1980) | 5. Đại tướng Chu Huy Mân (1913 - 2006) (Năm thụ phong: 1980) | 6. Đại tướng Lê Trọng Tấn (1914 - 1986) (Năm thụ phong: 1984) | 7. Đại tướng Lê Đức Anh (1920 - 2019) (Năm thụ phong: 1984) | 8. Đại tướng Nguyễn Quyết (1922 - 2024) (Năm thụ phong: 1990) | 9. Đại tướng Đoàn Khuê (1923 - 1999) (Năm thụ phong: 1990) | 10. Đại tướng Phạm Văn Trà (1935) (Năm thụ phong: 2003) | 11. Đại tướng Lê Văn Dũng (1945) (Năm thụ phong: 2007) | 12. Đại tướng Phùng Quang Thanh (1949 - 2021) (Năm thụ phong: 2007) | 13. Đại tướng Đỗ Bá Tỵ (1954) (Năm thụ phong: 2015) | 14. Đại tướng Ngô Xuân Lịch (1954) (Năm thụ phong: 2015) | 15. Đại tướng Lương Cường (1957) (Năm thụ phong: 2019) | 16. Đại tướng Phan Văn Giang (1960) (Năm thụ phong: 2021) | 17. Đại tướng Nguyễn Tân Cương (1966) (Năm thụ phong: 2024) | 18. Đại tướng Trịnh Văn Quyết (1966) (Năm thụ phong: 2025) | 19. Đại tướng Nguyễn Trọng Nghĩa (1962) (Năm thụ phong: 2025) | 5 Đại tướng Quân đội vẫn còn đang công tác",
+    "caption": "Chân dung 19 vị Đại tướng của Quân đội nhân dân Việt Nam #TVPL #ThuVienPhapLuat #learnontiktok #hoccungtiktok",
+    "candidate_claims": [
+      {
+        "id": "claim_01",
+        "text": "Quân đội nhân dân Việt Nam tính đến thời điểm video đã có 19 vị Đại tướng.",
+        "source_modality": "cross_modal",
+        "timestamp": "00:00-00:10",
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "statistical",
+        "rationale": "Khẳng định tổng số lượng Đại tướng được phong hàm trong lịch sử Quân đội nhân dân Việt Nam."
+      },
+      {
+        "id": "claim_02",
+        "text": "Ông Nguyễn Trọng Nghĩa là vị Đại tướng thứ 19 của Quân đội nhân dân Việt Nam và được thụ phong quân hàm năm 2025, giữ chức tân Chủ nhiệm Tổng cục Chính trị.",
+        "source_modality": "cross_modal",
+        "timestamp": "00:03-00:10",
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "event_place_person",
+        "rationale": "Nêu sự kiện thụ phong quân hàm Đại tướng và chức vụ của ông Nguyễn Trọng Nghĩa."
+      },
+      {
+        "id": "claim_03",
+        "text": "Đại tướng Võ Nguyên Giáp là Tổng Tư lệnh duy nhất của Quân đội nhân dân Việt Nam, được Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng năm 37 tuổi mà không qua các cấp trung gian.",
+        "source_modality": "speech",
+        "timestamp": "00:20-00:32",
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "event_place_person",
+        "rationale": "Nêu các sự kiện lịch sử về cấp bậc, chức vụ và quá trình thụ phong của Đại tướng Võ Nguyên Giáp."
+      },
+      {
+        "id": "claim_04",
+        "text": "Đại tướng Nguyễn Chí Thanh là người thứ hai được Chủ tịch Hồ Chí Minh phong thẳng quân hàm Đại tướng (thụ phong năm 1959), tên thật là Nguyễn Vịnh và là thân sinh của Thượng tướng Nguyễn Chí Vịnh.",
+        "source_modality": "cross_modal",
+        "timestamp": "00:43-01:06",
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "event_place_person",
+        "rationale": "Nêu lý lịch nhân thân và sự kiện thụ phong quân hàm của Đại tướng Nguyễn Chí Thanh."
+      },
+      {
+        "id": "claim_05",
+        "text": "Ông Trịnh Văn Quyết là Đại tướng thứ 18 của Quân đội nhân dân Việt Nam, thụ phong năm 2025.",
+        "source_modality": "cross_modal",
+        "timestamp": "01:47-01:49",
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "event_place_person",
+        "rationale": "Nêu cấp bậc và năm thụ phong quân hàm Đại tướng của ông Trịnh Văn Quyết."
+      },
+      {
+        "id": "claim_06",
+        "text": "Tính đến thời điểm thực hiện video, Quân đội nhân dân Việt Nam có 5 vị Đại tướng vẫn còn đang công tác gồm Lương Cường, Phan Văn Giang, Nguyễn Tân Cương, Trịnh Văn Quyết và Nguyễn Trọng Nghĩa.",
+        "source_modality": "cross_modal",
+        "timestamp": "01:52-02:06",
+        "checkable": true,
+        "check_worthy": true,
+        "claim_type": "event_place_person",
+        "rationale": "Khẳng định danh sách và số lượng các Đại tướng hiện còn đang công tác."
+      }
+    ],
+    "cross_modal_notes": [
+      "Lời nói, đồ họa chân dung và chữ OCR phối hợp chặt chẽ để liệt kê 19 vị Đại tướng cùng thông tin năm sinh, năm mất và năm thụ phong.",
+      "Video hiển thị dòng OCR 'NGÀY ĐĂNG: 12/11/2025' khớp với metadata upload_date (20251112)."
+    ],
+    "metadata": {
+      "caption": "Chân dung 19 vị Đại tướng của Quân đội nhân dân Việt Nam #TVPL #ThuVienPhapLuat #learnontiktok #hoccungtiktok",
+      "uploader": "thuvienphapluat.vn",
+      "uploader_id": "7189413200508388358",
+      "upload_date": "20251112",
+      "duration": 131,
+      "webpage_url": "https://www.tiktok.com/@thuvienphapluat.vn/video/7571730219149561096?q=vi%E1%BB%87t%20nam%20c%C3%B3%20bao%20nhi%C3%AAu%20t%C6%B0%E1%BB%9Bng&t=1791389591280"
+    },
+    "source": "gemini_multimodal",
+    "model": "gemini-3.8-flash",
+    "error": null,
+    "provider": "gemini"
+  }
+}

@@ -132,10 +132,14 @@ async def verify_claim(
                 reasoning_support=compact_reasoning,
             )
             data = dict(data)
-            data["operational_metadata"] = {
+            local_guard = data.pop("_guard_metadata", None)
+            operational_metadata = {
                 "quota_safe": compact_stats,
                 "provider_attempts": provider_attempts + [{"provider": provider, "status": "SUCCESS"}],
             }
+            if isinstance(local_guard, dict):
+                operational_metadata["local_component_guard"] = local_guard
+            data["operational_metadata"] = operational_metadata
             return VerificationResultV23(**data)
         except Exception as exc:
             message = f"{provider}: {type(exc).__name__}: {exc}"

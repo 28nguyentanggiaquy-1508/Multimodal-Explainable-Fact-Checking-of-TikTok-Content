@@ -172,3 +172,5 @@ $env:JAVA_HOME="C:\Program Files\Java\jdk-21.0.10"
 $env:Path="$env:JAVA_HOME\bin;$env:Path"
 Test-Path "$env:JAVA_HOME\bin\java.exe"
 python -c "import os; print(os.environ.get('JAVA_HOME'))"
+# khai báo đường dẫn backend cho python hệ thống
+$env:PYTHONPATH = "backend"

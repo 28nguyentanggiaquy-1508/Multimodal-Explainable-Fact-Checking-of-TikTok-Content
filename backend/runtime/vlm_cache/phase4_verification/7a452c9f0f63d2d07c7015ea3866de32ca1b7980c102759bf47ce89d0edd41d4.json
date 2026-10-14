@@ -1,0 +1,53 @@
+{
+  "created_at": 1791812856.1701863,
+  "task": "phase4_verification",
+  "key": "7a452c9f0f63d2d07c7015ea3866de32ca1b7980c102759bf47ce89d0edd41d4",
+  "metadata": {
+    "provider": "local",
+    "model": "qwen3-vl:8b-instruct-q4_K_M"
+  },
+  "value": {
+    "status": "SUCCESS",
+    "verdict": "SUPPORTED",
+    "confidence": 1.0,
+    "evidence_ids": [
+      "text_08_002",
+      "text_03_000",
+      "text_06_004",
+      "text_02_000"
+    ],
+    "evidence_assessments": [
+      {
+        "evidence_id": "text_08_002",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Explicitly states Nguyễn Chí Thanh's real name is Nguyễn Vịnh, he was the second person to be conferred the rank of Đại tướng in 1959, and was named by Hồ Chí Minh."
+      },
+      {
+        "evidence_id": "text_03_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Confirms Nguyễn Chí Thanh was the second Đại tướng after Võ Nguyên Giáp, conferred the rank directly in 1959, and his real name is Nguyễn Vịnh."
+      },
+      {
+        "evidence_id": "text_06_004",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "States Nguyễn Chí Thanh was conferred the rank of Đại tướng directly in 1959 without prior ranks."
+      },
+      {
+        "evidence_id": "text_02_000",
+        "stance": "support",
+        "confidence": 1.0,
+        "rationale": "Confirms Nguyễn Chí Thanh was the second Đại tướng after Võ Nguyên Giáp, conferred the rank directly in 1959, and his real name is Nguyễn Vịnh."
+      }
+    ],
+    "evidence_coverage": "COMPLETE",
+    "rationale": "All external evidence independently confirms that Nguyễn Chí Thanh was the second person to be conferred the rank of Đại tướng in 1959, his real name was Nguyễn Vịnh, and he was named by Hồ Chí Minh.",
+    "uncertainty": "",
+    "limitations": [],
+    "multimodal_used": false,
+    "model": "qwen3-vl:8b-instruct-q4_K_M",
+    "provider": "local"
+  }
+}

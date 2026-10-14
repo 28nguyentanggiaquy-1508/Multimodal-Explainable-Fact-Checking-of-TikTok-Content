@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "explanation_id",
+    "claim_id",
+    "gold",
+    "quality"
+  ],
+  "properties": {
+    "contract_version": {
+      "type": "string"
+    },
+    "explanation_id": {
+      "type": "string",
+      "pattern": "^EX_[0-9]{6}_[0-9]{2}$"
+    },
+    "claim_id": {
+      "type": "string",
+      "pattern": "^CL_[0-9]{6}_[0-9]{2}$"
+    },
+    "gold": {
+      "type": "object",
+      "required": [
+        "verdict",
+        "text",
+        "evidence_ids",
+        "evidence_attribution"
+      ],
+      "properties": {
+        "verdict": {
+          "enum": [
+            "SUPPORTED",
+            "REFUTED",
+            "NEI",
+            null
+          ]
+        },
+        "text": {
+          "type": "string"
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "evidence_attribution": {
+          "type": "array"
+        }
+      },
+      "additionalProperties": true
+    },
+    "quality": {
+      "type": "object"
+    },
+    "system": {
+      "type": "object",
+      "properties": {
+        "generated_explanation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
