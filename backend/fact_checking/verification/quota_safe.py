@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import os
+import re
+import unicodedata
 from copy import deepcopy
 from typing import Any
 
@@ -37,7 +39,31 @@ def _dedup_key(item: dict[str, Any]) -> str:
     return f"{domain}|{content}"
 
 
-def refine_evidence(evidence: list[Any]) -> list[dict[str, Any]]:
+def _norm_for_match(value: Any) -> str:
+    text = unicodedata.normalize("NFKC", str(value or "")).casefold()
+    return re.sub(r"\s+", " ", text).strip()
+
+
+def _numeric_tokens(value: Any) -> set[str]:
+    return {x.replace(",", ".") for x in re.findall(r"\d+(?:[.,]\d+)*", _norm_for_match(value))}
+
+
+def _word_tokens(value: Any) -> set[str]:
+    return set(re.findall(r"[0-9a-zA-ZÀ-ỹ]+", _norm_for_match(value)))
+
+
+def _direct_claim_coverage(item: dict[str, Any], claim_text: str) -> tuple[float, float, float]:
+    content = str(item.get("content") or "")
+    claim_nums = _numeric_tokens(claim_text)
+    content_nums = _numeric_tokens(content)
+    numeric = 0.0 if not claim_nums else len(claim_nums & content_nums) / len(claim_nums)
+    claim_words = _word_tokens(claim_text)
+    content_words = _word_tokens(content)
+    lexical = 0.0 if not claim_words else len(claim_words & content_words) / len(claim_words)
+    return (numeric, lexical, _float_score(item))
+
+
+def refine_evidence(evidence: list[Any], *, claim_text: str = "") -> list[dict[str, Any]]:
     max_total = max(1, int(os.getenv("VERIFICATION_REFINED_MAX_EVIDENCE", "5")))
     max_text = max(0, int(os.getenv("VERIFICATION_REFINED_MAX_TEXT", "4")))
     max_images = max(0, int(os.getenv("VERIFICATION_MAX_IMAGES", "1")))
@@ -58,6 +84,20 @@ def refine_evidence(evidence: list[Any]) -> list[dict[str, Any]]:
     selected: list[dict[str, Any]] = []
     seen_keys: set[str] = set()
     seen_domains: set[str] = set()
+
+    # Pass 0: reserve one directly claim-covering text item before diversity.
+    # This prevents source-diversity compaction from dropping the only passage
+    # that contains a critical exact number/qualifier needed by Phase 4.
+    if text_rows and claim_text and max_text > 0:
+        direct = max(text_rows, key=lambda item: _direct_claim_coverage(item, claim_text))
+        numeric, lexical, _ = _direct_claim_coverage(direct, claim_text)
+        if numeric > 0.0 or lexical >= 0.55:
+            selected.append(direct)
+            key = _dedup_key(direct)
+            seen_keys.add(key)
+            domain = str(direct.get("source_domain") or "").strip().lower()
+            if domain:
+                seen_domains.add(domain)
 
     # Pass 1: maximize text-source diversity.
     for item in text_rows:
@@ -237,13 +277,14 @@ def prepare_verification_inputs(
     evidence: list[Any],
     reasoning_support: Any,
 ) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any], dict[str, Any]]:
-    refined = refine_evidence(evidence)
+    claim_dict = _as_dict(claim)
+    refined = refine_evidence(evidence, claim_text=str(claim_dict.get("text") or ""))
     compact_mm = compact_multimedia(claim, multimedia)
     compact_reasoning_support = compact_reasoning(reasoning_support)
     stats = {
         "evidence_before": len(evidence or []),
         "evidence_after": len(refined),
         "selected_evidence_ids": [str(item.get("id") or "") for item in refined],
-        "source_context_timestamp": _as_dict(claim).get("timestamp"),
+        "source_context_timestamp": claim_dict.get("timestamp"),
     }
     return refined, compact_mm, compact_reasoning_support, stats

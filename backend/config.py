@@ -95,6 +95,15 @@ BRAVE_SEARCH_LANG = os.getenv(
     "vi",
 ).strip().lower()
 
+# Defensive cap for Brave Image Search queries. Long natural-language claims can
+# trigger HTTP 422 validation errors even when locale parameters are valid.
+BRAVE_IMAGE_QUERY_MAX_CHARS = int(
+    os.getenv("BRAVE_IMAGE_QUERY_MAX_CHARS", "240")
+)
+BRAVE_IMAGE_QUERY_MAX_TERMS = int(
+    os.getenv("BRAVE_IMAGE_QUERY_MAX_TERMS", "32")
+)
+
 # Kept only so old modules/configs do not crash. The thesis pipeline does not
 # rely on Google Custom Search JSON API.
 GOOGLE_SEARCH_API_KEY = os.getenv("GOOGLE_SEARCH_API_KEY", "").strip()

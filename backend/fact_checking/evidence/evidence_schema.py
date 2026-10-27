@@ -69,6 +69,9 @@ class EvidenceRetrievalResult(BaseModel):
     text: RetrievalChannelResult
     image: RetrievalChannelResult
     reranker_status: StageStatus = "SKIPPED"
+    # Explicit Phase-3 collection certificate consumed by Runtime Safety Guard.
+    # Default False preserves fail-closed behavior for legacy/partial retrievals.
+    collection_complete: bool = False
     errors: list[str] = Field(default_factory=list)
 
     @property

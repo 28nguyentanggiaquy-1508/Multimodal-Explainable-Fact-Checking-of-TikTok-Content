@@ -29,6 +29,12 @@ _RELATIVE_EVENT_MARKERS = (
     "vừa được",
     "mới được",
     "gần đây",
+    "cuối năm",
+    "những tháng cuối năm",
+    "nửa cuối năm",
+    "đầu năm",
+    "quý cuối",
+    "cuối quý",
     "recently",
 )
 
@@ -50,6 +56,29 @@ def _failed_channel(modality: str, exc: Exception) -> RetrievalChannelResult:
         errors=[f"{type(exc).__name__}: {exc}"],
     )
 
+
+
+
+def _collection_complete_certificate(
+    *,
+    overall_status: str,
+    text_result: RetrievalChannelResult,
+    image_result: RetrievalChannelResult,
+    errors: list[str],
+) -> bool:
+    """Issue an explicit completion certificate only for fully healthy Phase 3.
+
+    This mirrors (and does not weaken) runtime_safety_v050._collection_complete:
+    overall SUCCESS, both text/image SUCCESS, and no retrieval/channel errors.
+    """
+    return (
+        str(overall_status or "").upper() == "SUCCESS"
+        and str(text_result.status or "").upper() == "SUCCESS"
+        and str(image_result.status or "").upper() == "SUCCESS"
+        and not errors
+        and not text_result.errors
+        and not image_result.errors
+    )
 
 def _temporal_anchor(multimedia) -> date | None:
     metadata = getattr(multimedia, "metadata", None) or {}
@@ -88,6 +117,7 @@ async def retrieve_evidence(claim, multimedia=None) -> EvidenceRetrievalResult:
             evidence=[],
             text=empty_text,
             image=empty_image,
+            collection_complete=False,
             errors=["Empty claim text"],
         )
 
@@ -163,6 +193,9 @@ async def retrieve_evidence(claim, multimedia=None) -> EvidenceRetrievalResult:
             text=text_result,
             image=image_result,
             reranker_status="SKIPPED",
+            collection_complete=_collection_complete_certificate(
+                overall_status=overall_status, text_result=text_result, image_result=image_result, errors=errors
+            ),
             errors=errors,
         )
 
@@ -201,5 +234,8 @@ async def retrieve_evidence(claim, multimedia=None) -> EvidenceRetrievalResult:
         text=text_result,
         image=image_result,
         reranker_status=reranker_status,
+        collection_complete=_collection_complete_certificate(
+            overall_status=overall_status, text_result=text_result, image_result=image_result, errors=errors
+        ),
         errors=errors,
     )

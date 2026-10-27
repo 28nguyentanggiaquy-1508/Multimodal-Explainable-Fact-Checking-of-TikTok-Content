@@ -8,6 +8,11 @@ from pydantic import BaseModel, Field
 from core.vlm.router import csv_order
 from fact_checking.verification.multivlm_verifier import verify_gemini, verify_local, verify_openai
 from fact_checking.verification.quota_safe import prepare_verification_inputs
+from fact_checking.verification.provider_readiness_v073 import (
+    min_retry_after_seconds,
+    provider_readiness,
+    readiness_snapshot,
+)
 
 
 class VerificationResultV23(BaseModel):
@@ -117,13 +122,34 @@ async def verify_claim(
         "openai": verify_openai,
         "gemini": verify_gemini,
     }
+    order = _provider_order()
+    readiness_before = readiness_snapshot(order)
 
-    for provider in _provider_order():
+    for provider in order:
         fn = dispatch.get(provider)
         if fn is None:
             failures.append(f"{provider}: unsupported provider")
-            provider_attempts.append({"provider": provider, "status": "SKIPPED", "reason": "unsupported"})
+            provider_attempts.append({
+                "provider": provider,
+                "status": "SKIPPED",
+                "reason": "unsupported_provider",
+                "routing_stage": "v0.7.3_preflight",
+            })
             continue
+
+        ready = provider_readiness(provider)
+        if not ready.ready:
+            reason = ready.reason
+            failures.append(f"{provider}: preflight_skipped reason={reason}")
+            provider_attempts.append({
+                "provider": provider,
+                "status": "SKIPPED",
+                "reason": reason,
+                "routing_stage": "v0.7.3_preflight",
+                "next_retry_after_seconds": ready.next_retry_after_seconds,
+            })
+            continue
+
         try:
             data = fn(
                 claim=claim,
@@ -133,9 +159,16 @@ async def verify_claim(
             )
             data = dict(data)
             local_guard = data.pop("_guard_metadata", None)
+            success_attempt = {
+                "provider": provider,
+                "status": "SUCCESS",
+                "routing_stage": "v0.7.3_dispatch",
+            }
             operational_metadata = {
                 "quota_safe": compact_stats,
-                "provider_attempts": provider_attempts + [{"provider": provider, "status": "SUCCESS"}],
+                "provider_attempts": provider_attempts + [success_attempt],
+                "provider_readiness_before": readiness_before,
+                "provider_routing_version": "v0.7.3",
             }
             if isinstance(local_guard, dict):
                 operational_metadata["local_component_guard"] = local_guard
@@ -144,9 +177,18 @@ async def verify_claim(
         except Exception as exc:
             message = f"{provider}: {type(exc).__name__}: {exc}"
             failures.append(message)
-            provider_attempts.append({"provider": provider, "status": "UNAVAILABLE", "reason": message[:1000]})
+            after_error = provider_readiness(provider)
+            provider_attempts.append({
+                "provider": provider,
+                "status": "UNAVAILABLE",
+                "reason": message[:1000],
+                "routing_stage": "v0.7.3_dispatch",
+                "next_retry_after_seconds": after_error.next_retry_after_seconds,
+            })
             continue
 
+    readiness_after = readiness_snapshot(order)
+    next_retry = min_retry_after_seconds(readiness_after)
     return VerificationResultV23(
         status="UNAVAILABLE",
         verdict=None,
@@ -163,6 +205,10 @@ async def verify_claim(
         operational_metadata={
             "quota_safe": compact_stats,
             "provider_attempts": provider_attempts,
+            "provider_readiness_before": readiness_before,
+            "provider_readiness_after": readiness_after,
+            "provider_routing_version": "v0.7.3",
+            "next_retry_after_seconds": next_retry,
         },
     )
 

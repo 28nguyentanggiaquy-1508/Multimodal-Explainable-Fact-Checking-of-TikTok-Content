@@ -198,8 +198,12 @@ def _multimedia_context(multimedia: Any) -> str:
     for item in visual[:max_visual]:
         if isinstance(item, dict):
             visual_text.append(f"[{item.get('timestamp')}] {item.get('fact')}")
+    metadata = data.get("metadata") if isinstance(data.get("metadata"), dict) else {}
+    upload_date = str(metadata.get("upload_date") or "").strip()
     return "\n".join(
         [
+            f"UPLOAD_DATE: {upload_date}",
+            "Interpret relative time expressions in the claim (e.g. cuối năm/nửa cuối năm/this year) against UPLOAD_DATE.",
             f"CAPTION: {data.get('caption') or ''}",
             f"SPEECH_TRANSCRIPT: {str(data.get('speech_transcript') or '')[:speech_chars]}",
             f"OCR_TEXT: {str(data.get('ocr_text') or '')[:ocr_chars]}",
@@ -442,7 +446,7 @@ def _cached_result(
     if provider == "local":
         prompt_version = os.getenv(
             "LOCAL_PHASE4_PROMPT_VERSION",
-            "v2.4.5-local-evidence-qualifier-guard-v2",
+            "v2.4.6-local-component-enumeration-guard-v3",
         )
     else:
         prompt_version = os.getenv("PHASE4_PROMPT_VERSION", "v2.4.0-external-grounding-compact")
@@ -463,6 +467,29 @@ def _store_cache(key: str, result: dict[str, Any], *, provider: str, model: str)
         value=result,
         metadata={"provider": provider, "model": model},
     )
+
+
+def _env_truthy(name: str) -> bool:
+    return str(os.getenv(name, "")).strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _cache_bypass(provider: str) -> bool:
+    if _env_truthy("PHASE4_CACHE_BYPASS"):
+        return True
+    if provider == "local" and _env_truthy("LOCAL_PHASE4_CACHE_BYPASS"):
+        return True
+    return False
+
+
+def _cached_result_compatible(provider: str, cached: dict[str, Any]) -> bool:
+    if provider != "local":
+        return True
+    metadata = cached.get("operational_metadata") or {}
+    guard = metadata.get("local_component_guard") or cached.get("_guard_metadata") or {}
+    mode = str(guard.get("mode") or "")
+    # v0.7.3-B: never reuse pre-v3 local guard results, even if a user-pinned
+    # LOCAL_PHASE4_PROMPT_VERSION accidentally points at an older cache key.
+    return mode == "local_component_evidence_guard_v3"
 
 
 def _verify_provider_models(
@@ -493,20 +520,27 @@ def _verify_provider_models(
 
     errors: list[str] = []
     # Cache is checked before circuit/preflight so a previous successful result can be reused offline.
-    for model in models:
-        key, cached = _cached_result(
-            provider=provider,
-            model=model,
-            claim=claim,
-            multimedia=multimedia,
-            evidence=evidence,
-            reasoning_support=reasoning_support,
-        )
-        if cached and str(cached.get("status") or "").upper() == "SUCCESS":
-            cached = dict(cached)
-            cached.setdefault("limitations", [])
-            cached["limitations"] = list(cached.get("limitations") or []) + ["Phase 4 persistent cache hit."]
-            return cached
+    # Targeted semantic rechecks may bypass cache, and local results produced by an
+    # older component guard are ignored deterministically.
+    if not _cache_bypass(provider):
+        for model in models:
+            key, cached = _cached_result(
+                provider=provider,
+                model=model,
+                claim=claim,
+                multimedia=multimedia,
+                evidence=evidence,
+                reasoning_support=reasoning_support,
+            )
+            if (
+                cached
+                and str(cached.get("status") or "").upper() == "SUCCESS"
+                and _cached_result_compatible(provider, cached)
+            ):
+                cached = dict(cached)
+                cached.setdefault("limitations", [])
+                cached["limitations"] = list(cached.get("limitations") or []) + ["Phase 4 persistent cache hit."]
+                return cached
 
     (
         prompt,

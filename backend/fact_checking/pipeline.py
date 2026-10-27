@@ -161,7 +161,8 @@ async def run_fact_check_pipeline(video_url: str) -> dict:
             evidence = []
             retrieval_payload = {
                 "status": "FAILED", "text": None, "image": None,
-                "reranker_status": "SKIPPED", "errors": [retrieval_error],
+                "reranker_status": "SKIPPED", "collection_complete": False,
+                "errors": [retrieval_error],
             }
             reasoning_support = {
                 "status": "SKIPPED", "generator": "none", "key_concepts": [],

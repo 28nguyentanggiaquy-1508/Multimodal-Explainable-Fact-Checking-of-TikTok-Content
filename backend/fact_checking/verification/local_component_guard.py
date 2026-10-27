@@ -38,22 +38,65 @@ def _ascii_fold(text: Any) -> str:
     return value.replace("đ", "d")
 
 
+def _comma_starts_new_clause(remainder: str) -> bool:
+    """Return True only when text after a comma looks like a new factual clause.
+
+    v0.7.3-A: plain noun enumerations such as "thận, gan, tim, phổi" must
+    remain one material component. The previous splitter treated every top-level
+    comma as a component boundary and could manufacture a missing component,
+    causing a false NEI even when evidence quoted the complete claim verbatim.
+    """
+    value = " ".join(str(remainder or "").split()).strip()
+    if not value:
+        return False
+
+    # Keep Vietnamese diacritics here. ASCII folding turns "cơ" into "co",
+    # which collides with the predicate "có" and falsely treats noun phrases
+    # such as "bộ phận cơ thể" as new clauses.
+    norm = _normalize(value)
+    predicate = (
+        r"(?:là|được|giữ|có|đã|từng|sẽ|trở\s+thành|làm|tên\s+thật|tên\s+khai\s+sinh|"
+        r"thân\s+sinh|cha|mẹ|sinh|mất|qua\s+đời|tăng|giảm|đạt|lên|xuống|ban\s+hành|"
+        r"khởi\s+tố|phát\s+lệnh|quy\s+định|cho\s+phép|nghiêm\s+cấm|xác\s+nhận|"
+        r"công\s+bố|phát\s+đi|tiếp\s+tục|thuộc|gồm|bao\s+gồm)"
+    )
+
+    if re.match(r"^" + predicate + r"\b", norm, flags=re.IGNORECASE):
+        return True
+
+    # Also allow an explicit new subject followed quickly by a predicate, e.g.
+    # "A là B, C là D" or "xăng giảm..., dầu tăng...". Keep the window
+    # short so noun-list continuations are not misclassified as clauses.
+    head = re.split(r"[,;]\s*", norm, maxsplit=1)[0][:160]
+    return bool(re.search(r"\b" + predicate + r"\b", head, flags=re.IGNORECASE))
+
+
 def _split_top_level_commas(text: str) -> list[str]:
     parts: list[str] = []
     buffer: list[str] = []
     depth = 0
-    for ch in str(text or ""):
+    source = str(text or "")
+    for idx, ch in enumerate(source):
         if ch in "([{":
             depth += 1
         elif ch in ")]}" and depth > 0:
             depth -= 1
-        if depth == 0 and ch in {",", ";"}:
+
+        should_split = False
+        if depth == 0 and ch == ";":
+            should_split = True
+        elif depth == 0 and ch == ",":
+            should_split = _comma_starts_new_clause(source[idx + 1 :])
+
+        if should_split:
             piece = "".join(buffer).strip(" .")
             if piece:
                 parts.append(piece)
             buffer = []
             continue
+
         buffer.append(ch)
+
     tail = "".join(buffer).strip(" .")
     if tail:
         parts.append(tail)
@@ -469,7 +512,7 @@ def apply_local_component_guard(
             "limitations": limitations,
             "multimodal_used": bool(set(cited_ids) & set(attached_image_ids)),
             "_guard_metadata": {
-                "mode": "local_component_evidence_guard_v2",
+                "mode": "local_component_evidence_guard_v3",
                 "component_count": total,
                 "resolved_components": resolved,
                 "coverage_score": round(coverage_score, 4),

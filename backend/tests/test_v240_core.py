@@ -14,17 +14,17 @@ from core.vlm import cache, circuit, quota_manager
 from fact_checking.verification.quota_safe import prepare_verification_inputs
 
 
-def test_cache_roundtrip(tmp: Path) -> None:
-    os.environ["VLM_CACHE_DIR"] = str(tmp / "cache")
+def test_cache_roundtrip(tmp_path: Path) -> None:
+    os.environ["VLM_CACHE_DIR"] = str(tmp_path / "cache")
     key = cache.build_key(task="x", provider="p", model="m", prompt_version="1", payload={"a": 1})
     assert cache.get_json(task="x", key=key) is None
     cache.set_json(task="x", key=key, value={"ok": True})
     assert cache.get_json(task="x", key=key) == {"ok": True}
 
 
-def test_quota_preflight_blocks_known_remaining(tmp: Path) -> None:
-    os.environ["VLM_QUOTA_STATE_FILE"] = str(tmp / "quota.json")
-    os.environ["VLM_CIRCUIT_STATE_FILE"] = str(tmp / "circuit.json")
+def test_quota_preflight_blocks_known_remaining(tmp_path: Path) -> None:
+    os.environ["VLM_QUOTA_STATE_FILE"] = str(tmp_path / "quota.json")
+    os.environ["VLM_CIRCUIT_STATE_FILE"] = str(tmp_path / "circuit.json")
     os.environ["VLM_QUOTA_TOKEN_RESERVE"] = "1000"
     quota_manager.record_quota_error(
         "openai",

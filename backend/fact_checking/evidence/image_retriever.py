@@ -17,6 +17,8 @@ except ImportError:  # Allows lightweight unit-test imports.
     CLIPProcessor = None
 
 from config import (
+    BRAVE_IMAGE_QUERY_MAX_CHARS,
+    BRAVE_IMAGE_QUERY_MAX_TERMS,
     EVIDENCE_MAX_IMAGE_BYTES,
     EVIDENCE_REQUEST_TIMEOUT,
     IMAGE_RETRIEVAL_MODEL,
@@ -31,6 +33,51 @@ from fact_checking.evidence.search_provider import discover_image_sources
 
 
 Image.MAX_IMAGE_PIXELS = 30_000_000
+
+
+def _compact_image_search_query(
+    claim: str,
+    *,
+    temporal_anchor: date | None = None,
+    time_sensitive: bool = False,
+) -> str:
+    """Build a deterministic Brave-image query without changing verifier input.
+
+    Image Search is a discovery aid, so sending an entire long claim is both
+    unnecessary and can exceed Brave request validation limits. Compaction keeps
+    a contiguous leading semantic span and cuts only on word boundaries. The
+    original full claim is still used by CLIP for relevance scoring.
+    """
+    text = re.sub(r"\s+", " ", str(claim or "")).strip()
+    if not text:
+        return ""
+
+    year = str(temporal_anchor.year) if time_sensitive and temporal_anchor else ""
+    if year and year not in text:
+        text = f"{text} {year}"
+
+    max_chars = max(80, int(BRAVE_IMAGE_QUERY_MAX_CHARS))
+    max_terms = max(12, int(BRAVE_IMAGE_QUERY_MAX_TERMS))
+    terms = text.split()
+    if len(text) <= max_chars and len(terms) <= max_terms:
+        return text
+
+    compact = " ".join(terms[:max_terms])
+    if len(compact) > max_chars:
+        compact = compact[: max_chars + 1]
+        if " " in compact:
+            compact = compact.rsplit(" ", 1)[0]
+        compact = compact[:max_chars].rstrip(" ,.;:-")
+
+    if year and year not in compact:
+        suffix = f" {year}"
+        room = max_chars - len(suffix)
+        shortened = compact[:room]
+        if " " in shortened:
+            shortened = shortened.rsplit(" ", 1)[0]
+        compact = shortened.rstrip(" ,.;:-") + suffix
+
+    return compact.strip()
 
 
 def _unit_score(cosine_score: float) -> float:
@@ -173,9 +220,11 @@ def retrieve_image_evidence(
     temporal_mode: str = "none",
 ) -> RetrievalChannelResult:
     top_n = top_n or IMAGE_RETRIEVAL_TOP_N
-    search_query = claim
-    if time_sensitive and temporal_anchor is not None:
-        search_query = f"{claim} {temporal_anchor.year}"
+    search_query = _compact_image_search_query(
+        claim,
+        temporal_anchor=temporal_anchor,
+        time_sensitive=time_sensitive,
+    )
     print(f"[Evidence/Image] query={search_query!r}")
 
     discovery = discover_image_sources(
