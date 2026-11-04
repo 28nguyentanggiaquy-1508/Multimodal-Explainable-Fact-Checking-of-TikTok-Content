@@ -1,176 +1,240 @@
-# TikTok Chatbot / TikTok Analyzer
+# Multimodal Explainable Fact-Checking of TikTok Content
 
-Ứng dụng gồm 2 phần:
+> **Đồ án tốt nghiệp:** Kiểm chứng thông tin đa phương thức trên TikTok bằng Vision-Language Models (VLM) và suy luận dựa trên bằng chứng.
 
-- `backend`: FastAPI, crawl/phân tích bình luận TikTok và gọi Gemini để lấy ngữ cảnh video.
-- `frontend`: Next.js, giao diện nhập link TikTok, chọn model và xem kết quả phân tích.
+## Giới thiệu
+
+Dự án được phát triển từ hệ thống phân tích bình luận/cảm xúc TikTok sang hướng **Multimodal Explainable Fact-Checking**. Hiện backend vẫn giữ hai luồng:
+
+| Luồng | Mô tả | Ghi chú |
+| --- | --- | --- |
+| **Fact-checking (trọng tâm)** | Phân tích video, trích xuất claims, tìm bằng chứng, kiểm chứng và giải thích kết quả | Backend triển khai các Phase 1–4; tiếp tục nghiên cứu và đánh giá |
+| **TikTok Analyzer (legacy)** | Phân tích bình luận, cảm xúc và ngữ cảnh video | Được giữ để tương thích; trang chủ frontend hiện dùng `/analyze` |
+
+Đây là **hệ thống nghiên cứu**, không bảo đảm mọi kết luận của AI đều đúng. Luôn đối chiếu kết quả với nguồn bằng chứng và đánh giá của con người.
+
+## Kiến trúc hệ thống
+
+```text
+TikTok URL
+   |
+   +--> Phase 1: Kiểm tra URL, tạo phiên xử lý
+   |
+   +--> Phase 2: Phân tích đa phương thức (hình ảnh, video, âm thanh)
+   |             và trích xuất phát biểu cần kiểm chứng (claims)
+   |
+   +--> Phase 3: Tìm kiếm, lọc, xếp hạng bằng chứng
+   |
+   +--> Phase 4: Kiểm chứng dựa trên bằng chứng
+   |             SUPPORTED / REFUTED / NEI + lời giải thích
+   |
+   +--> Kết quả API và đồng bộ dataset (tùy chọn)
+```
+
+**Thành phần:** FastAPI; Multi-VLM (Gemini, OpenAI, local/Ollama); tìm kiếm bằng chứng; cơ chế cache, quota/circuit breaker, checkpoint; các công cụ quản lý và đánh giá dataset. Việc chạy đầy đủ phụ thuộc provider, API key và tài nguyên máy.
+
+**Phân biệt:** Kết luận tự sinh và giải thích của hệ thống **không mặc nhiên là dữ liệu Gold** đã được thẩm định.
+
+## Cấu trúc thư mục chính
+
+```text
+.
+├── backend/
+│   ├── main.py                 # FastAPI entrypoint
+│   ├── api/                    # Fact-check API, dataset sync
+│   ├── core/vlm/               # Provider, cache, quota, circuit, checkpoint
+│   ├── fact_checking/          # Multimedia, claims, evidence, verification
+│   ├── dataset_integration/    # Đồng bộ đầu ra vào dataset
+│   ├── model/                  # Checkpoint legacy nếu có
+│   ├── .env.example            # File mẫu cấu hình
+│   └── requirements.txt
+├── frontend/
+│   ├── app/                    # Next.js UI
+│   ├── services/               # API client
+│   └── package.json
+├── tiktok_mfc_d3/
+│   └── dataset/
+│       ├── records/            # JSONL
+│       ├── schemas/            # JSON Schema
+│       ├── guidelines/         # Hướng dẫn gán nhãn
+│       └── manifest.json
+└── README.md
+```
+
+Một số model, dữ liệu runtime, cache và kết quả thực nghiệm có thể không nằm trên GitHub.
 
 ## Yêu cầu
 
-- Python 3.10 hoặc mới hơn
-- Node.js 20 hoặc mới hơn
-- NPM
-- Gemini API key
+- **Python 3.10+**, pip
+- **Node.js 20.9+**, npm
+- **Windows PowerShell** (ví dụ lệnh bên dưới), Git
+- Internet để cài thư viện, tải video và tìm bằng chứng
+- **Tùy chọn theo provider:** Gemini / OpenAI / Brave Search API key
+- **Nếu chạy local VLM:** Ollama, model đã tải và cấu hình phần cứng phù hợp
+- **Nếu xử lý âm thanh yêu cầu:** FFmpeg
 
-## 1. Cấu hình backend
+Không bắt buộc sử dụng đồng thời mọi provider. Nếu thiếu dịch vụ phụ thuộc, một số phase có thể trả về `DEGRADED` hoặc `UNAVAILABLE`.
 
-Vào thư mục backend:
+## 1. Cài đặt backend
+
+Mở PowerShell tại thư mục gốc dự án, sau đó:
 
 ```powershell
+cd D:\tiktok_chatbot\tiktok_chatbot
 cd backend
-```
 
-Tạo môi trường Python ảo nếu chưa có:
-
-```powershell
 python -m venv venv
 .\venv\Scripts\Activate.ps1
-```
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
 
-Cài thư viện:
-
-```powershell
-pip install -r requirements.txt
-```
-
-Tạo file `.env` từ file mẫu:
-
-```powershell
 Copy-Item .env.example .env
 ```
 
-Mở `backend/.env` và điền API key:
-
-```env
-GEMINI_API_KEY=your_google_gemini_api_key_here
-GEMINI_VISION_MODEL=gemini-3-flash-preview
-GEMINI_ANALYST_MODEL=gemini-3-flash-preview
-```
-
-Nếu máy không cho chạy script PowerShell, chạy lệnh này rồi activate lại venv:
+Nếu kích hoạt môi trường ảo bị PowerShell chặn, chỉ cho phép script trong phiên terminal đang mở:
 
 ```powershell
-Set-ExecutionPolicy -Scope CurrentUser RemoteSigned
+Set-ExecutionPolicy -Scope Process Bypass
+.\venv\Scripts\Activate.ps1
 ```
 
-## 2. Chạy backend
+### Cấu hình `backend/.env`
 
-Từ thư mục gốc dự án:
+**Không đưa API key thật lên GitHub.** Kiểm tra và thay tất cả giá trị mẫu bằng cấu hình an toàn của riêng bạn. Ví dụ:
 
-```powershell
-python -m uvicorn main:app --host 127.0.0.1 --port 8000 --app-dir backend --reload
+```dotenv
+# Điền key CHỈ cho provider được sử dụng
+GEMINI_API_KEY=
+OPENAI_API_KEY=
+BRAVE_SEARCH_API_KEY=
+
+# Có thể chọn brave | gemini | brave_then_gemini
+EVIDENCE_SEARCH_PROVIDER=brave
+
+# Local VLM: chỉ bật khi Ollama và các model đã sẵn sàng
+LOCAL_VLM_ENABLED=true
+LOCAL_VLM_API_STYLE=ollama
+LOCAL_VLM_BASE_URL=http://127.0.0.1:11434
+LOCAL_PHASE2_MODEL=qwen3-vl:4b-instruct-q4_K_M
+LOCAL_PHASE4_MODEL=qwen3-vl:8b-instruct-q4_K_M
+
+# Thứ tự fallback ví dụ; điều chỉnh theo cấu hình thực tế
+VLM_PROVIDER_ORDER=local,gemini,openai
+VLM_VERIFICATION_PROVIDER_ORDER=gemini,local,openai
+
+CORS_ALLOW_ORIGINS=http://127.0.0.1:3000,http://localhost:3000
 ```
 
-Kiểm tra backend:
+Nếu chạy Ollama, cần cài Ollama, khởi động dịch vụ ở `127.0.0.1:11434` và tải các model đã khai báo. Model Ollama **không được tải bằng pip**. Nếu chạy Gemini/OpenAI/Brave, phải có API key, tên model và quota hợp lệ.
 
-- API root: <http://127.0.0.1:8000>
-- Danh sách model: <http://127.0.0.1:8000/models>
-- API docs: <http://127.0.0.1:8000/docs>
+### Chạy backend (khuyến nghị)
 
-## 3. Cấu hình frontend
-
-Mở terminal mới, vào thư mục frontend:
+Ở **thư mục `backend`** với venv đã kích hoạt:
 
 ```powershell
-cd frontend
+python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload
 ```
 
-Cài thư viện:
+Chạy từ `backend` giúp tránh lỗi đường dẫn tương đối của tài nguyên legacy. Nếu bắt buộc chạy từ thư mục gốc:
 
 ```powershell
+cd D:\tiktok_chatbot\tiktok_chatbot
+.\backend\venv\Scripts\Activate.ps1
+$env:PYTHONPATH = (Resolve-Path .\backend).Path
+python -m uvicorn main:app --app-dir backend --host 127.0.0.1 --port 8000 --reload
+```
+
+Kiểm tra:
+- http://127.0.0.1:8000/ — API root
+- http://127.0.0.1:8000/docs — Swagger UI
+- http://127.0.0.1:8000/models — Model **legacy**
+- http://127.0.0.1:8000/fact-check/health — Fact-check health
+
+## 2. Cài đặt và chạy frontend
+
+Mở **terminal thứ hai**:
+
+```powershell
+cd D:\tiktok_chatbot\tiktok_chatbot\frontend
 npm install
 ```
 
 Tạo file `frontend/.env.local`:
 
-```env
+```dotenv
 NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
 ```
 
-Biến này giúp frontend gọi đúng backend đang chạy ở port `8000`.
-
-## 4. Chạy frontend
-
-Trong thư mục `frontend`:
+Khởi động:
 
 ```powershell
 npm run dev
 ```
 
-Mở trình duyệt tại:
+Mở http://localhost:3000.
 
-<http://localhost:3000>
+**Hiện trạng:** Trang chủ Next.js đang gọi `/analyze` cho hệ thống phân tích bình luận/cảm xúc. Pipeline fact-checking mới đã có ở backend; không nên mặc định rằng giao diện kiểm chứng mới đã hoàn thiện.
 
-## Cách sử dụng
+## 3. API chính
 
-1. Chạy backend ở terminal thứ nhất.
-2. Chạy frontend ở terminal thứ hai.
-3. Mở `http://localhost:3000`.
-4. Dán link video TikTok.
-5. Chọn model nếu cần.
-6. Bấm `Analyze` để phân tích bình luận, cảm xúc và ngữ cảnh video.
+| Method | Endpoint | Mục đích |
+| --- | --- | --- |
+| GET | `/` | Kiểm tra API |
+| GET | `/docs` | Tài liệu API |
+| GET | `/models` | Danh sách model cảm xúc cũ |
+| POST | `/analyze` | Phân tích bình luận TikTok (legacy) |
+| GET | `/fact-check/health` | Kiểm tra pipeline kiểm chứng |
+| POST | `/fact-check/fact-check` | Kiểm chứng đa phương thức |
+| POST | `/dataset/sync` | Đồng bộ thủ công đầu ra đã có vào dataset |
 
-## Model và dữ liệu
+**Lưu ý:** `/fact-check/fact-check` là đường dẫn thực tế từ mã nguồn hiện tại (router prefix + route), không phải lỗi ghi nhầm.
 
-Các checkpoint model đang được đọc từ:
+Thử endpoint fact-check từ PowerShell (đổi thành URL TikTok thật):
+
+```powershell
+$body = @{ url = "https://www.tiktok.com/@example/video/VIDEO_ID"; sync_dataset = $false } | ConvertTo-Json
+Invoke-RestMethod -Method Post -Uri "http://127.0.0.1:8000/fact-check/fact-check" -ContentType "application/json" -Body $body
+```
+
+`sync_dataset = $false` tránh ghi dữ liệu khi chỉ thử API. Trong mã nguồn hiện tại, mặc định `sync_dataset` là `true`.
+
+## 4. Model và dataset
+
+Checkpoint của luồng phân tích cảm xúc cũ:
 
 - `backend/model/inference_gr/*.pt`
 - `backend/model/sequence_gr/*.pt`
+- `backend/assets/dic_final_cleaned.json` (từ điển ngữ cảnh legacy)
 
-Từ điển ngữ cảnh được đọc từ:
+Nếu `/models` rỗng, kiểm tra các checkpoint legacy này. Chúng **không phải** danh sách các provider VLM của pipeline mới.
 
-- `backend/assets/dic_final_cleaned.json`
+Dataset nghiên cứu tại `tiktok_mfc_d3/dataset/` chứa records JSONL, schema, guideline và manifest. Khi đánh giá cần phân biệt **SYSTEM output**, dữ liệu đang thử nghiệm/QA và **Gold do con người thẩm định**. Không suy diễn dữ liệu Gold chỉ từ kết quả AI hoặc QA kỹ thuật.
 
-Nếu endpoint `/models` trả về danh sách rỗng, hãy kiểm tra lại các file `.pt` trong hai thư mục model trên.
+## 5. Lỗi thường gặp
 
-## Lệnh nhanh
+- **Frontend không gọi được API:** kiểm tra port 8000, `frontend/.env.local`, CORS và khởi động lại `npm run dev`.
+- **`/models` trống:** kiểm tra checkpoint `.pt` dành cho pipeline cảm xúc legacy.
+- **429 / quota / circuit breaker:** xem hạn mức API, model và thứ tự provider; tránh retry liên tục khi hết quota.
+- **Ollama không hoạt động:** kiểm tra máy chủ local, model đã tải và khả năng đáp ứng của RAM/VRAM.
+- **Thiếu FFmpeg:** kiểm tra `ffmpeg -version` nếu tác vụ âm thanh báo lỗi.
+- **Thiếu Java:** chỉ cấu hình `JAVA_HOME` nếu module cụ thể đang sử dụng yêu cầu Java; đây không phải điều kiện chung để khởi động FastAPI.
 
-Terminal 1:
-
-```powershell
-python -m uvicorn main:app --host 127.0.0.1 --port 8000 --app-dir backend --reload
-```
-
-Terminal 2:
-
-```powershell
-cd frontend
-npm run dev
-```
-
-## Lỗi thường gặp
-
-### Frontend không gọi được API
-
-Kiểm tra backend có chạy ở `http://127.0.0.1:8000` chưa, rồi kiểm tra file `frontend/.env.local`:
-
-```env
-NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000
-```
-
-Sau khi sửa `.env.local`, dừng frontend và chạy lại `npm run dev`.
-
-### Thiếu Gemini API key
-
-Kiểm tra `backend/.env` có biến sau:
-
-```env
-GEMINI_API_KEY=your_google_gemini_api_key_here
-```
-
-Backend vẫn có thể khởi động khi thiếu key, nhưng phần phân tích ngữ cảnh bằng Gemini sẽ không hoạt động đúng.
-
-### Cài `torch` lâu hoặc lỗi
-
-`torch` và `transformers` khá nặng. Nếu cài lỗi, hãy kiểm tra phiên bản Python và thử cập nhật pip:
+Ví dụ kiểm tra JDK trên một máy Windows (đổi theo đường dẫn cài đặt thực tế):
 
 ```powershell
-python -m pip install --upgrade pip
-pip install -r requirements.txt
-```
-$env:JAVA_HOME="C:\Program Files\Java\jdk-21.0.10"
-$env:Path="$env:JAVA_HOME\bin;$env:Path"
+$env:JAVA_HOME = "C:\Program Files\Java\jdk-21.0.10"
+$env:Path = "$env:JAVA_HOME\bin;$env:Path"
 Test-Path "$env:JAVA_HOME\bin\java.exe"
-python -c "import os; print(os.environ.get('JAVA_HOME'))"
-# khai báo đường dẫn backend cho python hệ thống
-$env:PYTHONPATH = "backend"
+java -version
+```
+
+## 6. Bảo mật và tái lập nghiên cứu
+
+- Không commit `.env`, key/token, mật khẩu, thông tin cá nhân hay dữ liệu không có quyền chia sẻ.
+- **Kiểm tra lịch sử commit:** xóa file hoặc thêm `.gitignore` không xóa được bí mật đã từng commit.
+- Giữ phiên bản dataset, mô hình, cấu hình, điều kiện thực nghiệm và provenance của bằng chứng.
+- Không trình bày kết quả tự động thành kết quả đã thẩm định hoặc Gold khi chưa được xác minh.
+
+---
+
+**GitHub:** https://github.com/28nguyentanggiaquy-1508/Multimodal-Explainable-Fact-Checking-of-TikTok-Content
